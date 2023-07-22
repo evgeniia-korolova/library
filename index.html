@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- #region welcome -->
+      <header>
+        <section>
+       <div class="welcome__container">    
+        <div class="top__panel">
+            <h1>Brooklyn Public Library</h1>
+            <div class="nav__panel">
+                <nav>
+                    <ul>
+                        <li><a href="#about" class="nav-item">About</a></li>
+                        <li><a href="#favorites" class="nav-item">Favorites</a></li>
+                        <li><a href="#coffee-shop" class="nav-item">Coffee shop</a></li>
+                        <li><a href="#contacts" class="nav-item">Contacts</a></li>
+                        <li><a href="#card" class="nav-item">Library Card</a></li>
+                    </ul>
+                </nav>                
+            </div>
+            <div class="logo">
+                <img src="./images/icon_profile.png" alt="logo">
+            </div>
+        </div>        
+        </header>
+     <div class="welcome">
+        <div class="welcome__text">
+          &thinsp;Welcome &nbsp; <br>to the Brooklyn Library 
+          </div>
+    </div>
+    </div> 
+</section>
+<!-- #endregion -->
+
+        
+      
+      <main>
+        <!-- #region about -->
+        <section>
+          <div class="about">
+            <h2 id="about">About</h2>
+            <div class="about__description">
+              <p>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+            </div>
+
+  <!-- gallery -->
+
+            <div class="about__gallery">
+
+              <div class="about__photo">
+                <img
+                  src="./images/image_1.png"
+                  alt="a woman in the library"                  
+                />
+              </div>
+
+              <div class="about__photo">
+                <img
+                  src="./images/image_2.png"
+                  alt="busts of famous writers"
+                  />
+              </div>
+
+              <div class="about__photo">
+                <img
+                  src="./images/image_3.png"
+                  alt="bok-shelves"                  
+                />
+              </div>
+
+            </div>
+
+    <!-- carousel -->
+
+            <div class="carousel">
+              <div class="dot__box"><div class="dot beige"></div></div>
+              <div class="dot__box"><div class="dot"></div></div>
+              <div class="dot__box"><div class="dot"></div></div>
+              
+            </div>
+
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region favorites -->
+        <section>
+          <div class="favorites">
+            <h2 id="favorites">favorites</h2>
+
+            <div class="selection">
+              <h3>Pick favorites of season</h3>
+              <div class="selection__container">
+
+                <div class="radio__button__container">
+                
+                  
+                    <input type="radio" 
+                  class="radio__item" name="season" id="winter"/>
+                                 
+                  <label for="winter" class="season">Winter</label>
+                 </div>               
+              
+                <div class="radio__button__container">
+                
+                  <input type="radio" 
+                  class="radio__item" name="season" id="spring"/>
+                  
+                                 
+                  <label for="winter" class="season">Spring</label>
+                               
+              </div>
+                <div class="radio__button__container">
+                
+                 
+                    <input type="radio" 
+                  class="radio__item" name="season" id="winter"/>
+                                 
+                  <label for="winter" class="season">Summer</label>
+                               
+              </div>
+                <div class="radio__button__container">
+                
+                  
+                    <input type="radio" 
+                  class="radio__item" name="season" id="winter"/>
+                                  
+                  <label for="winter" class="season">Autumn</label>
+                               
+              </div>
+
+              
+
+              
+
+              
+
+              </div>
+            </div>
+
+            <div class="books">
+              <!-- book 1 -->
+
+              <div class="book">
+                <div class="book__container">
+                  <div class="book__content">
+                    <h3 class="staff">Staff Picks</h3>
+                    <h4>
+                      <span class="book__name">The Book Eaters</span> <br />
+                      By Sunyi Dean
+                    </h4>
+                    <p class="book__description">
+                      An unusual sci-fi story about a book eater woman who tries
+                      desperately to save her dangerous mind-eater son from
+                      tradition and certain death. Complete with dysfunctional
+                      family values, light Sapphic romance, and a strong,
+                      complex protagonist. Not for the faint of heart.
+                    </p>
+                  </div>
+                  <div>
+                    <button class="btn active">Buy</button>
+                  </div>
+                </div>
+                <div class="book__photo">
+                  <img
+                    src="./images/book-one.png"
+                    alt="The Book Eaters By Sunyi Dean"
+                  />
+                </div>
+              </div>
+
+              <!-- book 2 -->
+
+              <div class="book">
+                <div class="book__container">
+                  <div class="book__content">
+                    <h3 class="staff">Staff Picks</h3>
+                    <h4>
+                      <span class="book__name">Cackle </span> <br />By Rachel
+                      Harrison
+                    </h4>
+                    <p class="book__description">
+                      Are your Halloween movies of choice The Witches of
+                      Eastwick and Practical Magic? Look no further than here -
+                      where a woman recovering from a breakup moves to a quaint
+                      town in upstate New York and befriends a beautiful witch.
+                    </p>
+                  </div>
+                  <div>
+                    <button class="btn active">Buy</button>
+                  </div>
+                </div>
+                <div class="book__photo">
+                  <img
+                    src="./images/book-two.png"
+                    alt="The Book Eaters By Sunyi Dean"
+                  />
+                </div>
+              </div>
+
+              <!-- book 3 -->
+
+              <div class="book">
+                <div class="book__container">
+                  <div class="book__content">
+                    <h3 class="staff">Staff Picks</h3>
+
+                    <h4>
+                      <span class="book__name"
+                        >Dante: Poet of the Secular World
+                      </span>
+                      <br />By Erich Auerbach
+                    </h4>
+                    <p class="book__description">
+                      Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.
+                    </p>
+                  </div>
+                  <div>
+                    <button class="btn active">Buy</button>
+                  </div>
+                </div>
+                <div class="book__photo">
+                  <img
+                    src="./images/book-three.png"
+                    alt="The Book Eaters By Sunyi Dean"
+                  />
+                </div>
+              </div>
+
+              <!-- book 4 -->
+              <div class="book">
+                <div class="book__container">
+                  <div class="book__content">
+                    <h3 class="staff">Staff Picks</h3>
+                    <div class="line__brown"></div>
+                    <h4>
+                      <span class="book__name">The Last Queen </span> <br />By
+                      Clive Irving
+                    </h4>
+                    <p class="book__description">
+                      A timely and revelatory new biography of Queen Elizabeth
+                      (and her family) exploring how the Windsors have evolved
+                      and thrived as the modern world has changed around them.
+                    </p>
+                  </div>
+                  <div>
+                    <button class="btn btn__own" disabled>Own</button>
+                  </div>
+                </div>
+                <div class="book__photo">
+                  <img
+                    src="./images/book-four.png"
+                    alt="The Book Eaters By Sunyi Dean"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region coffee-shop -->
+        <section>
+          <div class="coffee-shop">
+            <h2 id="coffee-shop">Coffee shop</h2>
+            <div class="shop__description">
+              <p>
+              &nbsp;In our library, we have of cozy coffee shop, welcoming in
+                customers with frothy cappuccinos and friendly
+                conversation. &nbsp;
+              
+              Y<span class="lowercase"
+                >ou can get a favorite book and read in coffee shop. Our barista
+                to cook you best coffee, and also you can try desserts from
+                bakery.</span
+              >
+              </p>
+            </div>
+          </div>
+          <div class="menu">
+            <div class="menu__list">
+              <h3 class="menu__title">Coffee &amp; Tea</h3>
+              <div class="menu__container">
+                <div class="menu__items">
+                  <div class="menu__item">Cold Brew Coffee</div>
+                  <div class="menu__item">French Press Pot</div>
+                  <div class="menu__item">Espresso</div>
+                  <div class="menu__item">Cappuccino</div>
+                  <div class="menu__item">Hot tea</div>
+                  <div class="menu__item">Cold tea</div>
+                </div>
+
+                <div class="menu__prices">
+                  <div class="menu__price">$3</div>
+                  <div class="menu__price">$5</div>
+                  <div class="menu__price">$2</div>
+                  <div class="menu__price">$4</div>
+                  <div class="menu__price">$2</div>
+                  <div class="menu__price">$2</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu__list deserts">
+              <h3 class="menu__title deserts">Desserts &amp; Cakes</h3>
+              <div class="menu__container">
+                <div class="menu__items">
+                  <div class="menu__item deserts">Forest Gateau</div>
+                  <div class="menu__item deserts">Blue Moon</div>
+                  <div class="menu__item deserts">Truffle Cake</div>
+                  <div class="menu__item deserts">Chocolate Cake</div>
+                  <div class="menu__item deserts">Poet’s Dream Cake</div>
+                  <div class="menu__item deserts">&nbsp;Pineapple Cake</div>
+                </div>
+
+                <div class="menu__prices">
+                  <div class="menu__price">$16</div>
+                  <div class="menu__price">$16</div>
+                  <div class="menu__price">$15</div>
+                  <div class="menu__price">$18</div>
+                  <div class="menu__price">$16</div>
+                  <div class="menu__price">$14</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region contacts -->
+        <section>
+          <div class="contacts">
+            <h2 id="contacts">Our Contacts</h2>
+            <div class="contacts__container">
+              <div class="contacts__items">
+                <div class="contacts__inquiries">
+                  <h4 class="contact__title">For all Library inquiries:</h4>
+                  <p>
+                    Please call <a href="tel:+6177302370">(617) 730-2370</a>
+                  </p>
+                  <p>
+                    For TTY service, please call
+                    <a href="tel:+6177302370">(617) 730-2370</a>
+                  </p>
+                  <p>
+                    Putterham Library:
+                    <a href="tel:+6177302385">(617) 730-2385</a>
+                  </p>
+                </div>
+                <div class="contact__staff">
+                  <h4 class="contact__title">Senior Staff</h4>
+                  <p>
+                    Library Director:
+                    <a href="mailto:AmandaHirst@gmail.com" class="director"
+                      >Amanda Hirst</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="contacts__map" id="address">
+                <img
+                  src="./images/map.png"
+                  alt="library location"
+                  class="map"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region cards -->
+        <section>
+          <div class="digital-card">
+            <h2 id="card">Digital Library Cards</h2>
+            <div class="digital-card__container">
+              <div class="digital-card__left-item">
+                <h3 class="left-item__title">Find your Library card</h3>
+                <form>
+                  <div class="inp__container">
+                    <h4 class="left__title">Brooklyn Public Library</h4>
+                    <input
+                      type="text"
+                      placeholder="Reader's name"
+                      class="card__input"
+                    />
+                    <input
+                      type="number"
+                      class="card__input"
+                      placeholder="Card number"
+                    />
+                  </div>
+                  <button class="check__card__btn" type="submit">Check the card</button>
+                </form>
+              </div>
+
+              <div class="digital-card__right-block">
+                <h4 class="right__title">Get a reader card</h4>
+                <p>
+                  You will be able to see a reader card after logging into
+                  account or you can register a new account
+                </p>
+                <button class="right__card__button">Sign Up</button>
+                <button class="right__card__button">Log in</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+      </main>
+      <footer>
+        <div class="footer__container">
+          <div class="footer__top">
+            <div class="footer__top__top">
+              <div>
+                <a href="#address"
+                  >286 Cadman Plaza, New York, <br />NY 11238, United States</a
+                >
+              </div>
+
+              <div class="schedule">
+                <p>Mon - Fri</p>
+                <p>08:00 am - 07:00 pm</p>
+              </div>
+            </div>
+            <div class="footer__top__bottom">
+              <div class="footer__top__icons">
+                <ul>
+                  <li>
+                    <a href="https://twitter.com/OdessaEvgenia" target="_blank"
+                      ><img src="./images/u_twitter-alt.svg" alt="twitter icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/evgeniiakoroliova2022/"
+                      target="_blank"
+                      ><img src="./images/u_instagram.svg" alt="instagram icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100004129715757"
+                      target="_blank"
+                      ><img src="./images/u_facebook-f.svg" alt="facebook icon"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="schedule">
+                <p>Sat - Sun</p>
+                <p>10:00 am - 06:00 pm</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <div>2023</div>
+            <div class="school__name">
+              <a href="https://rs.school/js-stage0/" target="_blank"
+                >The Rolling Scopes School</a
+              >
+            </div>
+            <div>
+              <a href="https://github.com/evgeniia-korolova" target="_blank"
+                >Evgeniia Korolova</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
