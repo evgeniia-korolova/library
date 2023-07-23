@@ -1,1 +1,1 @@
-[https://evgeniia-korolova.github.io/rsschool-cv/cv](https://evgeniia-korolova.github.io/library)
+[https://evgeniia-korolova.github.io/library/library](https://evgeniia-korolova.github.io/library/library)
