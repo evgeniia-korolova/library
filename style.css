@@ -174,16 +174,14 @@ h2:after {
   justify-content: center;
 }
 
-/* .about__photo {
-  max-width: 450px;
-} */
+
 
 .about__photo img {
   width: 100%;
 }
 
 .carousel {
-  /* margin: 0 auto; */
+  
   display: flex;
   justify-content: center;
   align-items: center;
