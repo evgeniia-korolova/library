@@ -186,14 +186,14 @@ h2:after {
   display: none;
 }
 
-.about__photo {
+/* .about__photo {
   max-width: 450px;
-}
+} */
 
 
-.about__photo img {
+/* .about__photo img {
   width: 100%;
-}
+} */
 
 .carousel {
   
@@ -231,7 +231,7 @@ h2:after {
   flex-wrap: nowrap;
   overflow: hidden;
   margin: 0 auto;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-bottom: 36px;
   max-height: 560px;
   gap: 25px;
@@ -268,6 +268,8 @@ h2:after {
   background: #bb945f;
  }
 
+
+
 /* #endregion */
 /* #region favorites */
 
@@ -275,10 +277,9 @@ h2:after {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  flex-shrink: 1;
-  /* width: 100%; */
+  flex-shrink: 1;  
   max-width: 1440px;
-  margin: 20px auto;
+  margin: 18px auto;
   margin-bottom: 60px;
   padding-top: 39px;
 }
@@ -415,6 +416,10 @@ h4 {
   margin-top: 20px; 
 }
 
+.small_space {
+  letter-spacing: 1.5px;
+}
+
 .btn {
   color: #0c0c0e;  
   font-family: var(--font-family-basic);
@@ -482,9 +487,7 @@ background: #bb945f;
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
-  box-sizing: border-box;
-  /* text-transform: capitalize; */
-  
+  box-sizing: border-box;  
 }
 
 .lowercase {
@@ -876,7 +879,7 @@ form {
 @media screen and (max-width: 1025px)
 {
 
-  .wrapper, .welcome {
+  .wrapper, .welcome, .favorites, .coffee__shop {
     max-width: 768px;
   }
   .books {
@@ -1030,6 +1033,29 @@ form {
 
  .carousel__item.selected {
   background: #bb945f;
+ }
+
+  .book {
+  margin-bottom: 20px;
+ }
+
+ .book:last-child {
+  margin-bottom: 0;
+ }
+
+ 
+ .menu {
+  flex-direction: column; 
+  align-items: flex-start;
+ }
+
+ .menu__list.deserts {
+  margin-top: 40px;
+  align-self: flex-end;  
+ }
+
+ .menu__item.deserts {
+  margin-right: -3px;
  }
 }
 
