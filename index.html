@@ -18,34 +18,40 @@
   </head>
   <body>
     <div class="wrapper">
+     
       <!-- #region welcome -->
-      <header>
-        <section>
-       <div class="welcome__container">    
+      <section class="welcome">
+          <header>
+       <div class="welcome__container">  
+        <div class="logo">
+                <img src="./images/icon_profile.png" alt="logo">
+            </div>  
         <div class="top__panel">
             <h1>Brooklyn Public Library</h1>
-            <div class="nav__panel">
-                <nav>
-                    <ul>
+
+             <input type="checkbox" id="burger"/>
+              <label for="burger" class="burger"></label>
+            <nav class="nav__panel">
+                
+                    <ul class="nav__list">
                         <li><a href="#about" class="nav-item">About</a></li>
                         <li><a href="#favorites" class="nav-item">Favorites</a></li>
                         <li><a href="#coffee-shop" class="nav-item">Coffee shop</a></li>
                         <li><a href="#contacts" class="nav-item">Contacts</a></li>
                         <li><a href="#card" class="nav-item">Library Card</a></li>
                     </ul>
-                </nav>                
-            </div>
-            <div class="logo">
-                <img src="./images/icon_profile.png" alt="logo">
-            </div>
+                               
+            </nav>
+            
         </div>        
-        </header>
+        
      <div class="welcome">
         <div class="welcome__text">
-          &thinsp;Welcome &nbsp; <br>to the Brooklyn Library 
+          &nbsp;Welcome &thinsp; <br>to the Brooklyn Library 
           </div>
     </div>
     </div> 
+    </header>
 </section>
 <!-- #endregion -->
 
@@ -62,7 +68,35 @@
 
   <!-- gallery -->
 
-            <div class="about__gallery">
+  <div class="slider__container">
+            <div class="carousel2">
+              <div class="slider">
+                <section><img src="./images/image_1.png" alt=""></section>
+                <section><img src="./images/image_2.png" alt=""></section>
+                <section><img src="./images/image_3.png" alt=""></section>
+                <section><img src="./images/image _4.png" alt=""></section>
+                <section><img src="./images/image_5.png" alt=""></section>
+              </div>
+              <div class="controls">
+                <span class="arrow left"><img src="./images/arrow_left.svg" alt=""></span>
+                <span class="arrow right"><img src="./images/arrow_right.svg" alt=""></span>
+                
+              </div>
+              <div class="controls__pagination">
+                <div class="carousel__list">
+                  <div class="carousel__dot"><span class="carousel__item "></span></div>
+                  <div class="carousel__dot"><span class="carousel__item selected"></span></div>
+                  <div class="carousel__dot"><span class="carousel__item"></span></div>
+                  <ldiv class="carousel__dot"><span class="carousel__item"></span></ldiv>
+                  <div class="carousel__dot"><span class="carousel__item"></span></div>
+                </div>
+              </div>
+            </div>
+  </div>
+
+            <!-- <div class="about__gallery">
+
+
 
               <div class="about__photo">
                 <img
@@ -83,18 +117,20 @@
                   src="./images/image_3.png"
                   alt="bok-shelves"                  
                 />
-              </div>
+              </div> -->
 
-            </div>
+              
+
+            <!-- </div> -->
 
     <!-- carousel -->
 
-            <div class="carousel">
+            <!-- <div class="carousel">
               <div class="dot__box"><div class="dot beige"></div></div>
               <div class="dot__box"><div class="dot"></div></div>
               <div class="dot__box"><div class="dot"></div></div>
               
-            </div>
+            </div> -->
 
           </div>
         </section>
