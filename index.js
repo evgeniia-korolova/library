@@ -47,6 +47,16 @@ leftArrow.addEventListener('click', function () {
     
 })
 
+
+document.querySelectorAll('.controls__pagination .carousel__dot').forEach(function (indicator, index) {
+    indicator.addEventListener('click', function () {
+        articleIndex = index;
+        // document.querySelector('.carousel__item.selected').classList.remove('selected');
+        indicator.classList.add('.selected');
+     slider.style.transform = 'translate(' + articleIndex * -20 + '%)';
+ })   
+})
+
 console.log(
   '1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12 (Рекомендуется сделать появление бургер-меню на ширине 1024px'
 );
