@@ -26,37 +26,83 @@ document.body.addEventListener('click', event => {
     document.querySelector(".header").classList.remove("open")
 });
 
+// slider
 
-
-const slider = document.querySelector('.slider');
+const slide = document.querySelectorAll('.slide__about');
+console.log(slide)
 const leftArrow = document.querySelector('.left');
-const righttArrow = document.querySelector('.right');
-let articleIndex = 0;
+const rightArrow = document.querySelector('.right');
+const arrow = document.querySelectorAll('.arrow');
+let slidesLength = slide.length;
+// let articleIndex = 0;
+let currentIndex = 0;
+let newIndex = 0;
+const mediaQuery = window.matchMedia('(max-width: 1025px)');
 
 
-righttArrow.addEventListener('click', function () {
-    // articleIndex = articleIndex + 1;
-      articleIndex = articleIndex < 4 ? articleIndex + 1 : 4;
-      slider.style.transform = 'translate(' + articleIndex * -20 + '%)';
-    // slider.style.transform = 'translate(`${articleIndex} * -20`%)';
-});
+if (mediaQuery.matches) {
 
-leftArrow.addEventListener('click', function () {
-    articleIndex = (articleIndex > 0) ? articleIndex - 1 : 0;
-    slider.style.transform = 'translate(' + (articleIndex) * -20 + '%)';
+    function arrowSlider() {
+        if (newIndex === 0) {
+            arrow[0].disabled = true;
+            arrow[0].classList.add('disabled')
+        } else   {
+            arrow[0].disabled = false;
+        }
+         if (newIndex === slidesLength - 1) {
+             arrow[1].disabled = true;
+             arrow[1].classList.add('disabled');
+         } else {
+           arrow[1].disabled = false;
+         }
+        slide[newIndex].style.display = 'block';
+        slide[currentIndex].style.display = 'none';
+        currentIndex = newIndex;
+    }
+
+    arrow[0].addEventListener('click', function () {
+        newIndex--;
+        arrowSlider();
+    });
+
+    arrow[1].addEventListener('click', function () {
+        newIndex++;
+        arrowSlider();
+    });
+}
+   
+    //     arrow[0].addEventListener('click', function () {
+    //         slide[currentIndex].style.display = 'none';
+    //         currentIndex--;
+    //         slide[currentIndex].style.display = 'block';
+        
+    // });
+
+    // arrow[1].addEventListener('click', function () {
+        
+    //     slide[currentIndex].style.display = 'none';
+    //     currentIndex++;
+    //     slide[currentIndex].style.display = 'block';
+    // });
+
+
+
+// righttArrow.addEventListener('click', function () {
     
-})
+//       articleIndex = articleIndex < 4 ? articleIndex + 1 : 4;
+//     //   slider.style.transform = 'translate(' + articleIndex * -20 + '%)';
+//     slider.style.transform = `translate(${articleIndex * -100}%)`;
+// });
+
+// leftArrow.addEventListener('click', function () {
+//     articleIndex = (articleIndex > 0) ? articleIndex - 1 : 0;
+//     slider.style.transform = 'translate(' + (articleIndex) * -20 + '%)';
+    
+// })
 
 
-document.querySelectorAll('.controls__pagination .carousel__dot').forEach(function (indicator, index) {
-    indicator.addEventListener('click', function () {
-        articleIndex = index;
-        // document.querySelector('.carousel__item.selected').classList.remove('selected');
-        indicator.classList.add('.selected');
-     slider.style.transform = 'translate(' + articleIndex * -20 + '%)';
- })   
-})
 
-console.log(
-  '1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12 (Рекомендуется сделать появление бургер-меню на ширине 1024px'
-);
+
+// console.log(
+//   '1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12 (Рекомендуется сделать появление бургер-меню на ширине 1024px'
+// );

@@ -26,6 +26,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  
 }
 
 /* #region header-welcome */
@@ -47,6 +48,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
+  overflow: hidden;
 }
 
 .welcome__container {
@@ -182,21 +184,36 @@ h2:after {
   margin-top: 20px;
 }
 
+/* slider start */
+.slider__about {
+max-width: 1400px;
+  height: 656px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 20px;
+}
 
-
-.slider {
+.slides__about-container {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
-  margin: 0 auto;
-  /* margin-top: 20px; */
+  
   margin-bottom: 36px;
   max-height: 560px;
-  gap: 25px;
-  padding: 0 20px;
+  
 }
 
-.carousel__list {
+.slide__about {
+  padding-right: 25px;
+  /* max-width: 350px; */
+  width: 100%; 
+  
+}
+
+.slides__about-container > img {
+  width: 100%;
+}
+.pagination__list {
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -228,6 +245,109 @@ h2:after {
 .controls {
   display: none;
 }
+
+.controls__pagination {
+  bottom: 40px;
+}
+
+@media screen and (max-width: 1025px) {
+
+  .about {
+    max-width: 768px;
+  }
+ .about__description {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+   .slider__about {
+    margin: 20px auto;
+    
+    
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+ padding: 0 64px;
+    /* overflow: hidden; */
+    position: relative;
+   width: 100%;
+    max-width: 614px;
+    border: 1px solid green;
+  }
+
+  .slide__about {
+    display: none;
+  }
+ 
+  .slide__about:nth-child(1){
+    display: block;
+  } 
+
+   .slides__about-container {
+    height: 100%;
+    display: flex;
+    width: 450px;
+    transition: all 0.3s;    
+    margin-bottom: 20px;
+   overflow: hidden;
+   
+  }
+
+  
+
+   .controls {
+    display: block;
+  } 
+
+  .controls .arrow {
+    position: absolute;
+    top: 50%;
+    
+    cursor: pointer;
+    transform: translateY(-50%);
+  } 
+
+  .arrow.right {
+    right: 0;
+  }
+
+   .arrow.left {
+    left: 0;
+   }
+
+   .disabled {
+    opacity: .4;
+   }
+
+  .pagination__list {
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    position: absolute;
+    bottom: 40px;
+  }
+
+ 
+
+  .carousel__item {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #000;
+    display: block;
+  }
+
+  .carousel__item.selected {
+    background: #bb945f;
+  }
+
+  /* .arrow.right {
+    opacity: .3;
+  } */
+
+}
+
+/* slider end */
 
 /* #endregion */
 /* #region favorites */
@@ -871,8 +991,11 @@ form {
   .favorites,
   .coffee__shop {
     max-width: 768px;
-    overflow: hidden;
+    
     transition: width 0.7s ease-in-out;
+  }
+  .welcome {
+overflow: hidden;
   }
 
   .wrapper {
@@ -945,10 +1068,7 @@ form {
     top: 31px;
   }
 
-  .about__description {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+ 
 
   .header.open .nav__list {
     right: 0;
@@ -961,78 +1081,7 @@ form {
     margin-bottom: 39px;
   }
 
-  .slider__container {
-    margin: 20px 100px;
-    display: block;
-    max-width: 1024px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-  }
-
-  .carousel {
-    /* height: 606px; */
-    overflow: hidden;
-    position: relative;
-    max-width: 1024px;
-    max-width: 568px;
-    border: 1px solid green;
-  }
-
-  .slider {
-    height: 100%;
-    display: flex;
-    width: 500%;
-    transition: all 0.3s;    
-    margin-bottom: 20px;
-  }
-
-  .slider article {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .controls {
-    display: block;
-  }
-
-  .controls .arrow {
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-    transform: translateY(-50%);
-  }
-
-  .arrow.right {
-    right: 0;
-  }
-
-  .carousel__list {
-    display: flex;
-    justify-content: center;
-    overflow: visible;
-  }
-
-  .carousel__dot {
-    width: 26px;
-    height: 26px;
-    padding: 5px;
-  }
-
-  .carousel__item {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #000;
-    display: block;
-  }
-
-  .carousel__item.selected {
-    background: #bb945f;
-  }
-
+ 
   .book {
     margin-bottom: 20px;
   }
