@@ -29,61 +29,60 @@ document.body.addEventListener('click', event => {
 // slider
 
 const slide = document.querySelectorAll('.slide__about');
-console.log(slide)
+
 const leftArrow = document.querySelector('.left');
 const rightArrow = document.querySelector('.right');
 const arrow = document.querySelectorAll('.arrow');
 let slidesLength = slide.length;
-// let articleIndex = 0;
+let articleIndex = 0;
 let currentIndex = 0;
 let newIndex = 0;
 const mediaQuery = window.matchMedia('(max-width: 1025px)');
+const indicatorParents = document.querySelector('.slider-pagination ul');
+let selectorIndex = 0;
+let paginationElement = document.querySelectorAll(
+  '.pagination-element');
 
 
 if (mediaQuery.matches) {
-
-    function arrowSlider() {
-        if (newIndex === 0) {
-            arrow[0].disabled = true;
-            arrow[0].classList.add('disabled')
-        } else   {
-            arrow[0].disabled = false;
-        }
-         if (newIndex === slidesLength - 1) {
-             arrow[1].disabled = true;
-             arrow[1].classList.add('disabled');
-         } else {
-           arrow[1].disabled = false;
-         }
-        slide[newIndex].style.display = 'block';
-        slide[currentIndex].style.display = 'none';
-        currentIndex = newIndex;
+  function arrowSlider() {
+    if (newIndex === 0) {
+      arrow[0].disabled = true;
+      arrow[0].classList.add('disabled');
+    } else {
+      arrow[0].disabled = false;
     }
+    if (newIndex === slidesLength - 1) {
+      arrow[1].disabled = true;
+      arrow[1].classList.add('disabled');
+    } else {
+      arrow[1].disabled = false;
+    }
+    slide[newIndex].style.display = 'block';
+    slide[currentIndex].style.display = 'none';
+    currentIndex = newIndex;
+  }
 
-    arrow[0].addEventListener('click', function () {
-        newIndex--;
-        arrowSlider();
-    });
+  arrow[0].addEventListener('click', function () {
+    newIndex--;
+    arrowSlider();
+  });
 
-    arrow[1].addEventListener('click', function () {
-        newIndex++;
-        arrowSlider();
-    });
-}
+  arrow[1].addEventListener('click', function () {
+    newIndex++;
+    arrowSlider();
+  });
+
+  
+    };
+
+
+
+
+// pagination
+
+
    
-    //     arrow[0].addEventListener('click', function () {
-    //         slide[currentIndex].style.display = 'none';
-    //         currentIndex--;
-    //         slide[currentIndex].style.display = 'block';
-        
-    // });
-
-    // arrow[1].addEventListener('click', function () {
-        
-    //     slide[currentIndex].style.display = 'none';
-    //     currentIndex++;
-    //     slide[currentIndex].style.display = 'block';
-    // });
 
 
 
@@ -100,7 +99,18 @@ if (mediaQuery.matches) {
     
 // })
 
-
+// document
+//   .querySelectorAll('.slider-pagination li')
+//   .forEach(function (indicator, index) {
+//     indicator.addEventListener('click', function () {
+//       articleIndex = index;
+//       document
+//         .querySelector('.slider-pagination .selected')
+//         .classList.remove('selected');
+//       indicator.classList.add('selected');
+//       slide.style.transform = 'translate(' + articleIndex * -20 + '%)';
+//     });
+//   });
 
 
 // console.log(

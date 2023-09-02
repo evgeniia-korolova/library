@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <link rel="stylesheet" href="./style.css" />
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +18,7 @@
       sizes="32x32"
       href="./favicon/favicon-32x32.png"
     />
-<!-- 
+    <!-- 
     <link rel="manifest" href="/site.webmanifest" /> -->
   </head>
   <body>
@@ -27,16 +27,12 @@
       <section class="welcome">
         <header class="header">
           <div class="welcome__container">
-            
-              <div class="logo">
-                <img src="./images/icon_profile.svg" alt="logo" />
-              </div>
-            
+            <div class="logo">
+              <img src="./images/icon_profile.svg" alt="logo" />
+            </div>
 
             <div class="top__panel">
               <h1>Brooklyn Public Library</h1>
-
-              
 
               <button class="burger__btn" id="burger">
                 <span></span>
@@ -45,10 +41,7 @@
               </button>
 
               <nav class="nav__panel" id="nav__panel">
-                
                 <ul class="nav__list">
-                 
-                  
                   <li><a href="#about" class="nav-item">About</a></li>
                   <li><a href="#favorites" class="nav-item">Favorites</a></li>
                   <li>
@@ -56,12 +49,8 @@
                   </li>
                   <li><a href="#contacts" class="nav-item">Contacts</a></li>
                   <li><a href="#card" class="nav-item">Library Card</a></li>
-                  
-                  
                 </ul>
               </nav>
-              
-              
             </div>
             <div class="welcome__info">
               <div class="welcome__text">
@@ -70,7 +59,6 @@
             </div>
           </div>
         </header>
-        
       </section>
       <!-- #endregion -->
 
@@ -87,37 +75,59 @@
 
           <!-- gallery -->
 
-         
-
           <div class="slider__about">
-            <!-- <div class="carousel"> -->
-              <div class="slides__about-container">
-                <div class="slide__about"><img src="./images/image_1.png" alt=""></div>
-                <div class="slide__about"><img src="./images/image_2.png" alt=""></div>
-                <div class="slide__about"><img src="./images/image_3.png" alt=""></div>
-                <div class="slide__about"><img src="./images/image_4.png" alt=""></div>
-                <div class="slide__about"><img src="./images/image_5.png" alt=""></div>
+            
+            <div class="slides__about-container">
+              <div class="slide__about">
+                <img src="./images/image_1.png" alt="" />
+              </div>
+              <div class="slide__about">
+                <img src="./images/image_2.png" alt="" />
+              </div>
+              <div class="slide__about">
+                <img src="./images/image_3.png" alt="" />
+              </div>
+              <div class="slide__about">
+                <img src="./images/image_4.png" alt="" />
+              </div>
+              <div class="slide__about">
+                <img src="./images/image_5.png" alt="" />
+              </div>
+            </div>
+
+            <div class="controls">
+              <span class="arrow left"
+                ><img src="./images/carret_left.svg" alt=""
+              /></span>
+              <span class="arrow right"
+                ><img src="./images/carret_right.svg" alt=""
+              /></span>
+            </div>
+
+            <div class="slider-pagination">
+                <ul>
+                  <li class="selected pagination-element"></li>
+                  <li class="pagination-element"></li>
+                  <li class="pagination-element"></li>
+                  <li class="pagination-element"></li>
+                  <li class="pagination-element"></li>
+                </ul>
               </div>
 
-              <div class="controls">
-                <span class="arrow left"><img src="./images/carret_left.svg" alt=""></span>
-                <span class="arrow right"><img src="./images/carret_right.svg" alt=""></span>
-              </div>
+            </div>
+          
+            
 
-              
-                <div class="pagination__list">
+            <!-- <div class="slider__pagination">
                   <div class="carousel__dot"><span class="carousel__item "></span></div>
                   <div class="carousel__dot"><span class="carousel__item selected"></span></div>
                   <div class="carousel__dot"><span class="carousel__item"></span></div>
                   <div class="carousel__dot"><span class="carousel__item"></span></div>
                   <div class="carousel__dot"><span class="carousel__item"></span></div>
-                </div>
-            
-          <!-- </div> -->
+                </div> -->
 
-     </div>       
-                    
-          
+            
+          </div>
         </section>
         <!-- #endregion -->
         <!-- #region favorites -->
@@ -128,7 +138,6 @@
           <div class="selection">
             <h3>Pick favorites of season</h3>
             <div class="selection__container">
-
               <div class="radio__button__container">
                 <input
                   type="radio"
@@ -662,9 +671,9 @@
           <h2 id="coffee-shop">Coffee shop</h2>
           <div class="shop__description">
             <p>
-             In our library, we have of cozy coffee shop, welcoming in
+              In our library, we have of cozy coffee shop, welcoming in
               customers with frothy cappuccinos and friendly conversation.&nbsp;
-               Y<span class="lowercase"
+              Y<span class="lowercase"
                 >ou can get a favorite book and read in coffee shop. Our barista
                 to cook you best coffee, and also you can try desserts from
                 bakery.</span
