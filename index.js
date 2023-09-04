@@ -27,9 +27,7 @@ document.body.addEventListener('click', (event) => {
 
 // slider desktop
 const track = document.querySelector('.track-dt');
-const carouselWidth = document.querySelector(
-  '.carousel-container-dt'
-).offsetWidth;
+
 
 document
   .querySelectorAll('.slider-pagination-dt li')
@@ -117,19 +115,29 @@ controls.forEach((control, i = 0) => {
 const logo = document.querySelector('.logo');
 
 logo.addEventListener('click', () => {
-  document.getElementById('registration').style.display = 'block';
+  document.getElementById('registration').classList.add('open');
 });
 
 // non-registered user : registration
 
 // первая маленькая форма
 
-const dropRegister = document.getElementById('drop-register');
+const dropRegisterBtn = document.getElementById('drop-registerBtn');
 
-dropRegister.addEventListener('click', () => {
-  document.querySelector('.reg-form').style.display = 'block';
+dropRegisterBtn.addEventListener('click', () => {
+  // document.getElementById('reg-form').style.display = 'block';
+  document.getElementById('reg-form').classList.add('open');
   document.getElementById('registration').style.display = 'none';
 });
+
+const regForm = document.querySelector('.reg-form');
+
+regForm.addEventListener('click', () => {
+  if (regForm.classList.contains('open') ){
+    regForm.classList.remove('open');
+    regForm.classList.add('closed');
+  }
+})
 
 // при клике на register drop-down registration основная форма регистрации не появляется
 
@@ -145,7 +153,7 @@ dropRegister.addEventListener('click', () => {
 // digital card
 const signUpButton = document.getElementById('signUpButton');
 signUpButton.addEventListener('click', () => {
-  document.querySelector('.reg-form').style.display = 'block';
+  document.getElementById('reg-form').style.display = 'block';
 });
 
 const close = document.querySelector('.close');
@@ -189,8 +197,12 @@ FORM.addEventListener('submit', (event) => {
 //   }
 // }
 
+
 // card number
 
 let maxNumber = 999999999;
 const cardNumber = Math.floor(Math.random() * maxNumber + 1);
 console.log(cardNumber);
+
+
+

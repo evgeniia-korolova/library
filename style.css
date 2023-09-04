@@ -145,11 +145,11 @@ h1 {
 .reg-form {
   display: none;
   position: fixed;
-
   width: 100%;
   min-height: 100%;
   z-index: 4;
   background: rgba(0, 0, 0, 0.7);
+  display: none;
 }
 
 .registration-modal-content {
@@ -169,6 +169,14 @@ h1 {
   right: 15px;
   font-size: 15px;
   line-height: 100%;
+}
+
+.closed {
+  display: none;
+}
+
+.open {
+  display: block;
 }
 
 .close:hover,
