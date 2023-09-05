@@ -154,21 +154,28 @@ const FORM = document.getElementById('registration-modal-content');
 //
 FORM.addEventListener('submit', (event) => {
   event.preventDefault();
-  let user = JSON.parse(localStorage.getItem('user')) || [];
-  let exist =
-    user.length &&
+  let users = JSON.parse(localStorage.getItem('user')) || [];
+  const email = document.getElementById('email').value;
+  let exist = 
+    users.length &&
     JSON.parse(localStorage.getItem('user')).some(
-      (data) => data.email == document.getElementById('email').value
+      (data) => data.email == email
     );
 
   if (!exist) {
-    user.push({
+    users.push({
       firstName: document.getElementById('first-name').value,
       lastName: document.getElementById('last-name').value,
       email: document.getElementById('email').value,
       pass: document.getElementById('pass').value,
+      card: getCardNumber(),
     });
-    localStorage.setItem('user', JSON.stringify(user));
+    let maxNumber = 999999999;
+    const cardNumber = Math.floor(Math.random() * maxNumber + 1);
+    console.log(cardNumber);
+    users[card] = toString(cardNumber);
+
+    localStorage.setItem('user', JSON.stringify(users));
     document.querySelector('.registration-modal-content').reset();
     e.preventDefault();
     document.getElementById('first-name').focus();
@@ -192,28 +199,7 @@ PSWD_INPUT.addEventListener('change', (event) => {
   }
 });
 
-// const signUp = e => {
-//   let user = JSON.parse(localStorage.getItem('user')) || [];
-//   let exist = user.length && JSON.parse(localStorage.getItem('user')).some(data => data.email == document.getElementById('email').value
-//   );
 
-//   if (!exist) {
-
-//     user.push({
-//       firstName: document.getElementById('first-name').value,
-//       lastName: document.getElementById('last-name').value,
-//       email: document.getElementById('email').value,
-//       pass: document.getElementById('pass').value,
-//     });
-//     localStorage.setItem('user', JSON.stringify(user));
-//     document.querySelector('.registration-modal-content').reset();
-//     e.preventDefault();
-//     document.getElementById('first-name').focus();
-
-//   } else {
-//     alert("log in")
-//   }
-// }
 
 // digital card
 const signUpButton = document.getElementById('signUpButton');
@@ -223,6 +209,9 @@ signUpButton.addEventListener('click', () => {
 
 // card number
 
+
+function getCardNumber() {
 let maxNumber = 999999999;
-const cardNumber = Math.floor(Math.random() * maxNumber + 1);
-console.log(cardNumber);
+ return Math.floor(Math.random() * maxNumber + 1)
+};
+console.log(getCardNumber());
