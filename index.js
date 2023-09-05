@@ -197,7 +197,8 @@ FORM.addEventListener('submit', (event) => {
 const PSWD_INPUT = document.getElementById('pass');
 
 const checkPasswordParameters = () => {
-  if (PSWD_INPUT.value < 8) {
+  console.log(PSWD_INPUT.value.length);
+  if (PSWD_INPUT.value.length < 8) {
     return false
   } else {
     return true
@@ -207,6 +208,7 @@ const checkPasswordParameters = () => {
 
 PSWD_INPUT.addEventListener('change', (event) => {
   const PSWD = event.target.value;
+  console.log(PSWD.length);
   const isValid = checkPasswordParameters();
   if (!isValid) return;
   
