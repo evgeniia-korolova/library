@@ -135,12 +135,6 @@ dropRegisterBtn.addEventListener('click', () => {
 
 const regForm = document.querySelector('.reg-form');
 
-// regForm.addEventListener('click', () => {
-//   if (regForm.classList.contains('open')) {
-//     regForm.classList.remove('open');
-//     // regForm.classList.add('closed');
-//   }
-// });
 
 const close = document.querySelector('.close');
 close.addEventListener('click', () => {
@@ -156,44 +150,69 @@ FORM.addEventListener('submit', (event) => {
   event.preventDefault();
   let users = JSON.parse(localStorage.getItem('user')) || [];
   const email = document.getElementById('email').value;
-  let exist = 
+  let exist =
     users.length &&
     JSON.parse(localStorage.getItem('user')).some(
       (data) => data.email == email
     );
 
   if (!exist) {
+    let fName = document.getElementById('first-name').value;
+    let lName = document.getElementById('last-name').value;
+    let eMail = document.getElementById('email').value;
+    let passW = document.getElementById('pass').value;
     users.push({
-      firstName: document.getElementById('first-name').value,
-      lastName: document.getElementById('last-name').value,
-      email: document.getElementById('email').value,
-      pass: document.getElementById('pass').value,
+      firstName: fName,
+      lastName: lName,
+      email: eMail,
+      pass: passW,
       card: getCardNumber(),
     });
-    let maxNumber = 999999999;
-    const cardNumber = Math.floor(Math.random() * maxNumber + 1);
-    console.log(cardNumber);
-    users[card] = toString(cardNumber);
+
+    let logoFirstLetter = fName[0].toUpperCase();
+    let logoSecondLetter = lName[0].toUpperCase();
+    console.log(logoFirstLetter);
+    console.log(logoSecondLetter);
+
+    let logo = document.querySelector('.logo');
+    logo.classList.add('closed');
+
+    let userLogo = document.querySelector('.user-icon');
+    userLogo.innerHTML = `${logoFirstLetter}${logoSecondLetter}`;
+    userLogo.classList.remove('closed');
 
     localStorage.setItem('user', JSON.stringify(users));
     document.querySelector('.registration-modal-content').reset();
-    e.preventDefault();
+
     document.getElementById('first-name').focus();
   } else {
     alert('You are already registered. Please log in');
   }
+
+  regForm.classList.remove('open');
 });
 
-//проверяем кол-во символов пароля
 
+//проверяем кол-во символов пароля
 const PSWD_INPUT = document.getElementById('pass');
+
+const checkPasswordParameters = () => {
+  if (PSWD_INPUT.value < 8) {
+    return false
+  } else {
+    return true
+}}
+
+
 
 PSWD_INPUT.addEventListener('change', (event) => {
   const PSWD = event.target.value;
-  console.log(PSWD);
-
+  const isValid = checkPasswordParameters();
+  if (!isValid) return;
+  
   if (PSWD.length < 8) {
     event.target.classList.add('invalid');
+    
   } else {
     event.target.classList.remove('invalid');
   }
@@ -210,8 +229,6 @@ signUpButton.addEventListener('click', () => {
 // card number
 
 
-function getCardNumber() {
-let maxNumber = 999999999;
- return Math.floor(Math.random() * maxNumber + 1)
-};
-console.log(getCardNumber());
+function getCardNumber(min = 100000000, max = 999999999) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}

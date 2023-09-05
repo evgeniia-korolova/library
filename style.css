@@ -97,6 +97,20 @@ h1 {
   right: 31px;
 }
 
+.user-icon {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 31px;
+  right: 31px;
+  background: rgb(88, 249, 88);
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
 .registration {
   width: 80px;
   height: 115px;
