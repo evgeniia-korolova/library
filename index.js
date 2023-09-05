@@ -155,6 +155,9 @@ FORM.addEventListener('submit', (event) => {
     JSON.parse(localStorage.getItem('user')).some(
       (data) => data.email == email
     );
+  const isValid = checkPasswordParameters();
+  if (!isValid) return false;
+  
 
   if (!exist) {
     let fName = document.getElementById('first-name').value;
@@ -180,6 +183,8 @@ FORM.addEventListener('submit', (event) => {
     let userLogo = document.querySelector('.user-icon');
     userLogo.innerHTML = `${logoFirstLetter}${logoSecondLetter}`;
     userLogo.classList.remove('closed');
+    let userAttr = `${fName} ${lName}`;
+    userLogo.setAttribute('title',`${userAttr}`);
 
     localStorage.setItem('user', JSON.stringify(users));
     document.querySelector('.registration-modal-content').reset();
@@ -210,7 +215,7 @@ PSWD_INPUT.addEventListener('change', (event) => {
   const PSWD = event.target.value;
   console.log(PSWD.length);
   const isValid = checkPasswordParameters();
-  if (!isValid) return;
+  if (!isValid) return false;
   
   if (PSWD.length < 8) {
     event.target.classList.add('invalid');
