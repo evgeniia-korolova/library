@@ -27,7 +27,9 @@ document.body.addEventListener('click', (event) => {
 
 // slider desktop
 const track = document.querySelector('.track-dt');
-
+const carouselWidth = document.querySelector(
+  '.carousel-container-dt'
+).offsetWidth;
 
 document
   .querySelectorAll('.slider-pagination-dt li')
@@ -125,53 +127,69 @@ logo.addEventListener('click', () => {
 const dropRegisterBtn = document.getElementById('drop-registerBtn');
 
 dropRegisterBtn.addEventListener('click', () => {
-  // document.getElementById('reg-form').style.display = 'block';
   document.getElementById('reg-form').classList.add('open');
-  document.getElementById('registration').style.display = 'none';
+  document.getElementById('registration').classList.remove('open');
 });
+
+// закрываем форму регистрации по клику вне формы
 
 const regForm = document.querySelector('.reg-form');
 
-regForm.addEventListener('click', () => {
-  if (regForm.classList.contains('open') ){
-    regForm.classList.remove('open');
-    regForm.classList.add('closed');
-  }
-})
-
-// при клике на register drop-down registration основная форма регистрации не появляется
-
-// document.body.addEventListener('click', () => {
-//   const regForm = document.querySelector('.reg-form');
-//   console.log(regForm);
-//   if (regForm.style.display === 'block') {
-//     regForm.style.display = 'none';
-//     console.log(regForm);
+// regForm.addEventListener('click', () => {
+//   if (regForm.classList.contains('open')) {
+//     regForm.classList.remove('open');
+//     // regForm.classList.add('closed');
 //   }
 // });
 
-// digital card
-const signUpButton = document.getElementById('signUpButton');
-signUpButton.addEventListener('click', () => {
-  document.getElementById('reg-form').style.display = 'block';
-});
-
 const close = document.querySelector('.close');
 close.addEventListener('click', () => {
-  document.querySelector('.reg-form').style.display = 'none';
+  document.querySelector('.reg-form').classList.remove('open');
   document.querySelector('.registration-modal-content').reset();
 });
 
-const signUp = document.getElementById('sign-up');
+// const signUp = document.getElementById('sign-up');
 const FORM = document.getElementById('registration-modal-content');
 
 //
 FORM.addEventListener('submit', (event) => {
   event.preventDefault();
+  let user = JSON.parse(localStorage.getItem('user')) || [];
+  let exist =
+    user.length &&
+    JSON.parse(localStorage.getItem('user')).some(
+      (data) => data.email == document.getElementById('email').value
+    );
 
-  // console.log(event);
+  if (!exist) {
+    user.push({
+      firstName: document.getElementById('first-name').value,
+      lastName: document.getElementById('last-name').value,
+      email: document.getElementById('email').value,
+      pass: document.getElementById('pass').value,
+    });
+    localStorage.setItem('user', JSON.stringify(user));
+    document.querySelector('.registration-modal-content').reset();
+    e.preventDefault();
+    document.getElementById('first-name').focus();
+  } else {
+    alert('You are already registered. Please log in');
+  }
+});
 
-  FORM.submit();
+//проверяем кол-во символов пароля
+
+const PSWD_INPUT = document.getElementById('pass');
+
+PSWD_INPUT.addEventListener('change', (event) => {
+  const PSWD = event.target.value;
+  console.log(PSWD);
+
+  if (PSWD.length < 8) {
+    event.target.classList.add('invalid');
+  } else {
+    event.target.classList.remove('invalid');
+  }
 });
 
 // const signUp = e => {
@@ -197,12 +215,14 @@ FORM.addEventListener('submit', (event) => {
 //   }
 // }
 
+// digital card
+const signUpButton = document.getElementById('signUpButton');
+signUpButton.addEventListener('click', () => {
+  document.querySelector('.reg-form').classList.add('open');
+});
 
 // card number
 
 let maxNumber = 999999999;
 const cardNumber = Math.floor(Math.random() * maxNumber + 1);
 console.log(cardNumber);
-
-
-
