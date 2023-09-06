@@ -135,7 +135,6 @@ dropRegisterBtn.addEventListener('click', () => {
 
 const regForm = document.querySelector('.reg-form');
 
-
 const close = document.querySelector('.close');
 close.addEventListener('click', () => {
   document.querySelector('.reg-form').classList.remove('open');
@@ -193,22 +192,25 @@ FORM.addEventListener('submit', (event) => {
     alert('You are already registered. Please log in');
   }
 
-  function showCardInfo() {
-      const checkCardBtn = document.querySelector('.check__card__btn');
-      const cardDetails = document.querySelector('.card__details');
-  checkCardBtn.classList.remove('open');
-  checkCardBtn.classList.add('closed');
-  cardDetails.classList.remove('closed');
-  cardDetails.classList.add('open-icons');
-    }
+  const checkCardBtn = document.querySelector('.check__card__btn');
+  const cardDetails = document.querySelector('.card__details');
+  checkCardBtn.addEventListener('click', () => {
+    checkCardBtn.classList.remove('open');
+    checkCardBtn.classList.add('closed');
+    cardDetails.classList.remove('closed');
+    cardDetails.classList.add('open-icons');
+  });
 
-    setTimeout(() => {
-       showCardInfo();
-    }, 10000);
+  setTimeout(() => {
+    // hide statistics and show button
+    cardDetails.classList.remove('open-icons');
+    cardDetails.classList.add('closed');
+    checkCardBtn.classList.remove('closed');
+    checkCardBtn.classList.add('open');
+  }, 10000);
 
   regForm.classList.remove('open');
 });
-
 
 //проверяем кол-во символов пароля
 const PSWD_INPUT = document.getElementById('pass');
@@ -216,28 +218,24 @@ const PSWD_INPUT = document.getElementById('pass');
 const checkPasswordParameters = () => {
   console.log(PSWD_INPUT.value.length);
   if (PSWD_INPUT.value.length < 8) {
-    return false
+    return false;
   } else {
-    return true
-}}
-
-
+    return true;
+  }
+};
 
 PSWD_INPUT.addEventListener('change', (event) => {
   const PSWD = event.target.value;
   console.log(PSWD.length);
   const isValid = checkPasswordParameters();
   if (!isValid) return false;
-  
+
   if (PSWD.length < 8) {
     event.target.classList.add('invalid');
-    
   } else {
     event.target.classList.remove('invalid');
   }
 });
-
-
 
 // digital card
 const signUpButton = document.getElementById('signUpButton');
@@ -247,26 +245,27 @@ signUpButton.addEventListener('click', () => {
 
 // card number
 
-
 function getCardNumber(min = 100000000, max = 999999999) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // library-card
 
-const checkCardBtn = document.querySelector('.check__card__btn');
-const cardDetails = document.querySelector('.card__details');
+// const checkCardBtn = document.querySelector('.check__card__btn');
+// const cardDetails = document.querySelector('.card__details');
 
+// checkCardBtn.addEventListener('click', () => {
+//   checkCardBtn.classList.remove('open');
+//   checkCardBtn.classList.add('closed');
+//   cardDetails.classList.remove('closed');
+//   cardDetails.classList.add('open-icons');
+// });
 
-  
+// setTimeout(() => {
+//   // hide statistics and show button
+//   cardDetails.classList.remove('open-icons');
+//   cardDetails.classList.add('closed');
+//   checkCardBtn.classList.remove('closed');
+//   checkCardBtn.classList.add('open');
 
-//   function showCardInfo() { 
-// checkCardBtn.classList.remove('open');
-// checkCardBtn.classList.add('closed');
-// cardDetails.classList.remove('closed');
-// cardDetails.classList.add('open-icons');
-//   }
-
-//   setTimeount(() => {
-//      showCardInfo();
-//   }, 10000);
+// }, 10000);
