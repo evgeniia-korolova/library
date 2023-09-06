@@ -157,7 +157,6 @@ FORM.addEventListener('submit', (event) => {
     );
   const isValid = checkPasswordParameters();
   if (!isValid) return false;
-  
 
   if (!exist) {
     let fName = document.getElementById('first-name').value;
@@ -184,7 +183,7 @@ FORM.addEventListener('submit', (event) => {
     userLogo.innerHTML = `${logoFirstLetter}${logoSecondLetter}`;
     userLogo.classList.remove('closed');
     let userAttr = `${fName} ${lName}`;
-    userLogo.setAttribute('title',`${userAttr}`);
+    userLogo.setAttribute('title', `${userAttr}`);
 
     localStorage.setItem('user', JSON.stringify(users));
     document.querySelector('.registration-modal-content').reset();
@@ -193,6 +192,19 @@ FORM.addEventListener('submit', (event) => {
   } else {
     alert('You are already registered. Please log in');
   }
+
+  function showCardInfo() {
+      const checkCardBtn = document.querySelector('.check__card__btn');
+      const cardDetails = document.querySelector('.card__details');
+  checkCardBtn.classList.remove('open');
+  checkCardBtn.classList.add('closed');
+  cardDetails.classList.remove('closed');
+  cardDetails.classList.add('open-icons');
+    }
+
+    setTimeout(() => {
+       showCardInfo();
+    }, 10000);
 
   regForm.classList.remove('open');
 });
@@ -245,14 +257,16 @@ function getCardNumber(min = 100000000, max = 999999999) {
 const checkCardBtn = document.querySelector('.check__card__btn');
 const cardDetails = document.querySelector('.card__details');
 
-checkCardBtn.addEventListener('click', () => {
-  checkCardBtn.classList.remove('open');
-  checkCardBtn.classList.add('closed');
-  cardDetails.classList.remove('closed');
-  cardDetails.classList.add('open-icons');
 
-  setTimeount(() => {
-    cardDetails.classList.remove('open-icons');
-    checkCardBtn.classList.remove('closed');
-  }, 10000);
-})
+  
+
+//   function showCardInfo() { 
+// checkCardBtn.classList.remove('open');
+// checkCardBtn.classList.add('closed');
+// cardDetails.classList.remove('closed');
+// cardDetails.classList.add('open-icons');
+//   }
+
+//   setTimeount(() => {
+//      showCardInfo();
+//   }, 10000);
