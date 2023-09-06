@@ -194,12 +194,20 @@ FORM.addEventListener('submit', (event) => {
 
   const checkCardBtn = document.querySelector('.check__card__btn');
   const cardDetails = document.querySelector('.card__details');
-  checkCardBtn.addEventListener('click', () => {
+  
+  
     checkCardBtn.classList.remove('open');
     checkCardBtn.classList.add('closed');
     cardDetails.classList.remove('closed');
-    cardDetails.classList.add('open-icons');
-  });
+  cardDetails.classList.add('open-icons');
+  
+  
+    const readerName = document.querySelector('#readerName');
+    const readerCard = document.querySelector('#readerCard');
+    readerName.innerHTML = fName;
+    readerCard = getCardNumber();
+  
+ 
 
   setTimeout(() => {
     // hide statistics and show button
@@ -207,6 +215,7 @@ FORM.addEventListener('submit', (event) => {
     cardDetails.classList.add('closed');
     checkCardBtn.classList.remove('closed');
     checkCardBtn.classList.add('open');
+    showReaderInfo();
   }, 10000);
 
   regForm.classList.remove('open');
@@ -246,7 +255,7 @@ signUpButton.addEventListener('click', () => {
 // card number
 
 function getCardNumber(min = 100000000, max = 999999999) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1) + min).toString(16);
 }
 
 // library-card
