@@ -1234,7 +1234,7 @@ h4 {
 }
 
 .check__card__btn {
-  display: block;
+  /* display: block; */
   margin: 0 auto;
   color: #0c0c0e;
   font-size: 20px;
@@ -1322,6 +1322,26 @@ h4 {
   border: 1px solid #bb945f;
   border-radius: 2px;
   transition: 0.2s;
+}
+
+.card__details {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  display: none;
+}
+
+.card__icon {
+  width: 27px;
+  height: 63px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.open-icons {
+  display: flex;
 }
 
 /* #endregion */

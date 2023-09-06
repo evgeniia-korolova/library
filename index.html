@@ -885,18 +885,21 @@
         </section>
         <!-- #endregion -->
         <!-- #region cards -->
-        <section class="digital-card">
+       <section class="digital-card">
           <h2 id="card">Digital Library Cards</h2>
           <div class="digital-card__container">
+
+            <!-- left block start -->
             <div class="digital-card__left-item">
               <h3 class="left-item__title">Find your Library card</h3>
-              <form class="library-card">
+              <form class="library-card" id="library-card">
                 <div class="inp__container">
                   <h4 class="left__title">Brooklyn Public Library</h4>
                   <input
                     type="text"
                     placeholder="Reader's name"
                     class="card__input"
+                    id="readerName"
                     autocomplete="off"
                   />
                   <input
@@ -904,13 +907,50 @@
                     class="card__input"
                     placeholder="Card number"
                     autocomplete="off"
+                    id="card-number"
                   />
                 </div>
-                <button class="check__card__btn" type="button">
+                <button class="check__card__btn open" type="button">
                   Check the card
                 </button>
+
+                <div class="card__details closed">
+                  <div class="card__icon">
+                    <div class="card__icon__name">Visits</div>
+                    <div class="card__icon__image">
+                      <img src="./images/card_icon_visits.svg" alt="icon visits">
+                    </div>
+                    <div class="card__icon__quantity">0</div>
+                  </div>
+                  
+                  <div class="card__icon">
+                    <div class="card__name">Bonuses</div>
+                    
+
+
+                    <div class="card__icon__image">
+                      <img src="./images/card_icon_star.svg" alt="icon star">
+                    </div>
+                    <div class="card__bonuses">0</div>
+
+
+                  </div>
+
+                  <div class="card__icon">
+                    <div class="card__name">Books</div>
+                    <div class="card__icon__image">
+                      <img src="./images/card_icon_book.svg" alt="icon book">
+                    </div>
+                    
+                    <div class="card__quantity">0</div>
+                  </div>
+                </div>
               </form>
             </div>
+
+            <!-- left block end -->
+
+            <!-- start right blok -->
 
             <div class="digital-card__right-block">
               <h4 class="right__title">Get a reader card</h4>
@@ -923,6 +963,8 @@
                 <button class="right__card__button">Log in</button>
               </div>
             </div>
+            <!-- end right block -->
+          
           </div>
         </section>
         <!-- #endregion -->

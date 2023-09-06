@@ -239,3 +239,20 @@ signUpButton.addEventListener('click', () => {
 function getCardNumber(min = 100000000, max = 999999999) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// library-card
+
+const checkCardBtn = document.querySelector('.check__card__btn');
+const cardDetails = document.querySelector('.card__details');
+
+checkCardBtn.addEventListener('click', () => {
+  checkCardBtn.classList.remove('open');
+  checkCardBtn.classList.add('closed');
+  cardDetails.classList.remove('closed');
+  cardDetails.classList.add('open-icons');
+
+  setTimeount(() => {
+    cardDetails.classList.remove('open-icons');
+    checkCardBtn.classList.remove('closed');
+  }, 10000);
+})
