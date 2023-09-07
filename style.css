@@ -161,9 +161,9 @@ h1 {
   position: fixed;
   width: 100%;
   min-height: 100%;
-  z-index: 4;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.7);
-  display: none;
+  
 }
 
 .registration-modal-content {
@@ -177,12 +177,13 @@ h1 {
   padding: 20px 25px;
 }
 
-.close {
+.close, .login-close {
   position: absolute;
   top: 15px;
   right: 15px;
   font-size: 15px;
   line-height: 100%;
+  cursor: pointer;
 }
 
 .closed {
@@ -194,11 +195,13 @@ h1 {
 }
 
 .close:hover,
-.close:focus {
+.close:focus,
+.login-close:hover,
+.login-close:focus {
   background: red;
 }
 
-.reg-form h3 {
+.form-title {
   font-size: 20px;
   font-family: var(--font-family-headers);
   font-weight: 400;
@@ -245,10 +248,16 @@ h1 {
   background: none;
   border: none;
   text-decoration: underline;
+  height: 12px;
+  font-weight: 700;
+  padding: 2px;
+  font-family: var(--font-family-basic);
   font-size: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
-.registration-modal-content p {
+.form-p  {
   font-size: 10px;
   text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
   display: inline;
@@ -262,6 +271,44 @@ h1 {
 }
 
 /* end modal Register */
+/* start login form */
+
+.login-form {
+ 
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items:center;
+visibility: hidden;
+  opacity: 0;
+  transition:  opacity .4s, visibility .4s;
+}
+
+.login-modal-content {
+  width: 250px;
+  height: 262px;
+  position: relative;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px 25px;
+  transform: scale(0);
+  transition: transform .8s;
+}
+
+.login-form.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.login-form.open .login-modal-content {
+transform: scale(1);
+}
+
+/* end login form */
 
 .welcome label {
   font-size: 15px;

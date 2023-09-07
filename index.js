@@ -136,6 +136,7 @@ dropRegisterBtn.addEventListener('click', () => {
 const regForm = document.querySelector('.reg-form');
 
 const close = document.querySelector('.close');
+
 close.addEventListener('click', () => {
   document.querySelector('.reg-form').classList.remove('open');
   document.querySelector('.registration-modal-content').reset();
@@ -203,9 +204,10 @@ FORM.addEventListener('submit', (event) => {
   
   
     const readerName = document.querySelector('#readerName');
-    const readerCard = document.querySelector('#readerCard');
+  const readerCard = document.querySelector('#readerCard');
+  let fName = document.getElementById('first-name').value;
     readerName.innerHTML = fName;
-    readerCard = getCardNumber();
+    // readerCard = getCardNumber();
   
  
 
@@ -215,7 +217,7 @@ FORM.addEventListener('submit', (event) => {
     cardDetails.classList.add('closed');
     checkCardBtn.classList.remove('closed');
     checkCardBtn.classList.add('open');
-    showReaderInfo();
+    // showReaderInfo();
   }, 10000);
 
   regForm.classList.remove('open');
@@ -234,15 +236,15 @@ const checkPasswordParameters = () => {
 };
 
 PSWD_INPUT.addEventListener('change', (event) => {
-  const PSWD = event.target.value;
+  const PSWD = event.currentTarget.value;
   console.log(PSWD.length);
   const isValid = checkPasswordParameters();
   if (!isValid) return false;
 
   if (PSWD.length < 8) {
-    event.target.classList.add('invalid');
+    event.currentTarget.classList.add('invalid');
   } else {
-    event.target.classList.remove('invalid');
+    event.currentTarget.classList.remove('invalid');
   }
 });
 
