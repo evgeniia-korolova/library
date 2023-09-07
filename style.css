@@ -157,24 +157,30 @@ h1 {
 /* modal Register */
 
 .reg-form {
-  display: none;
-  position: fixed;
+ position: fixed;
   width: 100%;
-  min-height: 100%;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 50;
   background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  visibility: hidden;
+  opacity: 0;
+  transition:  opacity .4s, visibility .4s;
   
 }
 
 .registration-modal-content {
   width: 250px;
   height: 382px;
-  margin: 0 auto;
-  top: 50%;
-  transform: translateY(50%);
+  position: relative;  
   background: #fff;
-  position: relative;
   padding: 20px 25px;
+  transform: scale(0);
+  transition: transform .8s;
 }
 
 .close, .login-close {
@@ -185,6 +191,17 @@ h1 {
   line-height: 100%;
   cursor: pointer;
 }
+
+.reg-form.open-form {
+  visibility: visible;
+  opacity: 1;
+}
+
+.reg-form.open-form 
+.registration-modal-content {
+transform: scale(1);
+}
+
 
 .closed {
   display: none;
@@ -277,13 +294,13 @@ h1 {
  
   position: fixed;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   z-index: 50;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items:center;
-visibility: hidden;
+  visibility: hidden;
   opacity: 0;
   transition:  opacity .4s, visibility .4s;
 }
@@ -386,15 +403,15 @@ transform: scale(1);
     right: 105px;
   }
 
-  .welcome {
-    background-image: linear-gradient(
+  /* .welcome { */
+    /* background-image: linear-gradient(
         180deg,
         #0c0c0e 0%,
         #0c0c0e 0.01%,
         rgba(18, 18, 21, 0.1) 100%
       ),
       url('./images/welcome-tbl-bg.jpg');
-  }
+  } */
 
   /* burger */
 
