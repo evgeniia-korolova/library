@@ -1,10 +1,3 @@
-// if (userIcon)
-
-// loginClose.addEventListener('click', () => {
-//     document.querySelector('.login-form').classList.remove('login-form');
-//      document.querySelector('.login-form').classList.add('closed');
-//   document.querySelector('.login-modal-content').reset();
-// });
 
 // new
 
@@ -63,3 +56,37 @@ document.getElementById('login-form').addEventListener('click', (event) => {
   if (event._isClickWithInModal) return;
   event.currentTarget.classList.remove('open-form');
 });
+
+
+
+
+// 09.09.23
+
+ document.querySelector('.user-icon').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  let user = localStorage.getItem('loggedInUser');
+  if (user) {
+    document.getElementById('profile-popup').classList.remove('closed');
+    document.getElementById('profile-popup').classList.add('open');
+  }
+});
+ 
+
+const doLogin = (user) => {
+  localStorage.setItem('loggedInUser', JSON.stringify(user));
+
+  let { firstName, lastName } = user;
+  let userInitials = firstName[0].toUpperCase() + lastName[0].toUpperCase();
+  let fullName = `${firstName} ${lastName}`;
+
+  let logo = document.querySelector('.logo');
+  logo.classList.add('closed');
+
+  let userLogo = document.querySelector('.user-icon');
+  userLogo.innerHTML = userInitials;
+  userLogo.setAttribute('title', fullName);
+  userLogo.classList.remove('closed');
+};
+
+
