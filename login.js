@@ -30,6 +30,7 @@ dropLoginLogin.addEventListener('click', () => {
 
 const logInBtn = document.getElementById('logInBtn');
 logInBtn.addEventListener('click', () => {
+   document.querySelector('.login-form').classList.remove('close-form'); 
   document.querySelector('.login-form').classList.add('open-form');
 });
 
@@ -78,7 +79,9 @@ const doLogin = (user) => {
 
   let { firstName, lastName } = user;
   let userInitials = firstName[0].toUpperCase() + lastName[0].toUpperCase();
-  let fullName = `${firstName} ${lastName}`;
+    let fullName = `${firstName} ${lastName}`;
+    
+    
 
   let logo = document.querySelector('.logo');
   logo.classList.add('closed');

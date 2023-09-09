@@ -174,82 +174,76 @@ FORM.addEventListener('submit', (event) => {
 // });
 
 // <>09.09.23
+// 09.09.09
 
 
-
-
-
-//проверяем кол-во символов пароля
-// const PSWD_INPUT = document.getElementById('pass');
-
-// const checkPasswordParameters = () => {
-//   if (PSWD_INPUT.value < 8) {
-//     return false;
-//   } else {
-//     return true;
-//   }
-// };
-
-// PSWD_INPUT.addEventListener('change', (event) => {
-//   const PSWD = event.target.value;
-//   const isValid = checkPasswordParameters();
-//   if (!isValid) return;
-
-//   if (PSWD.length < 8) {
-//     event.target.classList.add('invalid');
-//   } else {
-//     event.target.classList.remove('invalid');
-//   }
-// });
-
-// digital card
 // open registration modal
+
 const signUpButton = document.getElementById('signUpButton');
 signUpButton.addEventListener('click', () => {
   document.querySelector('.reg-form').classList.add('open-form');
 });
 
-// card number
 
-function getCardNumber(min = 100000000, max = 999999999) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-// library-card
+// digital card
 
 const checkCardBtn = document.querySelector('.check__card__btn');
 const cardDetails = document.querySelector('.card__details');
 
 checkCardBtn.addEventListener('click', () => {
-  checkCardBtn.classList.remove('open');
-  checkCardBtn.classList.add('closed');
-  cardDetails.classList.remove('closed');
-  cardDetails.classList.add('open-icons');
+  const users = JSON.parse(localStorage.getItem('users'));
+
+  const name = document.getElementById('readerName').value;
+  const card = document.getElementById('readerCard').value;
+
+  const user = users.find(
+    (u) => u.firstName === name && u.card === Number(card)
+  );
+
+  if (user) {
+    checkCardBtn.classList.remove('open');
+    checkCardBtn.classList.add('closed');
+    cardDetails.classList.remove('closed');
+    cardDetails.classList.add('open-icons');
+
+    setTimeout(() => {
+      // hide statistics and show button
+      cardDetails.classList.remove('open-icons');
+      checkCardBtn.classList.remove('closed');
+      checkCardBtn.classList.add('open');
+    }, 10000);
+  }
 });
 
-setTimeout(() => {
-  // hide statistics and show button
-  cardDetails.classList.remove('open-icons');
-  checkCardBtn.classList.remove('closed');
-  checkCardBtn.classList.add('open');
-  // showReaderInfo();
-}, 10000);
 
-// почeму null???????
 
-// const users = JSON.parse(localStorage.getItem('users'));
-// console.log(users);
 
-//   const name = document.getElementById('first-name');
-//   console.log(name)
-//   const card = document.getElementById('card');
-//   const user = users.find(
-//     (u) => u.name === name.value && u.card === card.value
-//   );
 
-//   if (user) {
-//     console.log('ура, можно показать данные и спрятать кнопку');
-//   }
-// })
+// card number
 
-// regForm.classList.remove('open');
+function getCardNumber(min = 100000000, max = 999999999) {
+  return Math.floor(Math.random() * (max - min + 1) + min).toString(16);
+}
+
+// // library-card
+
+// const checkCardBtn = document.querySelector('.check__card__btn');
+// const cardDetails = document.querySelector('.card__details');
+
+// checkCardBtn.addEventListener('click', () => {
+//   checkCardBtn.classList.remove('open');
+//   checkCardBtn.classList.add('closed');
+//   cardDetails.classList.remove('closed');
+//   cardDetails.classList.add('open-icons');
+// });
+
+// setTimeout(() => {
+//   // hide statistics and show button
+//   cardDetails.classList.remove('open-icons');
+//   checkCardBtn.classList.remove('closed');
+//   checkCardBtn.classList.add('open');
+//   // showReaderInfo();
+// }, 10000);
+
+
