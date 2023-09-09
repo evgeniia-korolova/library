@@ -92,4 +92,28 @@ const doLogin = (user) => {
   userLogo.classList.remove('closed');
 };
 
+// 10.10.23
+document.getElementById('login-modal-content').addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  let emailOrCard = document.getElementById('emailorCardLogin').value;
+  let password = document.getElementById('passLogin').value;
+
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+  let registeredUser = users.find((user) => {
+    return (
+      user.pass === password 
+      && (user.email === emailOrCard || user.card === Number(emailOrCard))
+    );
+  });
+
+  console.log(registeredUser, users, emailOrCard, password)
+
+  if (registeredUser) {
+    doLogin(registeredUser);
+  }
+
+  document.querySelector('.login-form').classList.remove('open');
+});
+
 
