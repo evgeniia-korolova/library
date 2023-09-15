@@ -46,10 +46,10 @@
 
             <div class="profile" id="profile-popup">
               <form action="#" class="drop-profile-content">
-                <p>Profile</p>
+                <p class="drop-menu__code">Profile</p>
                 <div class="line"></div>
                 <button class="reg-btn" id="my-profile-btn">My profile</button>
-                <button class="reg-btn" id="log-out-btn">Log Out</button>
+                <button class="reg-btn" id="log-out-btn" onclick="window.location.reload()">Log Out</button>
               </form>
             </div>
 
@@ -325,7 +325,7 @@
                       </p>
                     </div>
                     <div>
-                      <button class="btn active" id="test">Buy</button>
+                      <button class="btn active buy-book" id="test">Buy</button>
                     </div>
                   </div>
                   <div class="book__photo">
@@ -355,7 +355,7 @@
                       </p>
                     </div>
                     <div>
-                      <button class="btn active">Buy</button>
+                      <button class="btn active buy-book">Buy</button>
                     </div>
                   </div>
                   <div class="book__photo">
@@ -390,7 +390,7 @@
                       </p>
                     </div>
                     <div>
-                      <button class="btn active">Buy</button>
+                      <button class="btn active buy-book">Buy</button>
                     </div>
                   </div>
                   <div class="book__photo">
@@ -418,7 +418,7 @@
                       </p>
                     </div>
                     <div>
-                      <button class="btn active">Buy</button>
+                      <button class="btn active buy-book">Buy</button>
                     </div>
                     <!-- <div>
                         <button class="btn btn__own" disabled>Own</button>
@@ -936,7 +936,7 @@
                   Check the card
                 </button>
 
-                <div class="card__details closed">
+                <div class="card__details">
                   <div class="card__icon">
                     <div class="card__icon__name">Visits</div>
                     <div class="card__icon__image">
@@ -1010,7 +1010,7 @@
                     <label for="bank" class="buy__label"
                       >Bank card number</label
                     >
-                    <input
+                    <input required
                       type="text"
                       name="bank"
                       maxlength="16"
@@ -1023,14 +1023,14 @@
                     >
 
                     <div class="double-input">
-                      <input
+                      <input required
                         id="month"
                         type="text"
                         name="month"
                         maxlength="2"
                         class="buy__input buy__input_multiple"
                       />
-                      <input
+                      <input required
                         id="year"
                         type="text"
                         name="year"
@@ -1040,7 +1040,7 @@
                     </div>
 
                     <label for="cvc" class="buy__label">CVC</label>
-                    <input
+                    <input required
                       type="text"
                       name="cvc"
                       maxlength="3"
@@ -1051,7 +1051,7 @@
                     <label for="cardholder" class="buy__label"
                       >Cardholder name</label
                     >
-                    <input
+                    <input required
                       type="text"
                       name="cardholder"
                       maxlength="3"
@@ -1062,7 +1062,7 @@
                     <label for="postalCode" class="buy__label"
                       >Postal code</label
                     >
-                    <input
+                    <input required
                       type="text"
                       name="postal"
                       maxlength="3"
@@ -1071,7 +1071,7 @@
                     />
 
                     <label for="place" class="buy__label">City / Town</label>
-                    <input
+                    <input required
                       type="text"
                       name="place"
                       maxlength="3"
@@ -1119,7 +1119,7 @@
               <li class="profile__item">
                 <span class="profile__name">Visits</span>
                 <img src="./images/card_icon_visits.svg" alt="visits icon">
-                <span class="profile__quantity">0</span>
+                <span class="profile__quantity">23</span>
               </li>
               <li class="profile__item">
                 <span class="profile__name">Bonuses</span>
@@ -1129,13 +1129,13 @@
               <li class="profile__item">
                 <span class="profile__name">Books</span>
                 <img src="./images/card_icon_book.svg" alt="books-icon">
-                <span class="profile__quantity">0</span>
+                <span class="profile__quantity">2</span>
               </li>
             </ul>
             <h3 class="profile__books-heading">Rented books</h3>
             <ul class="profile__books">
-              <li>The Last Queen, Clive Irving</li>
-              <li>Dominicana, Angie Cruz</li>
+              <li class="taken__book">The Last Queen, Clive Irving</li>
+              <li  class="taken__book">Dominicana, Angie Cruz</li>
             </ul>
             <div class="profile__card">
               <span class="profile__card-heading">Card number</span>
@@ -1226,11 +1226,11 @@
       </footer>
     </div>
 
-    <script src="./index.js"></script>
-    <script src="./login.js"></script>
-    <script src="./sliders.js"></script>
-    <script src="./burger.js"></script>
-     <script src="./buycard.js"></script>
-     <script src="./user-profile-card.js"></script>
+    <script src="./index.js" type="module" defer></script>
+    <script src="./login.js" type="module" defer></script>
+    <script src="./sliders.js" type="module" defer></script>
+    <script src="./burger.js" type="module" defer></script>
+     <script src="./buycard.js" type="module" defer></script>
+     <script src="./user-profile-card.js" type="module" defer></script>
   </body>
 </html>

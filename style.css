@@ -122,7 +122,7 @@ h1 {
   left: 0;
   min-height: 100vh;
   z-index: 50;
-  
+  margin: 0 auto;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -140,6 +140,281 @@ h1 {
   top: 60px;
   right: 31px;
   text-align: center;
+}
+
+@media screen and (max-width: 1034px) {
+
+  .welcome__container {
+    max-width: 1034px;
+  }
+
+  .registration {
+    width: 100%;
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 368px;  
+}
+}
+
+@media screen and (max-width: 1024px) {
+
+  .welcome__container {
+    max-width: 1024px;
+  }
+
+  .registration {
+    width: 100%;
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 230px;  
+}
+}
+
+@media screen and (max-width: 1015px) {
+
+  .welcome__container {
+    max-width: 1015px;
+  }
+
+  
+
+  .registration,
+  .profile {
+    width: 100%;
+    margin: 0 auto;
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 226px;  
+}
+}
+
+@media screen and (max-width: 1000px) {
+  .welcome__container {
+    max-width: 1000px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 218px;  
+}
+}
+
+@media screen and (max-width: 990px) {
+  .welcome__container {
+    max-width: 990px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 211px;  
+}
+}
+
+@media screen and (max-width: 965px) {
+  .welcome__container {
+    max-width: 965px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 198px;  
+}
+}
+
+@media screen and (max-width: 940px) {
+  .welcome__container {
+    max-width: 940px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 185px;  
+}
+}
+
+@media screen and (max-width: 925px) {
+  .welcome__container {
+    max-width: 925px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 178px;  
+}
+}
+
+@media screen and (max-width: 895px) {
+  .welcome__container {
+    max-width: 895px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 165px;  
+}
+}
+
+@media screen and (max-width: 880px) {
+  .welcome__container {
+    max-width: 895px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 155px;  
+}
+}
+
+@media screen and (max-width: 865px) {
+  .welcome__container {
+    max-width: 865px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 150px;  
+}
+}
+
+@media screen and (max-width: 845px) {
+  .welcome__container {
+    max-width: 845px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 140px;  
+}
+}
+
+@media screen and (max-width: 825px) {
+  .welcome__container {
+    max-width: 845px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 130px;  
+}
+}
+
+@media screen and (max-width: 805px) {
+  .welcome__container {
+    max-width: 805px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 118px;  
+}
+}
+
+@media screen and (max-width: 790px) {
+  .welcome__container {
+    max-width: 805px;
+  }
+  .registration,
+  .profile {
+    width: 100%;   
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 112px;  
+}
+}
+
+@media screen and (max-width: 769px) {
+
+  .welcome__container {
+    max-width: 769px;
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 100px;
+  
+}
+}
+
+@media screen and (max-width: 640px) {
+
+  .welcome__container {
+    max-width: 640px;
+  }
+.drop-registration-content,
+.drop-profile-content {
+  
+  top: 3px;
+  right: 100px;
+  
+}
 }
 
 .registration.open-form,
@@ -852,7 +1127,7 @@ input[type='radio']:checked + label {
   gap: 40px 220px;
   padding: 0 19px;
   justify-content: center;
-  margin: 0;
+  margin: 0 auto;
 
   position: absolute;
   top: 0;
@@ -1868,7 +2143,7 @@ h4 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 170px;
+  width: 173px;
   height: 100%;
   padding: 25px;
   gap: 15px;
@@ -1887,6 +2162,7 @@ h4 {
   line-height: 1;
   text-transform: capitalize;
   color: #bb945f;
+  margin-left: 8px;
 }
 
 .profile__card {
@@ -1903,12 +2179,14 @@ h4 {
     text-transform: capitalize;
     text-align: center;
     background-color: #ffffff;
+    margin-left: 8px;
+    width: 120px;
 }
 
 .profile__info {
   width: 430px;
     height: 100%;
-    padding: 40px 25px;
+    padding: 40px 21px;
     background-color: #ffffff;
 }
 
@@ -1936,12 +2214,50 @@ h4 {
     gap: 10px;
 }
 
+.profile__name {
+  color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+letter-spacing: 0.4px;
+text-transform: capitalize;
+}
+
+.profile__quantity {
+  color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 200% */
+letter-spacing: 0.2px;
+text-transform: capitalize;
+}
+
 .profile__books-heading {
   margin-bottom: 30px;
     color: #0c0c0e;
     font-size: 25px;
     font-weight: 400;
     line-height: 0.8;
+}
+
+.taken__book {
+  color: #000;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 100% */
+letter-spacing: 2px;
+text-transform: capitalize;
+margin: 0;
+padding: 0;
+
 }
 
 .profile__books {
@@ -1957,22 +2273,27 @@ h4 {
     letter-spacing: 2px;
     list-style: disc;
     overflow: auto;
+    margin-left: 10px;
 }
 
 .profile__card-heading {
   color: #0c0c0e;
     font-weight: 400;
     line-height: 1;
+    font-size: 20px;
+font-style: normal;
+
 }
 
 .profile__number {
   font-weight: 400;
     line-height: 1;
     color: #bb945f;
+    font-size: 20px;
 }
 
 .profile-modal__close-button {
   position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 21px;
+    right: 19px;
 }
