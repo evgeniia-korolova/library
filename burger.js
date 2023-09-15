@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('burger').addEventListener('click', function () {
+  const burger = document.getElementById('burger');
+  burger.addEventListener('click', function () {
     document.querySelector('.header').classList.toggle('open');
-    document.getElementById('registration').classList.remove('open');
-    document.getElementById('profile-popup').classList.remove('open');
-    document.getElementById('profile-popup').classList.add('closed');
+    document.getElementById('registration').classList.remove('open-form');
+    document.getElementById('profile-popup').classList.remove('open-form');
   });
 });
 

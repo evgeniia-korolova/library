@@ -1,6 +1,10 @@
 // const buyBook = document.querySelectorAll('.btn.active');
 
-const buyBook = document.querySelectorAll('.btn.active');
+// const buyBook = document.querySelectorAll('.btn.active');
+// console.log(buyBook)
+
+const buyBook = document.querySelectorAll('.buy-book');
+console.log(buyBook);
 
 buyBook.forEach((i) => {
   i.addEventListener('click', () => {
