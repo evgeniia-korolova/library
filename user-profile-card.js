@@ -1,10 +1,10 @@
 // new
 
-document.querySelector('.user-icon').addEventListener('click', (event) => {
-  event.preventDefault();
-  //   document.querySelector('profile').classList.remove('open');
-  document.getElementById('profile-popup').classList.add('open-form');
-});
+// document.querySelector('.user-icon').addEventListener('click', (event) => {
+//   event.preventDefault();
+// //   document.querySelector('profile').classList.remove('open');
+//   document.getElementById('profile-popup').classList.add('open-form');
+// });
 
 // закрываем pop-up profile
 // Закрыть модальное окно при нажатии на Esc
@@ -62,9 +62,5 @@ document
     if (event._isClickWithInModal) return;
     event.currentTarget.classList.remove('open-form');
   });
-
-// document.querySelector('.log-out-btn').addEventListener('click', (event) => {
-//   event.preventDefault();
-// });
 
 // end new
