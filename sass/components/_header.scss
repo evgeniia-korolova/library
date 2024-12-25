@@ -1,0 +1,71 @@
+.header__container {
+	padding: 2rem;
+	display: flex;
+	gap: 4rem;
+	align-items: center;
+	justify-content: space-between;
+	background: $color-dark;
+}
+
+.logo {
+	width: 28px;
+	height: 28px;
+	cursor: pointer;
+}
+
+.nav__panel {
+	flex-grow: 1;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.top__panel {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	padding-right: 90px;
+	background: $color-dark;
+}
+
+.nav__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	list-style: none;
+	text-decoration: none;
+}
+
+.nav__panel a {
+	text-decoration: none;
+	color: $color-white;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 250%;
+}
+
+.user-icon {
+	width: 28px;
+	height: 28px;
+	position: absolute;
+	top: 31px;
+	right: 31px;
+	background: rgb(88, 249, 88);
+	color: $color-black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.nav-item {
+	color: $color-white;
+	font-size: 20px;
+	line-height: 250%;
+	text-decoration: none;
+}
+
+.nav-item:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}

@@ -1,0 +1,30 @@
+.welcome__container {
+	background-image: url('../images/welcome-photo.jpg'),
+		linear-gradient(
+			180deg,
+			#0c0c0e 0%,
+			#0c0c0e 0.01%,
+			rgba(18, 18, 21, 0.1) 100%
+		);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.welcome__text {
+	padding: 220px 0 160px;
+
+	h2 {
+		color: #fff;
+		text-align: center;
+		font-family: $font-headers;
+		@include font(4rem, 1.25, 0.03rem, 400);
+		text-transform: uppercase;
+		padding: 0 100px;
+		background: #0c0c0e;
+		max-width: 600px;
+		height: 220px;
+		display: flex;
+		align-items: center;
+	}
+}
