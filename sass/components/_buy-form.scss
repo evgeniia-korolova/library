@@ -1,0 +1,176 @@
+
+
+.buy-form {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+.buy-content {
+  width: 640px;
+  height: 540px;
+  position: relative;
+  background: #fff;
+  transform: scale(0);
+  transition: transform 0.8s;
+}
+
+.buy-form.open-form {
+  visibility: visible;
+  opacity: 1;
+}
+
+.buy-form.open-form .buy-content {
+  transform: scale(1);
+}
+
+.close-buy-form {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.buy-form-header {
+  height: 60px;
+  background: #0c0c0e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.buy-form-title {
+  color: #ffffff;
+  font-size: 40px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-family: var(--font-family-headers);
+  font-weight: 400;
+}
+
+.buy-colomns {
+  display: flex;
+  gap: 40px;
+}
+
+.buy-left {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
+
+.buy__label {
+  color: #000;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  letter-spacing: 0.3px;
+}
+
+.buy-form input[name='bank'],
+.buy-form input[name='place'],
+.buy-form input[name='postal'],
+.buy-form input[name='cardholder'] {
+  display: block;
+  border: 1px solid #bb945f;
+  margin-bottom: 7px;
+  width: 200px;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.double-input {
+  display: flex;
+  gap: 10px;
+}
+
+.buy-form input[name='month'],
+.buy-form input[name='year'],
+.buy-form input[name='cvc'] {
+  width: 45px;
+  height: 20px;
+  display: block;
+  border: 1px solid #bb945f;
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+
+.buy-form input[name='cvc'] {
+  margin-bottom: 23px;
+}
+
+.buy-right {
+  width: 330px;
+}
+
+.buy-right-p {
+  color: #8e8e8e;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+}
+
+.buy__card__price {
+  display: flex;
+  gap: 25px;
+  align-items: flex-end;
+  margin-top: 15px;
+}
+
+.buy-card-btn {
+  color: #0c0c0e;
+  font-family: var(--font-family-basic);
+  font-size: 10px;
+  height: 30px;
+  width: 75px;
+  font-weight: 700;
+  padding: 0;
+  letter-spacing: 1px;
+
+  border: 1px solid black;
+  border-radius: 2px;
+
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy-card-btn.active:hover {
+  background: #bb945f;
+  color: #0c0c0e;
+  border: 1px solid #bb945f;
+  border-radius: 2px;
+}
+
+.buy-card-btn.btn__own {
+  border: 1px solid #bb945f;
+  padding: 6px 19px;
+  color: #bb945f;
+}
+
+.buy__price {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

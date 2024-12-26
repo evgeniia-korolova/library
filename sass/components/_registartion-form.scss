@@ -1,0 +1,224 @@
+.registration,
+.profile {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  z-index: 50;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  visibility: hidden;
+  opacity: 0;
+ 
+}
+
+.drop-registration-content,
+.drop-profile-content {
+  width: 80px;
+  height: 115px;
+  background: #fff;
+  position: relative;
+  top: 60px;
+  right: 31px;
+  text-align: center;
+}
+
+.registration.open-form,
+.profile.open-form {
+  visibility: visible;
+  opacity: 1;
+}
+
+.registration p,
+.profile p {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 133.333%;
+  margin: 5px 0;
+}
+.line {
+  margin: 0 auto;
+  width: 40px;
+  height: 1px;
+  background: #bb945f;
+  margin-bottom: 15px;
+}
+
+.reg-btn,
+.log-btnInRegPopup {
+  background: none;
+  border: none;
+  margin-bottom: 10px;
+  font-family: var(--font-family-basic);
+}
+
+/* modal Register */
+
+.reg-form {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+.registration-modal-content {
+  width: 250px;
+  height: 382px;
+  position: relative;
+  background: #fff;
+  padding: 20px 25px;
+  transform: scale(0);
+  transition: transform 0.8s;
+}
+
+.reg-form.open-form {
+  visibility: visible;
+  opacity: 1;
+}
+
+.reg-form.open-form .registration-modal-content {
+  transform: scale(1);
+}
+
+.close,
+.login-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 15px;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.closed {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+.close:hover,
+.close:focus,
+.login-close:hover,
+.login-close:focus {
+  background: red;
+}
+
+.form-title {
+  font-size: 20px;
+  font-family: var(--font-family-headers);
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.welcome input[type='text'],
+.welcome input[type='password'],
+.welcome input[type='email'] {
+  display: block;
+  border: 1px solid #bb945f;
+  margin: 10px 0;
+  height: 20px;
+  width: 200px;
+  margin-bottom: 9px;
+}
+
+.signupLoginBtn,
+.loginLoginBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  background: #fff;
+  /* padding: 10px 0; */
+  cursor: pointer;
+  font-size: 10px;
+  color: #0c0c0e;
+  font-family: var(--font-family-basic);
+  margin-bottom: 5px;
+}
+
+.loginLoginBtn {
+  margin-top: 20px;
+}
+
+.signupLoginBtn:hover {
+  background: #bb945f;
+  color: #0c0c0e;
+  border: 1px solid #bb945f;
+  border-radius: 2px;
+}
+
+.loginBtn {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  height: 10px;
+  font-weight: 700;
+  /* padding: 2px; */
+  font-family: var(--font-family-basic);
+  font-size: 10px;
+  /* margin-bottom: 10px; */
+  cursor: pointer;
+}
+
+.form-p {
+  font-size: 10px;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  display: inline;
+}
+
+.login-form {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+
+.login-modal-content {
+  width: 250px;
+  height: 262px;
+  position: relative;
+  /* margin: 0 auto; */
+  background: #fff;
+  padding: 20px 25px;
+  transform: scale(0);
+  transition: transform 0.8s;
+}
+
+.login-form.open-form {
+  visibility: visible;
+  opacity: 1;
+}
+
+.login-form.open-form .login-modal-content {
+  transform: scale(1);
+}

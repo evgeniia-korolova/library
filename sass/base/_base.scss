@@ -1,43 +1,88 @@
 *,
 *:after,
 *:before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-
 html {
-    font-size: 10px;
-    scroll-behavior: smooth;
+	font-size: 10px;
+	scroll-behavior: smooth;
 }
 
 body {
-    font-family: $font-basic;
+	font-family: $font-basic;
 }
 
 h1 {
-  @include font(3rem, 1.667, 0.06rem, 400);
-  color: $color-white;
-  font-family: $font-headers;
+	@include font(3rem, 1.667, 0.06rem, 400);
+	color: $color-white;
+	font-family: $font-headers;
+
+	@include media-big-mobile {
+		@include font(2rem, 1.2, 0.06rem, 400);
+	}
 }
 
 h2 {
-  font-family: $font-headers;
-  @include font(4rem, 1, 0.02rem, 400); 
-  text-transform: capitalize;
-  text-align: center;  
+	font-family: $font-headers;
+	@include font(4rem, 1, 0.02rem, 400);
+	text-transform: capitalize;
+	text-align: center;
+
+	@include media-big-mobile {
+		@include font(3rem, 1, 0.02rem, 400);
+	}
 }
 
 h2:after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: #0c0c0e;
-  margin: 20px auto;
+	content: '';
+	display: block;
+	width: 5rem;
+	height: 1px;
+	background: $color-dark;
+	margin: 20px auto 0;
+}
+
+h3 {
+	color: $color-black;
+	@include font(2rem, 1, 0rem, 700);
+}
+
+h4 {
+	@include font(1.5rem, 2.667, 0.02rem, 700);
+  color: $color-black;
+}
+
+.btn {
+	color: #0c0c0e;
+	font-family: var(--font-family-basic);
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 1px;
+	margin-bottom: 15px;
+	border: 1px solid black;
+	border-radius: 2px;
+	padding: 6px 21px;
+	background: #fff;
+	margin-left: 18px;
+}
+
+.btn.active:hover {
+	background: #bb945f;
+	color: #0c0c0e;
+	border: 1px solid #bb945f;
+	border-radius: 2px;
+}
+
+.btn.btn__own {
+	border: 1px solid #bb945f;
+	padding: 6px 19px;
+	color: #bb945f;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }

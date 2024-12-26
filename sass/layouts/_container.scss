@@ -1,4 +1,24 @@
 .container {
-    max-width: $desktop-width;
-    margin: 0 auto;
+	max-width: $desktop-width;
+	margin: 0 auto;
+
+
+	@include media-small-desktop {
+		max-width: $desktop-small-width;
+	}
+	@include media-laptop {
+		max-width: $laptop-width;
+	}
+	@include media-tablet {
+		max-width: $tablet-width;
+	}
+	@include media-big-mobile {
+		max-width: $mobile-big-width;
+	}
+	@include media-medium-mobile {
+		max-width: $mobile-medium-width;
+	}
+	@include media-small-mobile {
+		max-width: $mobile-small-width;
+	}
 }

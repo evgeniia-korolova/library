@@ -1,0 +1,35 @@
+.burger__btn {
+  position: relative;
+  width: 46px;
+  height: 20px;
+  background-color: #000;
+  border: none;
+  outline: none;
+  display: none;
+
+  @include media-small-desktop {
+		display: flex;
+	}
+}
+
+.burger__line {
+  height: 2px;
+  width: 45px;
+  background-color: $color-white;
+  position: absolute;
+}
+
+.burger__line:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.burger__line:nth-child(2) {
+  top: 10px;
+  left: 0;
+}
+
+.burger__line:nth-child(3) {
+  top: 20px;
+  left: 0;
+}

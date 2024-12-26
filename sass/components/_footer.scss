@@ -1,0 +1,83 @@
+.footer__container {
+  max-width: 1440px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #0c0c0e;
+  color: #fff;
+  margin-top: 21px;
+}
+
+.footer__top {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 133.333%;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  padding-bottom: 3px;
+}
+
+.footer__top__icons ul {
+  margin-top: 5px;
+  display: flex;
+  gap: 15px;
+  padding-bottom: 30px;
+  list-style: none;
+}
+
+.footer__top__icons img:hover {
+  opacity: 0.75;
+}
+.footer__top__top {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__top__bottom {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.schedule {
+  text-align: end;
+  padding-top: 1px;
+  padding-top: -2px;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 2px;
+  margin: 35px 0 15px 0;
+}
+
+.school__name {
+  margin-left: 145px;
+}
+
+.footer__bottom a,
+.footer__top a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer__bottom a:hover,
+.footer__top a:hover {
+  text-decoration: underline;
+  color: rgb(222, 184, 135);
+}

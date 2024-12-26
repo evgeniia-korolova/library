@@ -1,0 +1,120 @@
+
+.coffee__shop {
+  max-width: 1440px;
+  padding: 20px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  margin: 0 auto;
+}
+
+.shop__description {
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.shop__description p {
+  margin: 19px auto;
+  padding: 0 18px;
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  /* text-transform: capitalize; */
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.menu {
+  max-width: 1440px;
+  margin: 0 auto;
+  /* margin-top: 20px;
+  margin-bottom: 60px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* padding: 22px 15px 38px 20px; */
+  padding-left: 20px;
+  /* box-sizing: border-box; */
+}
+
+.menu__list.deserts {
+  padding-right: 5px;
+}
+
+.menu__title {
+  color: #bb945f;
+  font-family: Forum;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu__title.deserts,
+.menu__item.deserts {
+  text-align: right;
+}
+
+.menu__item.deserts {
+  margin-right: -3px;
+}
+
+.menu__title.deserts {
+  padding-right: 5px;
+}
+
+.menu__item.deserts:last-child {
+  margin-right: -5px;
+}
+
+.menu__container {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+
+.menu__item,
+.menu__price {
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-bottom: 40px;
+}
+
+.menu__price {
+  padding-right: 5px;
+}
+
+.menu__item:last-child,
+.menu__price:last-child {
+  margin-bottom: 0;
+}
+
+.menu__price {
+  font-family: var(--font-family-headers);
+}
+
+.menu__price:before {
+  position: relative;
+  top: 50%;
+  width: 100px;
+  content: '';
+  display: inline-block;
+  height: 1px;
+  background: #0c0c0e;
+  margin: 0 60px;
+  vertical-align: middle;
+}

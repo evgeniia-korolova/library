@@ -5,6 +5,10 @@
 	align-items: center;
 	justify-content: space-between;
 	background: $color-dark;
+
+	@include media-tablet {
+		gap: 2rem;
+	}
 }
 
 .logo {
@@ -19,13 +23,7 @@
 	justify-content: flex-end;
 }
 
-.top__panel {
-	display: flex;
-	justify-content: space-between;
-	padding: 20px;
-	padding-right: 90px;
-	background: $color-dark;
-}
+
 
 .nav__list {
 	display: flex;
@@ -33,6 +31,10 @@
 	gap: 30px;
 	list-style: none;
 	text-decoration: none;
+
+	@include media-small-desktop {
+		display: none;
+	}
 }
 
 .nav__panel a {

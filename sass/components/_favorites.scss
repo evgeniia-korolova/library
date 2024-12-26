@@ -1,0 +1,75 @@
+.favorites__container {
+	padding: 20px 20px 40px;
+}
+
+.parent-sticky {
+	position: relative;
+	overflow: visible;
+	height: 100%;
+	width: 100%;
+	padding-top: 40px;
+}
+
+.sticky-child {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.selection__container {
+	padding: 40px 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: baseline;
+	gap: 90px;
+
+	@include media-tablet {
+		gap: 35px;
+	}
+
+	@include media-big-mobile {
+		flex-direction: column;
+		gap: 12px;
+		padding: 20px 0;
+	}
+}
+
+.radio-button__container {
+	display: flex;
+	align-items: center;
+	flex-grow: 0;
+}
+
+.radio__item {
+	accent-color: $color-black;
+	width: 17px;
+	height: 17px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.radio__item:first-child {
+	margin-left: 0;
+}
+
+.season {
+	color: $color-black;
+	font-family: $font-basic;
+	@include font(2rem, 1, 0rem, 400);	
+	padding-left: 17px;
+	cursor: pointer;
+
+	@include media-tablet {
+		padding-left: 8px;
+		@include font(1.5rem, 1, 0rem, 400);
+	}
+}
+
+input[type='radio']:checked + label {
+	text-shadow: 1px 0px 0px black;
+	transition: 0.3s text-shadow;
+}
