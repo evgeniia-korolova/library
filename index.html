@@ -109,50 +109,48 @@
 					<h2 id="favorites">favorites</h2>
 
 					<div class="parent-sticky">
-						<div class="favorites__selection selection">
+						<div class="sticky-child">
 							<h3>Pick favorites of season</h3>
 
-							<div class="sticky-child">
-								<div class="selection__container">
-									<div class="radio-button__container">
-										<input
-											type="radio"
-											class="radio__item"
-											name="season"
-											id="winter"
-										/>
-										<label for="winter" class="season">Winter</label>
-									</div>
+							<div class="selection__container">
+								<div class="radio-button__container">
+									<input
+										type="radio"
+										class="radio__item"
+										name="season"
+										id="winter"
+									/>
+									<label for="winter" class="season">Winter</label>
+								</div>
 
-									<div class="radio-button__container">
-										<input
-											type="radio"
-											class="radio__item"
-											name="season"
-											id="spring"
-										/>
-										<label for="spring" class="season">Spring</label>
-									</div>
+								<div class="radio-button__container">
+									<input
+										type="radio"
+										class="radio__item"
+										name="season"
+										id="spring"
+									/>
+									<label for="spring" class="season">Spring</label>
+								</div>
 
-									<div class="radio-button__container">
-										<input
-											type="radio"
-											class="radio__item"
-											name="season"
-											id="summer"
-										/>
-										<label for="summer" class="season">Summer</label>
-									</div>
+								<div class="radio-button__container">
+									<input
+										type="radio"
+										class="radio__item"
+										name="season"
+										id="summer"
+									/>
+									<label for="summer" class="season">Summer</label>
+								</div>
 
-									<div class="radio-button__container">
-										<input
-											type="radio"
-											class="radio__item"
-											name="season"
-											id="autumn"
-										/>
-										<label for="autumn" class="season">Autumn</label>
-									</div>
+								<div class="radio-button__container">
+									<input
+										type="radio"
+										class="radio__item"
+										name="season"
+										id="autumn"
+									/>
+									<label for="autumn" class="season">Autumn</label>
 								</div>
 							</div>
 						</div>
@@ -168,7 +166,7 @@
 											<div class="book__content">
 												<h3 class="staff">Staff Picks</h3>
 												<h4 class="book__title">The Book Eaters</h4>
-												<p class="book__author">By Sunyi Dean</p>
+												<h5 class="book__author">By Sunyi Dean</h5>
 												<p class="book__description">
 													An unusual sci-fi story about a book eater woman who
 													tries desperately to save her dangerous mind-eater son
@@ -198,7 +196,7 @@
 											<div class="book__content">
 												<h3 class="staff">Staff Picks</h3>
 												<h4 class="book__title">Cackle</h4>
-												<p class="book__author">By Rachel Harrison</p>
+												<h5 class="book__author">By Rachel Harrison</h5>
 												<p class="book__description">
 													Are your Halloween movies of choice The Witches of
 													Eastwick and Practical Magic? Look no further than
@@ -228,7 +226,7 @@
 												<h4 class="book__title">
 													Dante: Poet of the Secular World
 												</h4>
-												<p class="book__author">By Erich Auerbach</p>
+												<h5 class="book__author">By Erich Auerbach</h5>
 												<p class="book__description">
 													Auerbach's engaging book places the 'Comedy' within
 													the tradition of epic, tragedy, and philosophy in
@@ -258,7 +256,7 @@
 												<h3 class="staff">Staff Picks</h3>
 												<div class="line__brown"></div>
 												<h4 class="book__title">The Last Queen</h4>
-												<p class="book__author">By Clive Irving</p>
+												<h5 class="book__author">By Clive Irving</h5>
 												<p class="book__description">
 													A timely and revelatory new biography of Queen
 													Elizabeth (and her family) exploring how the Windsors
@@ -287,68 +285,81 @@
 				</div>
 			</section>
 
-			<!-- <section class="coffee-shop">
-				<h2 id="coffee-shop">Coffee shop</h2>
-				<div class="shop__description">
-					<p>
+			<section class="coffee-shop" id="coffee-shop">
+				<div class="container coffee-shop__container">
+					<h2>Coffee shop</h2>
+					<p class="shop__description">
 						In our library, we have of cozy coffee shop, welcoming in customers
-						with frothy cappuccinos and friendly conversation.&nbsp; Y<span
-							class="lowercase"
-							>ou can get a favorite book and read in coffee shop. Our barista
-							to cook you best coffee, and also you can try desserts from
-							bakery.</span
-						>
+						with frothy cappuccinos and friendly conversation. You can get a
+						favorite book and read in coffee shop. Our baristato cook you best
+						coffee, and also you can try desserts from bakery.
 					</p>
-				</div>
 
-				<div class="menu">
-					<div class="menu__list">
-						<h3 class="menu__title">Coffee &amp; Tea</h3>
-						<div class="menu__container">
-							<div class="menu__items">
-								<div class="menu__item">Cold Brew Coffee</div>
-								<div class="menu__item">French Press Pot</div>
-								<div class="menu__item">Espresso</div>
-								<div class="menu__item">Cappuccino</div>
-								<div class="menu__item">Hot tea</div>
-								<div class="menu__item">Cold tea</div>
-							</div>
-
-							<div class="menu__prices">
-								<div class="menu__price">$3</div>
-								<div class="menu__price">$5</div>
-								<div class="menu__price">$2</div>
-								<div class="menu__price">$4</div>
-								<div class="menu__price">$2</div>
-								<div class="menu__price">$2</div>
-							</div>
+					<div class="menu">
+						<div class="menu__container drinks">
+							<h2 class="menu__title">Coffee &amp; Tea</h2>
+							<ul class="menu-list">
+								<li class="menu-item">
+									<p class="item-title">Cold Brew Coffee</p>
+									<p class="item-price">&#36;3</p>
+								</li>
+								<li class="menu-item">
+									<p class="item-title">French Press Pot</p>
+									<p class="item-price">&#36;5</p>
+								</li>
+								<li class="menu-item">
+									<p class="item-title">Espresso</p>
+									<p class="item-price">&#36;2</p>
+								</li>
+								<li class="menu-item">
+									<p class="item-title">Cappuccino</p>
+									<p class="item-price">&#36;4</p>
+								</li>
+								<li class="menu-item">
+									<p class="item-title">Hot Tea</p>
+									<p class="item-price">&#36;2</p>
+								</li>
+								<li class="menu-item">
+									<p class="item-title">Cold Tea</p>
+									<p class="item-price">&#36;2</p>
+								</li>
+							</ul>
 						</div>
-					</div>
 
-					<div class="menu__list deserts">
-						<h3 class="menu__title deserts">Desserts &amp; Cakes</h3>
 						<div class="menu__container deserts">
-							<div class="menu__items">
-								<div class="menu__item deserts">Forest Gateau</div>
-								<div class="menu__item deserts">Blue Moon</div>
-								<div class="menu__item deserts">Truffle Cake</div>
-								<div class="menu__item deserts">Chocolate Cake</div>
-								<div class="menu__item deserts">Poet’s Dream Cake</div>
-								<div class="menu__item deserts">&nbsp;Pineapple Cake</div>
-							</div>
-
-							<div class="menu__prices">
-								<div class="menu__price">$16</div>
-								<div class="menu__price">$16</div>
-								<div class="menu__price">$15</div>
-								<div class="menu__price">$18</div>
-								<div class="menu__price">$16</div>
-								<div class="menu__price last">$14</div>
-							</div>
+							<h2 class="menu__title deserts">Desserts &amp; Cakes</h2>
+							<ul class="menu-list ">
+								<li class="menu-item item-deserts">
+									<p class="item-title">Forest Gateau</p>
+									<p class="item-price">&#36;16</p>
+								</li>
+								<li class="menu-item item-deserts">
+									<p class="item-title">Blue Moon</p>
+									<p class="item-price">&#36;16</p>
+								</li>
+								<li class="menu-item item-deserts">
+									<p class="item-title">Truffle Cake</p>
+									<p class="item-price">&#36;15</p>
+								</li>
+								<li class="menu-item item-deserts">
+									<p class="item-title">Chocolate Cake</p>
+									<p class="item-price">&#36;18</p>
+								</li>
+								<li class="menu-item item-deserts">
+									<p class="item-title">Poet&#39;s Dream Cake</p>
+									<p class="item-price">&#36;16</p>
+								</li>
+								<li class="menu-item item-deserts">
+									<p class="item-title">Pineapple Cake</p>
+									<p class="item-price">&#36;14</p>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-			</section> -->
+			</section>
+
+			
 
 			<!-- <section class="contacts">
 				<h2 id="contacts">Our Contacts</h2>

@@ -59,12 +59,14 @@
 	width: 550px;
 	height: 555px;
 	padding-left: 20px;
-	margin-left: -1px;
+	
 	flex-shrink: 1;
 
      @include media-medium-mobile {
         width: 100%;
         height: auto;
+		padding-left: 10px;
+		padding-right: 10px;
     }
 }
 
@@ -90,7 +92,7 @@
 }
 
 .book__description {
-    @include font(1.5rem, 2.667, 0.02rem, 400);
+    @include font(1.5rem, 2.667, 0.2rem, 400);
 	display: block;
     width: 355px;	
 	text-transform: capitalize;

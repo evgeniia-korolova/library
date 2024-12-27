@@ -15,6 +15,10 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+ul {
+  list-style: none;
+}
+
 h1 {
   font-size: 3rem;
   line-height: 1.667;
@@ -71,8 +75,32 @@ h4 {
   font-size: 1.5rem;
   line-height: 2.667;
   font-weight: 700;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.2rem;
   color: #000000;
+}
+
+h5 {
+  font-size: 1.5rem;
+  line-height: 2;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  color: #000000;
+}
+
+p {
+  font-size: 2rem;
+  line-height: 2;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  color: #000000;
+}
+@media (max-width: 650px) {
+  p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+  }
 }
 
 .btn {
@@ -121,9 +149,9 @@ h4 {
     max-width: 1260px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .container {
-    max-width: 767px;
+    max-width: 768px;
   }
 }
 @media (max-width: 650px) {
@@ -150,7 +178,7 @@ h4 {
   justify-content: space-between;
   background: #0C0C0E;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .header__container {
     gap: 2rem;
   }
@@ -226,10 +254,14 @@ h4 {
 .welcome__text {
   padding: 220px 0 160px;
 }
+@media (max-width: 650px) {
+  .welcome__text {
+    padding: 100px 0;
+  }
+}
 .welcome__text h2 {
   color: #fff;
   text-align: center;
-  font-family: "Forum", sans-serif;
   font-size: 4rem;
   line-height: 1.25;
   font-weight: 400;
@@ -241,6 +273,15 @@ h4 {
   height: 220px;
   display: flex;
   align-items: center;
+}
+.welcome__text h2:after {
+  display: none;
+}
+@media (max-width: 650px) {
+  .welcome__text h2 {
+    padding: 0;
+    justify-content: center;
+  }
 }
 
 .about__container {
@@ -415,19 +456,20 @@ h4 {
 
 .parent-sticky {
   position: relative;
-  overflow: visible;
-  height: 100%;
-  width: 100%;
-  padding-top: 40px;
 }
 
 .sticky-child {
-  position: sticky;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  margin-top: 40px;
+}
+@media (max-width: 768px) {
+  .sticky-child {
+    position: sticky;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background: rgba(187, 148, 95, 0.5);
+    z-index: 30;
+  }
 }
 
 .selection__container {
@@ -437,15 +479,10 @@ h4 {
   align-items: baseline;
   gap: 90px;
 }
-@media (max-width: 767px) {
-  .selection__container {
-    gap: 35px;
-  }
-}
 @media (max-width: 650px) {
   .selection__container {
-    flex-direction: column;
-    gap: 12px;
+    gap: 15px 50px;
+    flex-wrap: wrap;
     padding: 20px 0;
   }
 }
@@ -478,7 +515,7 @@ h4 {
   padding-left: 17px;
   cursor: pointer;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .season {
     padding-left: 8px;
     font-size: 1.5rem;
@@ -559,13 +596,14 @@ input[type=radio]:checked + label {
   width: 550px;
   height: 555px;
   padding-left: 20px;
-  margin-left: -1px;
   flex-shrink: 1;
 }
 @media (max-width: 492px) {
   .book__content {
     width: 100%;
     height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -594,7 +632,7 @@ input[type=radio]:checked + label {
   font-size: 1.5rem;
   line-height: 2.667;
   font-weight: 400;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.2rem;
   display: block;
   width: 355px;
   text-transform: capitalize;
@@ -640,124 +678,113 @@ input[type=radio]:checked + label {
   letter-spacing: 1.5px;
 }
 
-.coffee__shop {
-  max-width: 1440px;
-  padding: 20px 20px 40px 20px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 1;
-  margin: 0 auto;
-}
-
-.shop__description {
-  max-width: 1440px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.shop__description p {
-  margin: 19px auto;
-  padding: 0 18px;
-  color: #000;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  box-sizing: border-box;
-  /* text-transform: capitalize; */
-}
-
-.lowercase {
-  text-transform: lowercase;
+.coffee-shop__container {
+  padding: 20px;
 }
 
 .menu {
-  max-width: 1440px;
-  margin: 0 auto;
-  /* margin-top: 20px;
-  margin-bottom: 60px; */
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  /* padding: 22px 15px 38px 20px; */
-  padding-left: 20px;
-  /* box-sizing: border-box; */
 }
-
-.menu__list.deserts {
-  padding-right: 5px;
+@media (max-width: 1260px) {
+  .menu {
+    flex-direction: column;
+    gap: 40px;
+  }
 }
-
-.menu__title {
-  color: #bb945f;
-  font-family: Forum;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-}
-
-.menu__title.deserts,
-.menu__item.deserts {
-  text-align: right;
-}
-
-.menu__item.deserts {
-  margin-right: -3px;
-}
-
-.menu__title.deserts {
-  padding-right: 5px;
-}
-
-.menu__item.deserts:last-child {
-  margin-right: -5px;
+@media (max-width: 650px) {
+  .menu {
+    justify-content: center;
+  }
 }
 
 .menu__container {
   display: flex;
+  flex-direction: column;
+}
+
+.menu__title {
+  color: #BB945F;
+  text-transform: capitalize;
+  text-align: left;
+}
+.menu__title:after {
+  display: none;
+}
+
+.shop__description {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   margin-top: 40px;
+}
+@media (max-width: 650px) {
+  .menu-list {
+    gap: 30px;
+  }
+}
+
+.menu-item {
+  display: flex;
   justify-content: space-between;
 }
 
-.menu__item,
-.menu__price {
-  color: #000;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-  margin-bottom: 40px;
+.menu__title.deserts {
+  text-align: right;
+}
+@media (max-width: 650px) {
+  .menu__title.deserts {
+    text-align: left;
+  }
 }
 
-.menu__price {
-  padding-right: 5px;
-}
-
-.menu__item:last-child,
-.menu__price:last-child {
-  margin-bottom: 0;
-}
-
-.menu__price {
-  font-family: var(--font-family-headers);
-}
-
-.menu__price:before {
-  position: relative;
-  top: 50%;
-  width: 100px;
+.item-price::before {
   content: "";
   display: inline-block;
+  width: 102px;
   height: 1px;
-  background: #0c0c0e;
-  margin: 0 60px;
-  vertical-align: middle;
+  background-color: #bb945f;
+  margin: 0 58px 6px;
+}
+@media (max-width: 650px) {
+  .item-price::before {
+    width: 5rem;
+    margin: 0 1rem 6px;
+  }
+}
+
+.menu__container.deserts {
+  padding-right: 5px;
+}
+@media (max-width: 650px) {
+  .menu__container.deserts {
+    padding-right: 0;
+  }
+}
+
+.item-deserts .item-title {
+  margin-left: auto;
+}
+@media (max-width: 650px) {
+  .item-deserts .item-title {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 1260px) {
+  .menu__container.drinks {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 650px) {
+  .menu__container.drinks {
+    align-items: normal;
+  }
 }
 
 .contacts {

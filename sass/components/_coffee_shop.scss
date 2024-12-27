@@ -1,120 +1,102 @@
-
-.coffee__shop {
-  max-width: 1440px;
-  padding: 20px 20px 40px 20px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 1;
-  margin: 0 auto;
-}
-
-.shop__description {
-  max-width: 1440px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.shop__description p {
-  margin: 19px auto;
-  padding: 0 18px;
-  color: #000;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  box-sizing: border-box;
-  /* text-transform: capitalize; */
-}
-
-.lowercase {
-  text-transform: lowercase;
+.coffee-shop__container {
+	padding: 20px;
 }
 
 .menu {
-  max-width: 1440px;
-  margin: 0 auto;
-  /* margin-top: 20px;
-  margin-bottom: 60px; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  /* padding: 22px 15px 38px 20px; */
-  padding-left: 20px;
-  /* box-sizing: border-box; */
-}
+	display: flex;	
+	justify-content: space-between;
 
-.menu__list.deserts {
-  padding-right: 5px;
-}
+  @include media-laptop {
+    flex-direction: column;
+    gap: 40px;
+  }
 
-.menu__title {
-  color: #bb945f;
-  font-family: Forum;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-}
-
-.menu__title.deserts,
-.menu__item.deserts {
-  text-align: right;
-}
-
-.menu__item.deserts {
-  margin-right: -3px;
-}
-
-.menu__title.deserts {
-  padding-right: 5px;
-}
-
-.menu__item.deserts:last-child {
-  margin-right: -5px;
+   @include media-big-mobile {
+    justify-content: center;
+   }
 }
 
 .menu__container {
   display: flex;
-  margin-top: 40px;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
-.menu__item,
-.menu__price {
-  color: #000;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-  margin-bottom: 40px;
+
+.menu__title {
+	color: $color-brand;
+	text-transform: capitalize;
+	text-align: left;
+
+	&:after {
+		display: none;
+	}
 }
 
-.menu__price {
-  padding-right: 5px;
+.shop__description {
+	padding: 20px 0;
+	text-align: center;
 }
 
-.menu__item:last-child,
-.menu__price:last-child {
-  margin-bottom: 0;
+.menu-list {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	margin-top: 40px;
+
+   @include media-big-mobile {
+    gap: 30px;
+   }
 }
 
-.menu__price {
-  font-family: var(--font-family-headers);
+.menu-item {
+	display: flex;
+	justify-content: space-between;
 }
 
-.menu__price:before {
-  position: relative;
-  top: 50%;
-  width: 100px;
-  content: '';
-  display: inline-block;
-  height: 1px;
-  background: #0c0c0e;
-  margin: 0 60px;
-  vertical-align: middle;
+.menu__title.deserts {
+	text-align: right;
+
+  @include media-big-mobile {
+    text-align: left;
+  }
+}
+
+.item-price::before {
+	content: '';
+	display: inline-block;
+	width: 102px;
+	height: 1px;
+	background-color: #bb945f;
+	margin: 0 58px 6px;
+
+  @include media-big-mobile {
+    width: 5rem;
+    margin: 0 1rem 6px;
+  }
+}
+
+.menu__container.deserts {
+	padding-right: 5px;
+
+   @include media-big-mobile {
+    padding-right: 0;
+   }
+}
+
+.item-deserts .item-title {
+	margin-left: auto;
+
+   @include media-big-mobile {
+    margin-left: 0;
+   }
+}
+
+.menu__container.drinks {
+  @include media-laptop {    
+    align-items: flex-start;
+  }
+
+  @include media-big-mobile {
+    align-items: normal;
+  }
 }
