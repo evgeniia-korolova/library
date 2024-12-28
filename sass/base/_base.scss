@@ -38,6 +38,7 @@ h2 {
 	@include media-big-mobile {
 		@include font(3rem, 1, 0.2rem, 400);
 	}
+	
 }
 
 h2:after {
