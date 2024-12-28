@@ -328,7 +328,7 @@
 
 						<div class="menu__container deserts">
 							<h2 class="menu__title deserts">Desserts &amp; Cakes</h2>
-							<ul class="menu-list ">
+							<ul class="menu-list">
 								<li class="menu-item item-deserts">
 									<p class="item-title">Forest Gateau</p>
 									<p class="item-price">&#36;16</p>
@@ -359,121 +359,120 @@
 				</div>
 			</section>
 
-			
-
-			<!-- <section class="contacts">
-				<h2 id="contacts">Our Contacts</h2>
-				<div class="contacts__container">
-					<div class="contacts__items">
-						<div class="contacts__inquiries">
-							<h4 class="contact__title">For all Library inquiries:</h4>
-							<p>Please call <a href="tel:+6177302370">(617) 730-2370</a></p>
-							<p>
-								For TTY service, please call
-								<a href="tel:+6177302370">(617) 730-2370</a>
-							</p>
-							<p>
-								Putterham Library:
-								<a href="tel:+6177302385">(617) 730-2385</a>
-							</p>
+			<section class="contacts">
+				<div class="container contacts__container">
+					<h2 id="contacts">Our Contacts</h2>
+					<div class="contacts__content">
+						<div class="contacts__items">
+							<div class="contacts__inquiries">
+								<h4 class="contact__title">For all Library inquiries:</h4>
+								<p>Please call <a href="tel:+6177302370">(617) 730-2370</a></p>
+								<p>
+									For TTY service, please call
+									<a href="tel:+6177302370">(617) 730-2370</a>
+								</p>
+								<p>
+									Putterham Library:
+									<a href="tel:+6177302385">(617) 730-2385</a>
+								</p>
+							</div>
+							<div class="contact__staff">
+								<h4 class="contact__title">Senior Staff</h4>
+								<p>
+									Library Director:
+									<a href="mailto:AmandaHirst@gmail.com" class="director"
+										>Amanda Hirst</a
+									>
+								</p>
+							</div>
 						</div>
-						<div class="contact__staff">
-							<h4 class="contact__title">Senior Staff</h4>
-							<p>
-								Library Director:
-								<a href="mailto:AmandaHirst@gmail.com" class="director"
-									>Amanda Hirst</a
-								>
-							</p>
+						<div class="contacts__map" id="address">
+							<img src="./images/map.png" alt="library location" class="map" />
 						</div>
-					</div>
-					<div class="contacts__map" id="address">
-						<img src="./images/map.png" alt="library location" class="map" />
 					</div>
 				</div>
-			</section> -->
+			</section>
 
-			<!-- <section class="digital-card">
-				<h2 id="card">Digital Library Cards</h2>
-				<div class="digital-card__container">
-					
-					<div class="digital-card__left-item">
-						<h3 class="left-item__title">Find your Library card</h3>
-						<form class="library-card" id="library-card">
-							<div class="inp__container">
-								<h4 class="left__title">Brooklyn Public Library</h4>
-								<input
-									type="text"
-									placeholder="Reader's name"
-									class="card__input"
-									id="readerName"
-									autocomplete="off"
-								/>
-								<input
-									type="number"
-									class="card__input"
-									placeholder="Card number"
-									autocomplete="off"
-									id="readerCard"
-								/>
+			<section class="digital-card">
+				<div class="container digital-card__container">
+					<h2 id="card">Digital Library Cards</h2>
+					<div class="digital-card__content-box">
+						<div class="card__wrapper">
+							<h3 class="card__title">Find your Library card</h3>
+							<form class="library-card__form" id="library-card">
+								<div class="inp__container">
+									<h4 class="left__title">Brooklyn Public Library</h4>
+									<input
+										type="text"
+										placeholder="Reader's name"
+										class="card__input"
+										id="readerName"
+										autocomplete="off"
+									/>
+									<input
+										type="number"
+										class="card__input"
+										placeholder="Card number"
+										autocomplete="off"
+										id="readerCard"
+									/>
+								</div>
+								<button class="check__card__btn open" type="button">
+									Check the card
+								</button>
+
+								<div class="card__badges card__bages-hidden">
+									<div class="card__icon">
+										<div class="card__icon__name">Visits</div>
+										<div class="card__icon__image">
+											<img
+												src="./images/card_icon_visits.svg"
+												alt="icon visits"
+											/>
+										</div>
+										<div class="card__icon__quantity">0</div>
+									</div>
+
+									<div class="card__icon">
+										<div class="card__name">Bonuses</div>
+
+										<div class="card__icon__image">
+											<img src="./images/card_icon_star.svg" alt="icon star" />
+										</div>
+										<div class="card__bonuses">0</div>
+									</div>
+
+									<div class="card__icon">
+										<div class="card__name">Books</div>
+										<div class="card__icon__image">
+											<img src="./images/card_icon_book.svg" alt="icon book" />
+										</div>
+
+										<div class="card__quantity">0</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="card__wrapper card-info__wrapper">
+							<h4 class="card__title">Get a reader card</h4>
+							<p>
+								You will be able to see a reader card after logging into account
+								or you can register a new account
+							</p>
+							<div class="card__buttons-group">
+								<button class="right__card__button" id="signUpButton">
+									Sign Up
+								</button>
+								<button class="right__card__button log-btn" id="loginBtnInCard">
+									Log in
+								</button>
 							</div>
-							<button class="check__card__btn open" type="button">
-								Check the card
-							</button>
-
-							<div class="card__details">
-								<div class="card__icon">
-									<div class="card__icon__name">Visits</div>
-									<div class="card__icon__image">
-										<img
-											src="./images/card_icon_visits.svg"
-											alt="icon visits"
-										/>
-									</div>
-									<div class="card__icon__quantity">0</div>
-								</div>
-
-								<div class="card__icon">
-									<div class="card__name">Bonuses</div>
-
-									<div class="card__icon__image">
-										<img src="./images/card_icon_star.svg" alt="icon star" />
-									</div>
-									<div class="card__bonuses">0</div>
-								</div>
-
-								<div class="card__icon">
-									<div class="card__name">Books</div>
-									<div class="card__icon__image">
-										<img src="./images/card_icon_book.svg" alt="icon book" />
-									</div>
-
-									<div class="card__quantity">0</div>
-								</div>
-							</div>
-						</form>
-					</div>
-
-					
-
-					<div class="digital-card__right-block">
-						<h4 class="right__title">Get a reader card</h4>
-						<p>
-							You will be able to see a reader card after logging into account
-							or you can register a new account
-						</p>
-						<div class="card__buttons">
-							<button class="right__card__button" id="signUpButton">
-								Sign Up
-							</button>
-							<button class="right__card__button log-btn" id="loginBtnInCard">
-								Log in
-							</button>
 						</div>
 					</div>
-					
-				</div>							
-			</section> -->
+				</div>
+			</section>
+			
 		</main>
 		<!-- <footer>
 			<div class="footer__container">

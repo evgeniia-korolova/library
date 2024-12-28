@@ -1,0 +1,50 @@
+.check__card__btn {	
+	
+	color: #0c0c0e;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 9px 41px;
+	border-radius: 2px;
+	border: 1px solid #0c0c0e;
+	background: #fff;
+	margin: 20px auto;
+}
+
+.check__card__btn:hover {
+	background: #bb945f;
+	color: #0c0c0e;
+	border: 1px solid #bb945f;
+	border-radius: 2px;
+	transition: 0.2s;
+}
+
+.right__card__button {
+	display: flex;
+	width: 75px;
+	height: 30px;
+	padding: 10px 0px;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	border-radius: 2px;
+	border: 1px solid #0c0c0e;
+	color: #0c0c0e;
+	text-align: center;
+	font-family: Inter;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 1px;
+	background-color: #fff;
+}
+
+.right__card__button:hover {
+	background: #bb945f;
+	color: #0c0c0e;
+	border: 1px solid #bb945f;
+	border-radius: 2px;
+	transition: 0.2s;
+}
+

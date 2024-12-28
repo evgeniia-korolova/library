@@ -16,11 +16,11 @@ body {
 }
 
 ul {
-	list-style: none
+	list-style: none;
 }
 
 h1 {
-	@include font(3rem, 1.667, 0.06rem, 400);
+	@include font(3rem, 1.667, 0.6rem, 400);
 	color: $color-white;
 	font-family: $font-headers;
 
@@ -31,12 +31,12 @@ h1 {
 
 h2 {
 	font-family: $font-headers;
-	@include font(4rem, 1, 0.02rem, 400);
+	@include font(4rem, 1, 0.2rem, 400);
 	text-transform: capitalize;
 	text-align: center;
 
 	@include media-big-mobile {
-		@include font(3rem, 1, 0.02rem, 400);
+		@include font(3rem, 1, 0.2rem, 400);
 	}
 }
 
@@ -47,6 +47,10 @@ h2:after {
 	height: 1px;
 	background: $color-dark;
 	margin: 20px auto 0;
+
+	@include media-big-mobile {
+		margin: 10px auto 0;
+	}
 }
 
 h3 {
@@ -56,12 +60,12 @@ h3 {
 
 h4 {
 	@include font(1.5rem, 2.667, 0.2rem, 700);
-  color: $color-black;
+	color: $color-black;
 }
 
 h5 {
 	@include font(1.5rem, 2, 0.2rem, 700);
-  color: $color-black;
+	color: $color-black;
 }
 
 p {
@@ -70,6 +74,9 @@ p {
 
 	@include media-big-mobile {
 		@include font(1.5rem, 1.5, 0.2rem, 400);
+	}
+	@include media-small-mobile {
+		@include font(1.2rem, 1.2, 0.2rem, 400);
 	}
 }
 
