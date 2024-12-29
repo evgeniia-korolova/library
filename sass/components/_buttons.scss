@@ -1,20 +1,62 @@
-.check__card__btn {	
-	
-	color: #0c0c0e;
+.btn-outlined {
+	color: $color-dark;
+	font-family: $font-basic;
+	@include font(1rem, 1.21, 0.1rem, 700);
+	border: 1px solid $color-black;
+	border-radius: 2px;
+
+	background: $color-white;
+	@extend %transition;
+}
+
+.btn-small {
+	@include font(1rem, 1.21, 0.1rem, 700);
+	padding: 9px 27px;
+}
+
+.btn-big {
+	@include font(2rem, 1.21, 0.1rem, 700);
+	padding: 10px 40px;
+	margin: 30px auto 0;
+}
+
+.btn-extra-small {
+	@include font(1rem, 1.21, 0.1rem, 700);
+	padding: 9px 16px;
+}
+
+.btn-outlined:hover {
+	background: $color-brand;
+	border: 1px solid $color-brand;
+}
+
+.btn-auto {
+	margin-top: auto;
+	align-self: flex-start;
+}
+
+.btn__own {
+	border: 1px solid $color-brand;
+	padding: 6px 19px;
+	color: $color-brand;
+}
+
+.check__card__btn {
+	color: $color-dark;
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 1px;
 	padding: 9px 41px;
 	border-radius: 2px;
-	border: 1px solid #0c0c0e;
-	background: #fff;
+	border: 1px solid $color-dark;
+	background: $color-white;
 	margin: 20px auto;
 }
 
 .check__card__btn:hover {
-	background: #bb945f;
-	color: #0c0c0e;
-	border: 1px solid #bb945f;
+	background: $color-brand;
+	color: $color-dark;
+	border: 1px solid $color-brand;
 	border-radius: 2px;
 	transition: 0.2s;
 }
@@ -28,8 +70,8 @@
 	align-items: center;
 	flex-shrink: 0;
 	border-radius: 2px;
-	border: 1px solid #0c0c0e;
-	color: #0c0c0e;
+	border: 1px solid $color-dark;
+	color: $color-dark;
 	text-align: center;
 	font-family: Inter;
 	font-size: 10px;
@@ -37,14 +79,13 @@
 	font-weight: 700;
 	line-height: normal;
 	letter-spacing: 1px;
-	background-color: #fff;
+	background-color: $color-white;
 }
 
 .right__card__button:hover {
-	background: #bb945f;
-	color: #0c0c0e;
-	border: 1px solid #bb945f;
+	background: $color-brand;
+	color: $color-dark;
+	border: 1px solid $color-brand;
 	border-radius: 2px;
 	transition: 0.2s;
 }
-

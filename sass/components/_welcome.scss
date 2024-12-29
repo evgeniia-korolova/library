@@ -15,7 +15,7 @@
 	padding: 220px 0 160px;
 
 	@include media-big-mobile {
-		padding: 100px 0;
+		padding: 100px 20px;
 	}
 
 	h2 {
@@ -35,7 +35,7 @@
 		}
 
 		@include media-big-mobile {
-			padding: 0;
+			padding: 35px 0;
 			justify-content: center;
 		}
 		@include media-medium-mobile {

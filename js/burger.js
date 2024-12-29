@@ -1,29 +1,39 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const burger = document.getElementById('burger');
-  burger.addEventListener('click', function () {
-    document.querySelector('.header').classList.toggle('open');
-    document.getElementById('registration').classList.remove('open-form');
-    document.getElementById('profile-popup').classList.remove('open-form');
-  });
-});
+export function toggleBurger() {
+	const burgerBtn = document.getElementById('burger');
+	const menu = document.getElementById('nav__panel');
+	const navLinks = document.querySelectorAll('.nav-item');
 
-// Закрыть меню при нажатии на Esc
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    // Действие при клике
-    document.querySelector('.header').classList.remove('open');
-  }
-});
+	burgerBtn.addEventListener('click', () => {
+		menu.classList.toggle('is-open');
+		document.body.classList.toggle('no-scroll');
+	});
 
-// Закрыть меню при клике вне его
-document.getElementById('nav__panel').addEventListener('click', (event) => {
-  event._isClickWithInMenu = true;
-});
-document.getElementById('burger').addEventListener('click', (event) => {
-  event._isClickWithInMenu = true;
-});
-document.body.addEventListener('click', (event) => {
-  if (event._isClickWithInMenu) return;
-  // Действие при клике
-  document.querySelector('.header').classList.remove('open');
-});
+	navLinks.forEach((element) => {
+		element.addEventListener('click', function () {
+			if (menu.classList.contains('is-open')) {
+				menu.classList.remove('is-open');
+				document.body.classList.toggle('no-scroll');
+			}
+		});
+	});
+
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			// Действие при клике
+			menu.classList.remove('is-open');
+		}
+	});
+
+	// Закрыть меню при клике вне его
+	menu.addEventListener('click', (event) => {
+		event._isClickWithInMenu = true;
+	});
+	burgerBtn.addEventListener('click', (event) => {
+		event._isClickWithInMenu = true;
+	});
+	document.body.addEventListener('click', (event) => {
+		if (event._isClickWithInMenu) return;
+		// Действие при клике
+		menu.classList.remove('is-open');
+	});
+}

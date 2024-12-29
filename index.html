@@ -35,7 +35,7 @@
 					</ul>
 				</nav>
 
-				<div class="logo">
+				<div class="user-icon">
 					<img src="./images/icon_profile.svg" alt="logo" />
 				</div>
 				<button class="burger__btn" id="burger">
@@ -50,7 +50,10 @@
 			<section class="welcome">
 				<div class="container welcome__container">
 					<div class="welcome__text">
-						<h2>Welcome&thinsp;<br />to the Brooklyn <br> Library</h2>
+						<h2>
+							Welcome&thinsp;<br />to the Brooklyn <br />
+							Library
+						</h2>
 					</div>
 				</div>
 			</section>
@@ -176,11 +179,10 @@
 													of heart.
 												</p>
 											</div>
-											<div>
-												<button class="btn active buy-book" id="test">
-													Buy
-												</button>
-											</div>
+
+											<button class="btn-outlined btn-small btn-auto" id="test">
+												Buy
+											</button>
 										</div>
 										<div class="book__photo">
 											<img
@@ -205,9 +207,10 @@
 													beautiful witch.
 												</p>
 											</div>
-											<div>
-												<button class="btn active buy-book">Buy</button>
-											</div>
+
+											<button class="btn-outlined btn-small btn-auto">
+												Buy
+											</button>
 										</div>
 										<div class="book__photo">
 											<img
@@ -237,9 +240,10 @@
 													Dante's main themes.
 												</p>
 											</div>
-											<div>
-												<button class="btn active buy-book">Buy</button>
-											</div>
+
+											<button class="btn-outlined btn-small btn-auto">
+												Buy
+											</button>
 										</div>
 										<div class="book__photo">
 											<img
@@ -264,9 +268,10 @@
 													changed around them.
 												</p>
 											</div>
-											<div>
-												<button class="btn active buy-book">Buy</button>
-											</div>
+
+											<button class="btn-outlined btn-small btn-auto">
+												Buy
+											</button>
 										</div>
 										<div class="book__photo">
 											<img
@@ -417,7 +422,7 @@
 										id="readerCard"
 									/>
 								</div>
-								<button class="check__card__btn open" type="button">
+								<button class="btn-outlined btn-big open" type="button">
 									Check the card
 								</button>
 
@@ -461,10 +466,13 @@
 								or you can register a new account
 							</p>
 							<div class="card__buttons-group">
-								<button class="right__card__button" id="signUpButton">
+								<button class="btn-outlined btn-extra-small" id="signUpButton">
 									Sign Up
 								</button>
-								<button class="right__card__button log-btn" id="loginBtnInCard">
+								<button
+									class="btn-outlined btn-extra-small"
+									id="loginBtnInCard"
+								>
 									Log in
 								</button>
 							</div>
@@ -478,7 +486,7 @@
 				<div class="footer__top">
 					<div class="footer__top-info">
 						<div class="footer__top-address">
-							<a href="#address" 
+							<a href="#address"
 								>286 Cadman Plaza, New York, <br />NY 11238, United States
 							</a>
 						</div>
@@ -517,11 +525,11 @@
 							<p>Sat - Sun</p>
 							<p>10:00 am - 06:00 pm</p>
 						</div>
-					</div>					
+					</div>
 				</div>
 
 				<div class="footer__bottom">
-					<div>2023</div>
+					<div>2024</div>
 					<div class="school__name">
 						<a href="https://rs.school/js-stage0/" target="_blank"
 							>The Rolling Scopes School</a
@@ -739,7 +747,7 @@
                   <p class="form__field__error closed" id="email-error">Wrong email format</p>
                 </div>
 
-                <div class="form__field" style="margin-bottom: 20px">
+                <div class="form__field" style="margin-bottom: 1.25rem">
                   <label for="pass">Password</label>
                   <input type="password" id="pass" name="pass" required autocomplete="off">
                   <p class="form__field__error closed" id="password-error">Should contain at least 8 characters</p>
@@ -772,7 +780,7 @@
 
 		<!-- end forms -->
 
-		<script src="./index.js" type="module"></script>
+		<script src="./js/index.js" type="module"></script>
 		<!-- <script src="./login.js" type="module" ></script>
     <script src="./sliders.js" type="module" ></script>
     <script src="./burger.js" type="module" ></script>

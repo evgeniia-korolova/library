@@ -81,34 +81,13 @@ p {
 	}
 }
 
-.btn {
-	color: #0c0c0e;
-	font-family: var(--font-family-basic);
-	font-size: 10px;
-	font-weight: 700;
-	line-height: 1;
-	letter-spacing: 1px;
-	margin-bottom: 15px;
-	border: 1px solid black;
-	border-radius: 2px;
-	padding: 6px 21px;
-	background: #fff;
-	margin-left: 18px;
-}
 
-.btn.active:hover {
-	background: #bb945f;
-	color: #0c0c0e;
-	border: 1px solid #bb945f;
-	border-radius: 2px;
-}
-
-.btn.btn__own {
-	border: 1px solid #bb945f;
-	padding: 6px 19px;
-	color: #bb945f;
-}
 
 .hidden {
 	display: none;
+}
+
+
+.no-scroll {
+	overflow: hidden;
 }

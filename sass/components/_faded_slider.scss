@@ -43,12 +43,14 @@
 .book__content__container {
 	display: flex;
 	max-width: 550px;
+	min-height: 555px;
     height: 100%;
 	flex-direction: column;
 	border: 1px solid $color-black;
-	background: #fff;
+	background: $color-white;
 	flex-shrink: 1;
 	box-sizing: border-box;
+	padding: 15px 20px;
 
 	 @include media-medium-mobile {
         width: 100%;
@@ -57,9 +59,7 @@
 
 .book__content {
 	width: 550px;
-	height: 555px;
-	padding-left: 20px;
-	
+		
 	flex-shrink: 1;
 
      @include media-medium-mobile {

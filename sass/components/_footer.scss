@@ -74,9 +74,9 @@
 	@include media-big-mobile {
 		flex-direction: column;
 		align-items: center;
-    gap: 10px;
-    @include font(1.6rem, 1, 0.2rem, 400);
-    padding: 20px;
+		gap: 10px;
+		@include font(1.6rem, 1, 0.2rem, 400);
+		padding: 20px;
 	}
 }
 
@@ -88,9 +88,9 @@
 
 .footer__top-address,
 .school__name {
-  @include media-big-mobile {
-   text-align: center; 
-  }
+	@include media-big-mobile {
+		text-align: center;
+	}
 }
 
 .footer__bottom a:hover,
