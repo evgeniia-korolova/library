@@ -431,15 +431,15 @@ p {
 .slider__pagination ul li {
   width: 16px;
   height: 16px;
-  border: 1px solid #000;
+  border: 1px solid #000000;
   border-radius: 50%;
   margin: 5px;
-  background: #000;
+  background: #000000;
   cursor: pointer;
 }
 .slider__pagination ul li.selected {
-  background: #bb945f;
-  border-color: #bb945f;
+  background: #BB945F;
+  border-color: #BB945F;
 }
 @media (max-width: 650px) {
   .slider__pagination {
@@ -479,6 +479,11 @@ p {
   .arrow {
     display: none;
   }
+}
+
+.arrow.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 @media (max-width: 1260px) {

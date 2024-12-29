@@ -73,16 +73,16 @@
 	ul li {
 		width: 16px;
 		height: 16px;
-		border: 1px solid #000;
+		border: 1px solid $color-black;
 		border-radius: 50%;
 		margin: 5px;
-		background: #000;
+		background: $color-black;
 		cursor: pointer;
 	}
 
 	ul li.selected {
-		background: #bb945f;
-		border-color: #bb945f;
+		background: $color-brand;
+		border-color: $color-brand;
 	}
 
 	@include media-big-mobile{
@@ -119,6 +119,11 @@
 	@include media-big-mobile {
 		display: none;
 	}
+}
+
+.arrow.disabled {
+	pointer-events: none;
+	opacity: 0.5;
 }
 
 .arrow-left {
