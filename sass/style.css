@@ -609,6 +609,30 @@ input[type=radio]:checked + label {
   }
 }
 
+.season-slide.fade-in {
+  animation: fade-in 1s forwards ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.season-slide.fade-out {
+  animation: fade-out 1s forwards ease-in-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
 .book__wrapper {
   position: relative;
   width: 590px;

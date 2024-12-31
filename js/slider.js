@@ -6,8 +6,7 @@ export function handleSlider() {
 	const rightArrow = document.querySelector('.arrow-right');
 	const gap = 25;
 	let currentIndex = 0;
-
-	console.log('currentIndex', currentIndex);
+	
 
 	const setActiveIndicator = (index) => {
 		indicators.forEach((indicator, indicatorIndex) => {

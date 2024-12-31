@@ -18,33 +18,57 @@
 	}
 }
 
+.season-slide.fade-in {
+	animation: fade-in 1s forwards ease-in-out;
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0.2;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.season-slide.fade-out {
+	animation: fade-out 1s forwards ease-in-out;
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0.2;
+	}
+}
+
 .book__wrapper {
 	position: relative;
 	width: 590px;
-    max-width: 590px;
+	max-width: 590px;
 	height: 555px;
 
-	@include media-big-mobile {		
+	@include media-big-mobile {
 		max-width: 610px;
 		height: auto;
 	}
 
-	@include media-medium-mobile {		
-		max-width: 452px;		
+	@include media-medium-mobile {
+		max-width: 452px;
 	}
 
-	@include media-small-mobile {		
-		max-width: 290px;		
+	@include media-small-mobile {
+		max-width: 290px;
 	}
 }
-
-
 
 .book__content__container {
 	display: flex;
 	max-width: 550px;
 	min-height: 555px;
-    height: 100%;
+	height: 100%;
 	flex-direction: column;
 	border: 1px solid $color-black;
 	background: $color-white;
@@ -52,22 +76,22 @@
 	box-sizing: border-box;
 	padding: 15px 20px;
 
-	 @include media-medium-mobile {
-        width: 100%;
-    }
+	@include media-medium-mobile {
+		width: 100%;
+	}
 }
 
 .book__content {
 	width: 550px;
-		
+
 	flex-shrink: 1;
 
-     @include media-medium-mobile {
-        width: 100%;
-        height: auto;
+	@include media-medium-mobile {
+		width: 100%;
+		height: auto;
 		padding-left: 10px;
 		padding-right: 10px;
-    }
+	}
 }
 
 .staff {
@@ -92,20 +116,20 @@
 }
 
 .book__description {
-    @include font(1.5rem, 2.667, 0.2rem, 400);
+	@include font(1.5rem, 2.667, 0.2rem, 400);
 	display: block;
-    width: 355px;	
+	width: 355px;
 	text-transform: capitalize;
 	margin-top: 20px;
 
-    @include media-big-mobile {
-        max-width: 350px;
-         @include font(1.3rem, 2.5, 0.02rem, 400);
-    }
-    @include media-medium-mobile {
-        width: 100%;
-        max-width: 100%;
-    }
+	@include media-big-mobile {
+		max-width: 350px;
+		@include font(1.3rem, 2.5, 0.02rem, 400);
+	}
+	@include media-medium-mobile {
+		width: 100%;
+		max-width: 100%;
+	}
 }
 
 .book__photo {
@@ -115,16 +139,16 @@
 	width: 200px;
 	height: 300px;
 
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-      @include media-medium-mobile {     
-        display: none;       
-    }
+	@include media-medium-mobile {
+		display: none;
+	}
 }
 
 .small_space {

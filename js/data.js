@@ -94,7 +94,7 @@ export const books = [
 		season: 'summer',
 		title: 'The Octopus Museum: Poems',
 		author: 'By Brenda Shaughnessy',
-		image: './images/book-eleven.png',
+		image: './images/book-11.png',
 		description:
 			'This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.',
 	},
@@ -103,7 +103,7 @@ export const books = [
 		season: 'summer',
 		title: 'Shark Dialogues: A Novel',
 		author: 'By Kiana Davenport',
-		image: './images/book-twelve.png',
+		image: './images/book-12.png',
 		description:
 			'An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.',
 	},
@@ -112,7 +112,7 @@ export const books = [
 		season: 'autumn',
 		title: 'Casual Conversation',
 		author: 'By Renia White',
-		image: './images/book-thirteen.png',
+		image: './images/book-13.png',
 		description:
 			"White's impressive debut collection takes readers  through and beyond the concepts of conversation and the casual - both what we say to each other and what we  don't, examining the possibilities around how we construct and communicate identity.",
 	},
@@ -121,7 +121,7 @@ export const books = [
 		season: 'autumn',
 		title: 'The Great Fire',
 		author: 'By Lou Ureneck',
-		image: './images/book-fourteen.png',
+		image: './images/book-14.png',
 		description:
 			'The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved  a quarter of a million refugees from the Armenian Genocide',
 	},
@@ -130,7 +130,7 @@ export const books = [
 		season: 'autumn',
 		title: 'Rickey: The Life and Legend',
 		author: 'By Howard Bryant',
-		image: './images/book-fifteen.png',
+		image: './images/book-15.png',
 		description:
 			"With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?",
 	},
@@ -139,7 +139,7 @@ export const books = [
 		season: 'autumn',
 		title: 'Slug: And Other Stories',
 		author: 'By Megan Milks',
-		image: './images/book-sixteen.png',
+		image: './images/book-16.png',
 		description:
 			"Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience  the shared trauma of giving birth to gods from their wounds.",
 	},
