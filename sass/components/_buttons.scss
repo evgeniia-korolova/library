@@ -4,7 +4,6 @@
 	@include font(1rem, 1.21, 0.1rem, 700);
 	border: 1px solid $color-black;
 	border-radius: 2px;
-
 	background: $color-white;
 	@extend %transition;
 }
@@ -35,10 +34,28 @@
 	align-self: flex-start;
 }
 
+.btn-right-auto {
+	margin-right: auto;
+}
+
 .btn__own {
 	border: 1px solid $color-brand;
 	padding: 6px 19px;
 	color: $color-brand;
+}
+
+.btn-text {
+	@include font(1.5rem, 1.333, 0rem, 400);
+	border: none;
+	outline: none;
+	background: transparent;
+}
+.btn-text-underlined {
+	@include font(1rem, 1.21, 0rem, 700);
+	border: none;
+	outline: none;
+	background: transparent;
+	text-decoration: underline;
 }
 
 .check__card__btn {

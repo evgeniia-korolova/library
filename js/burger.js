@@ -2,10 +2,15 @@ export function toggleBurger() {
 	const burgerBtn = document.getElementById('burger');
 	const menu = document.getElementById('nav__panel');
 	const navLinks = document.querySelectorAll('.nav-item');
+	const userBtn = document.querySelector('.user-icon');
+	const userMenu = document.querySelector('.user-menu');
 
 	burgerBtn.addEventListener('click', () => {
 		menu.classList.toggle('is-open');
 		document.body.classList.toggle('no-scroll');
+		if(!userMenu.classList.contains('hidden')) {
+			userMenu.classList.add('hidden');
+		}
 	});
 
 	navLinks.forEach((element) => {
@@ -36,4 +41,9 @@ export function toggleBurger() {
 		// Действие при клике
 		menu.classList.remove('is-open');
 	});
+
+		userBtn.addEventListener('click', () => {
+			menu.classList.toggle('is-open');
+			document.body.classList.remove('no-scroll');
+		});
 }

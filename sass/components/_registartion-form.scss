@@ -1,44 +1,68 @@
 .registration,
-.profile {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  min-height: 100vh;
-  z-index: 50;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  visibility: hidden;
-  opacity: 0;
- 
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $color-white;
+  
+  padding: 20px 25px;
 }
 
-.drop-registration-content,
-.drop-profile-content {
-  width: 80px;
-  height: 115px;
-  background: #fff;
-  position: relative;
-  top: 60px;
-  right: 31px;
+.registration-form,
+.login-form {
+  width: 250px;  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;  
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-title {  
+  font-family: $font-headers;
+  @include font(2rem, 1, 0.4rem, 400); 
+  text-transform: uppercase;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.registration.open-form,
-.profile.open-form {
-  visibility: visible;
-  opacity: 1;
+.text-btn__block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.registration p,
+.text-btn__block--text {
+  @include font(1rem, 1.21, 0rem, 400); 
+}
+
+.drop-profile-content {
+  width: 80px;
+  height: 115px;
+  background: $color-white;
+  position: absolute;
+  top: 87px;
+  right: 79px;
+  text-align: center;
+  z-index: 20;
+}
+
+
+
+.notAuthUserDrop p,
 .profile p {
   font-size: 15px;
   font-weight: 700;
   line-height: 133.333%;
   margin: 5px 0;
 }
+
 .line {
   margin: 0 auto;
   width: 40px;
@@ -47,41 +71,28 @@
   margin-bottom: 15px;
 }
 
-.reg-btn,
-.log-btnInRegPopup {
-  background: none;
-  border: none;
-  margin-bottom: 10px;
-  font-family: var(--font-family-basic);
-}
+
+
 
 /* modal Register */
 
-.reg-form {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  min-height: 100vh;
-  z-index: 50;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.4s, visibility 0.4s;
-}
+// .reg-form {
+//   position: fixed;
+//   width: 100%;
+//   top: 0;
+//   left: 0;
+//   min-height: 100vh;
+//   z-index: 50;
+//   background: rgba(0, 0, 0, 0.7);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   visibility: hidden;
+//   opacity: 0;
+//   transition: opacity 0.4s, visibility 0.4s;
+// }
 
-.registration-modal-content {
-  width: 250px;
-  height: 382px;
-  position: relative;
-  background: #fff;
-  padding: 20px 25px;
-  transform: scale(0);
-  transition: transform 0.8s;
-}
+
 
 .reg-form.open-form {
   visibility: visible;
@@ -117,16 +128,7 @@
   background: red;
 }
 
-.form-title {
-  font-size: 20px;
-  font-family: var(--font-family-headers);
-  font-weight: 400;
-  line-height: 100%;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  text-align: center;
-}
+
 
 .welcome input[type='text'],
 .welcome input[type='password'],
@@ -168,18 +170,7 @@
   border-radius: 2px;
 }
 
-.loginBtn {
-  background: none;
-  border: none;
-  text-decoration: underline;
-  height: 10px;
-  font-weight: 700;
-  /* padding: 2px; */
-  font-family: var(--font-family-basic);
-  font-size: 10px;
-  /* margin-bottom: 10px; */
-  cursor: pointer;
-}
+
 
 .form-p {
   font-size: 10px;
@@ -187,21 +178,7 @@
   display: inline;
 }
 
-.login-form {
-  position: fixed;
-  width: 100%;
-  min-height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.4s, visibility 0.4s;
-}
+
 
 .login-modal-content {
   width: 250px;

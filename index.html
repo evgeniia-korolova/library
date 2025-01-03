@@ -189,141 +189,9 @@
 
 						<div class="books-carousel">
 							<div class="books-slider">
-								<div class="season-slide">
-									<!-- book 1 -->
-									<!-- <div class="book__wrapper">
-										<div class="book__content__container">
-											<div class="book__content">
-												<h3 class="staff">Staff Picks</h3>
-												<h4 class="book__title">The Book Eaters</h4>
-												<h5 class="book__author">By Sunyi Dean</h5>
-												<p class="book__description">
-													An unusual sci-fi story about a book eater
-													woman who tries desperately to save her
-													dangerous mind-eater son from tradition and
-													certain death. Complete with dysfunctional
-													family values, light Sapphic romance, and a
-													strong, complex protagonist. Not for the
-													faint of heart.
-												</p>
-											</div>
-
-											<button
-												class="btn-outlined btn-small btn-auto"
-												id="test"
-											>
-												Buy
-											</button>
-										</div>
-										<div class="book__photo">
-											<img
-												src="./images/book-one.png"
-												alt="The Book Eaters By Sunyi Dean"
-											/>
-										</div>
-									</div> -->
-
-									<!-- book 2 -->
-									<!-- <div class="book__wrapper">
-										<div class="book__content__container">
-											<div class="book__content">
-												<h3 class="staff">Staff Picks</h3>
-												<h4 class="book__title">Cackle</h4>
-												<h5 class="book__author">
-													By Rachel Harrison
-												</h5>
-												<p class="book__description">
-													Are your Halloween movies of choice The
-													Witches of Eastwick and Practical Magic?
-													Look no further than here - where a woman
-													recovering from a breakup moves to a quaint
-													town in upstate New York and befriends a
-													beautiful witch.
-												</p>
-											</div>
-
-											<button class="btn-outlined btn-small btn-auto">
-												Buy
-											</button>
-										</div>
-										<div class="book__photo">
-											<img
-												src="./images/book-two.png"
-												alt="The Book Eaters By Sunyi Dean"
-											/>
-										</div>
-									</div> -->
-
-									<!-- book 3 -->
-									<!-- <div class="book__wrapper">
-										<div class="book__content__container">
-											<div class="book__content">
-												<h3 class="staff">Staff Picks</h3>
-
-												<h4 class="book__title">
-													Dante: Poet of the Secular World
-												</h4>
-												<h5 class="book__author">
-													By Erich Auerbach
-												</h5>
-												<p class="book__description">
-													Auerbach's engaging book places the 'Comedy'
-													within the tradition of epic, tragedy, and
-													philosophy in general, arguing for Dante's
-													uniqueness as
-													<span class="small_space">one </span>who
-													raised the individual and his drama of soul
-													into something of divine significance—an
-													inspired introduction to Dante's main
-													themes.
-												</p>
-											</div>
-
-											<button class="btn-outlined btn-small btn-auto">
-												Buy
-											</button>
-										</div>
-										<div class="book__photo">
-											<img
-												src="./images/book-three.png"
-												alt="The Book Eaters By Sunyi Dean"
-											/>
-										</div>
-									</div> -->
-
-									<!-- book 4 -->
-									<!-- <div class="book__wrapper">
-										<div class="book__content__container">
-											<div class="book__content">
-												<h3 class="staff">Staff Picks</h3>
-												<div class="line__brown"></div>
-												<h4 class="book__title">The Last Queen</h4>
-												<h5 class="book__author">By Clive Irving</h5>
-												<p class="book__description">
-													A timely and revelatory new biography of
-													Queen Elizabeth (and her family) exploring
-													how the Windsors have evolved and thrived as
-													the modern world has changed around them.
-												</p>
-											</div>
-
-											<button class="btn-outlined btn-small btn-auto">
-												Buy
-											</button>
-										</div>
-										<div class="book__photo">
-											<img
-												src="./images/book-four.png"
-												alt="The Book Eaters By Sunyi Dean"
-											/>
-										</div>
-									</div> -->
-								</div>
-								<!-- end of season-slider -->
+								<div class="season-slide"></div>
 							</div>
-							<!-- end of books-slider -->
 						</div>
-						<!-- end of books-carousel -->
 					</div>
 				</div>
 			</section>
@@ -528,13 +396,13 @@
 							</p>
 							<div class="card__buttons-group">
 								<button
-									class="btn-outlined btn-extra-small"
+									class="btn-outlined btn-extra-small register-btn"
 									id="signUpButton"
 								>
 									Sign Up
 								</button>
 								<button
-									class="btn-outlined btn-extra-small"
+									class="btn-outlined btn-extra-small login-btn"
 									id="loginBtnInCard"
 								>
 									Log in
@@ -622,6 +490,49 @@
 				</div>
 			</div>
 		</footer>
+
+		<div class="user-menu hidden" id="userMenu">
+			<div class="notAuthUserDrop" id="notAuthUserDrop">
+				<form class="drop-registration-content">
+					<p>Profile</p>
+					<div class="line"></div>
+
+					<button class="btn-text mb-1 login-btn""
+					type="button">
+						Log In
+					</button>
+
+					<button
+						class="btn-text mb-1 register-btn"
+						
+						type="button"
+					>
+						Register
+					</button>
+				</form>
+			</div>
+			<div class="authUserDrop hidden" id="authUserDrop">
+				<form class="drop-registration-content">
+					<p>Profile</p>
+					<div class="line"></div>
+
+					<button class="btn-text mb-1 loginBtn" id="login-btn">
+						My profile
+					</button>
+
+					<button
+						class="btn-text mb-1 login-btn"
+						
+						type="button">
+						Log Out
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="modal-overlay" class="modal-overlay ">
+			<div class="modal-content"></div>
+		</div>
 
 		<!-- forms -->
 		<!-- <div class="buy-form" id="buy-form">
@@ -782,20 +693,6 @@
 				</div>
 			</div>
 		</div> -->
-
-		<!-- <div class="registration" id="registration">
-              <form class="drop-registration-content">
-                <p>Profile</p>
-                <div class="line"></div>
-
-                <button class="log-btnInRegPopup" id="drop-loginLogin">Log In</button>
-
-                <button class="reg-btn" id="drop-registerBtn" type="button">
-                  Register
-                </button>
-              </form>
-            </div> -->
-
 		<!-- <div class="profile" id="profile-popup">
               <form action="#" class="drop-profile-content">
                 <p class="drop-menu__code">Profile</p>
@@ -805,57 +702,10 @@
               </form>
             </div> -->
 
-		<!-- <div class="reg-form" id="reg-form">
-               <form action="#" class="registration-modal-content" id="registration-modal-content">
-                <span class="close"><img src="./images/close_btn.svg" alt="close-button"></span>
-                <h3 class="form-title">Register</h3>
+		
+    
 
-                <div class="form__field">
-                  <label for="first-name">First name</label>
-                  <input type="text" id="first-name" name="first-name" autocomplete="off" required>
-                </div>
-
-                <div class="form__field">
-                  <label for="last-name">Last name</label>
-                  <input type="text" id="last-name" name="last-name" autocomplete="off" required>
-                </div>
-
-                <div class="form__field">
-                  <label for="email">E-mail</label>
-                  <input type="email" id="email" name="email" autocomplete="off" required>
-                  <p class="form__field__error closed" id="email-error">Wrong email format</p>
-                </div>
-
-                <div class="form__field" style="margin-bottom: 20px">
-                  <label for="pass">Password</label>
-                  <input type="password" id="pass" name="pass" required autocomplete="off">
-                  <p class="form__field__error closed" id="password-error">Should contain at least 8 characters</p>
-                </div>
-
-                <button type="submit" class="signupLoginBtn" id="sign-upReg">Sign Up</button>
-
-                <p class="form-p">Already have an account?</p>
-                <button type="button" class="loginBtn log-btn" id="loginInRegModal">Login</button>
-              </form> 
-            </div> -->
-
-		<!-- <div class="login-form" id="login-form">
-               <form action="#" class="login-modal-content" id="login-modal-content">
-                <span class="login-close"><img src="./images/close_btn.svg" alt="close-button"></span>
-                <h3 class="form-title">Login</h3>
-
-                                
-                <label for="email">E-mail or readers card</label>
-                <input type="text" id="emailorCardLogin" name="email" autocomplete="off" required>
-
-                <label for="pass">Password</label>
-                <input type="password" id="passLogin" name="pass" required autocomplete="off">
-
-                <button type="submit" class="loginLoginBtn" id="sign-up">Log in</button>
-                <p class="form-p">Don’t have an account?</p>
-                <button type="button" class="loginBtn" id="regInLogModal">Register</button>
-              </form>
-            </div> -->
+		
 
 		<!-- end forms -->
 
