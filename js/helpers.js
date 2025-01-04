@@ -45,3 +45,18 @@ export class BookCard {
 export function filterData(array, season) {
     return array.filter((book) => book.season === season);
 }
+
+export function showOverlayMessage(message) {
+	const modalOverlay = document.getElementById('modal-overlay');
+	const modalContent = document.querySelector('.modal-content');
+
+	// Отображаем сообщение
+	modalContent.innerHTML = `<p class="overlay-message">${message}</p>`;
+	modalOverlay.classList.add('open-overlay');
+
+	// Закрываем оверлей через 3 секунды
+	setTimeout(() => {
+		modalOverlay.classList.remove('open-overlay');
+		modalContent.innerHTML = '';
+	}, 1500);
+}

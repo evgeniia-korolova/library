@@ -180,11 +180,21 @@ p {
   width: 28px;
   height: 28px;
   cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 @media (max-width: 768px) {
   .user-icon {
     margin-left: auto;
   }
+}
+
+.user-icon.registered {
+  background: #BB945F;
+  font-size: 1.5rem;
 }
 
 .nav__panel {
@@ -255,7 +265,7 @@ p {
 }
 @media (max-width: 1260px) {
   .nav__panel a {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.8;
     font-weight: 400;
     letter-spacing: 0rem;
@@ -1281,31 +1291,14 @@ input[type=radio]:checked + label {
   letter-spacing: 0rem;
 }
 
-.drop-profile-content {
-  width: 80px;
-  height: 115px;
-  background: #FFFFFF;
-  position: absolute;
-  top: 87px;
-  right: 79px;
+.overlay-message {
+  font-size: 18px;
+  color: #333;
   text-align: center;
-  z-index: 20;
-}
-
-.notAuthUserDrop p,
-.profile p {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 133.333%;
-  margin: 5px 0;
-}
-
-.line {
-  margin: 0 auto;
-  width: 40px;
-  height: 1px;
-  background: #bb945f;
-  margin-bottom: 15px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* modal Register */
@@ -1987,15 +1980,38 @@ input[type=radio]:checked + label {
   transition: opacity 0.4s, visibility 0.4s;
 }
 
-.notAuthUserDrop {
+.notAuthUserDrop, .authUserDrop {
   width: 80px;
-  height: 115px;
   background: #FFFFFF;
   position: absolute;
   top: 87px;
   right: 79px;
   text-align: center;
   z-index: 20;
+  padding: 5px 0 20px;
+}
+
+.user-menu__title {
+  font-size: 1.5rem;
+  line-height: 2;
+  font-weight: 700;
+  letter-spacing: 0rem;
+}
+
+.drop-registration-content button {
+  font-size: 1.5rem;
+  line-height: 2;
+  font-weight: 400;
+  letter-spacing: 0rem;
+  font-family: "Inter", sans-serif;
+}
+
+.line {
+  margin: 0 auto;
+  width: 40px;
+  height: 1px;
+  background: #BB945F;
+  margin-bottom: 15px;
 }
 
 .registration,
@@ -2047,31 +2063,14 @@ input[type=radio]:checked + label {
   letter-spacing: 0rem;
 }
 
-.drop-profile-content {
-  width: 80px;
-  height: 115px;
-  background: #FFFFFF;
-  position: absolute;
-  top: 87px;
-  right: 79px;
+.overlay-message {
+  font-size: 18px;
+  color: #333;
   text-align: center;
-  z-index: 20;
-}
-
-.notAuthUserDrop p,
-.profile p {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 133.333%;
-  margin: 5px 0;
-}
-
-.line {
-  margin: 0 auto;
-  width: 40px;
-  height: 1px;
-  background: #bb945f;
-  margin-bottom: 15px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* modal Register */

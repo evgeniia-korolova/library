@@ -1,3 +1,6 @@
+import { handleRegistration } from './registration.js';
+import { handleLogin } from './login.js';
+
 export function handleModals() {
 	const modalOverlay = document.getElementById('modal-overlay');
 	const userBtn = document.querySelector('.user-icon');
@@ -9,6 +12,7 @@ export function handleModals() {
 	const registerBtn = document.querySelectorAll('.register-btn');
 	const loginBtn = document.querySelectorAll('.login-btn');
 
+
 	function closeAllPopups() {
 		burgerMenu.classList.remove('is-open');
 		if (
@@ -18,6 +22,9 @@ export function handleModals() {
 			modalOverlay.classList.remove('open-overlay');
 			document.body.classList.remove('no-scroll');
 		}
+		setTimeout(() => {
+			modalContent.innerHTML = ''; // Очищаем содержимое
+		}, 2000);
 	}
 
 	function openModal(content) {
@@ -70,7 +77,7 @@ export function handleModals() {
 	function createMarkupRegisterModal() {
 		openModal(`
         <div class="registration" id="registration">
-          <form action="#" class="registration-form" id="registration-form">
+          <form  class="registration-form" id="registration-form">
             <span class="close">
               <img src="../images/close_btn.svg"  alt="close-button">
             </span>
@@ -112,6 +119,13 @@ export function handleModals() {
       `);
 
 		addModalEventListeners('login-modal', createMarkupLoginModal);
+		const registerForm = document.getElementById('registration-form');
+		handleRegistration(
+			registerForm,
+			notAuthUserDrop,
+			authUserDrop,
+			userBtn
+		);
 	}
 
 	function createMarkupLoginModal() {
@@ -141,9 +155,13 @@ export function handleModals() {
       </div>
     `);
 
-		addModalEventListeners(
-			'register-modal',
-			createMarkupRegisterModal
+		addModalEventListeners('register-modal',createMarkupRegisterModal);
+		const loginForm = document.getElementById('login-form');
+		handleLogin(
+			loginForm,
+			notAuthUserDrop,
+			authUserDrop,
+			userBtn
 		);
 	}
 

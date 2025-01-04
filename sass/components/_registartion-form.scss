@@ -42,34 +42,21 @@
   @include font(1rem, 1.21, 0rem, 400); 
 }
 
-.drop-profile-content {
-  width: 80px;
-  height: 115px;
-  background: $color-white;
-  position: absolute;
-  top: 87px;
-  right: 79px;
-  text-align: center;
-  z-index: 20;
+.overlay-message {
+	font-size: 18px;
+	color: #333;
+	text-align: center;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
 
-.notAuthUserDrop p,
-.profile p {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 133.333%;
-  margin: 5px 0;
-}
 
-.line {
-  margin: 0 auto;
-  width: 40px;
-  height: 1px;
-  background: #bb945f;
-  margin-bottom: 15px;
-}
+
+
 
 
 

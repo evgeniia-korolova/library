@@ -1,60 +1,75 @@
-// refactoring login button
-const loginBtnInCard = document.getElementById('loginBtnInCard');
+import { showOverlayMessage } from './helpers.js';
 
-loginBtnInCard.addEventListener('click', () => {
-  document.getElementById('login-form').classList.add('open-form');
-  //
-  document.getElementById('reg-form').classList.remove('open-form');
-});
+export function handleLogin(
+	loginForm,
+	notAuthUserDrop,
+	authUserDrop,
+	userIcon
+) {
+	loginForm.addEventListener('submit', (e) => {
+		e.preventDefault(); // Предотвращаем отправку формы
 
-const loginInRegModal = document.getElementById('loginInRegModal');
-loginInRegModal.addEventListener('click', () => {
-  document.getElementById('login-form').classList.add('open-form');
-  document.getElementById('reg-form').classList.remove('open-form');
-});
+		// Получаем значения email/cardNumber и password
+		const emailOrCard = document
+			.getElementById('emailorCardLogin')
+			.value.trim();
+		const password = document
+			.getElementById('passLogin')
+			.value.trim();
 
-const dropLoginLogin = document.getElementById('drop-loginLogin');
-dropLoginLogin.addEventListener('click', () => {
-  document.getElementById('login-form').classList.add('open-form');
-  document.getElementById('registration').classList.remove('open-form');
-});
+		// Получаем массив пользователей из localStorage
+		let users = JSON.parse(localStorage.getItem('users')) || [];
 
-const registerInLogin = document.getElementById('regInLogModal');
-registerInLogin.addEventListener('click', () => {
-  document.getElementById('reg-form').classList.add('open-form');
-  document.getElementById('login-form').classList.remove('open-form');
-});
+		// Проверяем пользователя
+		const existingUser = checkUser(users, emailOrCard, password);
 
-const loginClose = document.querySelector('.login-close');
+		if (!existingUser) {
+			// Если пользователь не найден, выводим сообщение
+			showOverlayMessage('You are not registered, please register');
+			return;
+		}
 
-loginClose.addEventListener('click', () => {
-  document.getElementById('login-form').classList.remove('open-form');
-});
+		// Если пользователь найден, выполняем логин
+		doLogin(existingUser);
+	});
 
-// Закрыть модальное окно при нажатии на Esc
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.getElementById('login-form').classList.remove('open-form');
-  }
-});
+	function checkUser(users, emailOrCard, password) {
+		return users.find(
+			(user) =>
+				(user.email === emailOrCard ||
+					user.cardNumber === emailOrCard) &&
+				user.password === password
+		);
+	}
 
-// Закрыть модальное окно при клике вне его
-document
-  .querySelector('#login-form .login-modal-content')
-  .addEventListener('click', (event) => {
-    event._isClickWithInModal = true;
-  });
-document.getElementById('login-form').addEventListener('click', (event) => {
-  if (event._isClickWithInModal) return;
-  event.currentTarget.classList.remove('open-form');
-});
+	function doLogin(user) {
+		// Обновляем интерфейс
+		const userBtn = document.querySelector('.user-icon');
+		userBtn.classList.add('registered');
+		userBtn.textContent = `${user.firstName.charAt(
+			0
+		)}${user.lastName.charAt(0)}`.toUpperCase(); // Отображаем инициалы
 
-// // !!!!!!!! delete!!!!!!!закрыть модальное окно reg-form при клике на кнопку sign-up
+		notAuthUserDrop.classList.add('hidden');
+		authUserDrop.classList.remove('hidden');
 
-// закрыть модалку login при клике на кнопку log in
+		// Добавляем обработчик для клика на userBtn (открытие/закрытие меню)
+		const userMenu = authUserDrop.querySelector('.user-menu');
+		userBtn.addEventListener('click', () => {
+			userMenu.classList.toggle('hidden');
+		});
 
-// document.getElementById('sign-up').addEventListener('click', () => {
-//   document.getElementById('login-form').classList.remove('open-form');
-// });
+		// Закрываем модальное окно
+		const modalOverlay = document.getElementById('modal-overlay');
+		if (modalOverlay) {
+			modalOverlay.classList.remove('open-overlay');
+			document.body.classList.remove('no-scroll');
+			setTimeout(() => {
+				const modalContent = document.querySelector('.modal-content');
+				if (modalContent) modalContent.innerHTML = '';
+			}, 2000);
+		}
 
-// 09.09.23
+		console.log('User logged in successfully!', user);
+	}
+}

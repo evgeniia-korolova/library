@@ -11,10 +11,20 @@
 	width: 28px;
 	height: 28px;
 	cursor: pointer;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
 
 	@include media-tablet {
 		margin-left: auto;
 	}
+}
+
+.user-icon.registered {
+	background: $color-brand;
+	font-size: 1.5rem;
 }
 
 .nav__panel {
@@ -80,7 +90,7 @@
 	@include font(2rem, 2.5, 0rem, 400);
 
 	@include media-laptop {
-		@include font(2rem, 1.8, 0rem, 400);
+		@include font(1.5rem, 1.8, 0rem, 400);
 	}
 
 	@include media-tablet {
