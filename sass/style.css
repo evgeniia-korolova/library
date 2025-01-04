@@ -1993,6 +1993,13 @@ input[type=radio]:checked + label {
   letter-spacing: 0rem;
 }
 
+.user-menu__card-number {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0rem;
+}
+
 .drop-registration-content button {
   font-size: 1.5rem;
   line-height: 2;

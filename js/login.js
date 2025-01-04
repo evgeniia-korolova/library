@@ -45,11 +45,11 @@ export function handleLogin(
 	function doLogin(user) {
 		// Обновляем интерфейс
 		const userBtn = document.querySelector('.user-icon');
+		const profileCardNo = document.getElementById('user-menu__card-number');
 		userBtn.classList.add('registered');
-		userBtn.textContent = `${user.firstName.charAt(
-			0
-		)}${user.lastName.charAt(0)}`.toUpperCase();
-		userBtn.title = `${user.firstName} ${user.lastName}`; // Отображаем инициалы
+		userBtn.textContent = `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
+		userBtn.title = `${user.firstName} ${user.lastName}`;
+		profileCardNo.textContent = `${user.cardNumber}`; // Отображаем инициалы
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');

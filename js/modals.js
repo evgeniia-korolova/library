@@ -1,5 +1,6 @@
 import { handleRegistration } from './registration.js';
 import { handleLogin } from './login.js';
+import { openModal, addModalEventListeners } from './helpers.js';
 
 export function handleModals() {
 	const modalOverlay = document.getElementById('modal-overlay');
@@ -23,15 +24,15 @@ export function handleModals() {
 			document.body.classList.remove('no-scroll');
 		}
 		setTimeout(() => {
-			modalContent.innerHTML = ''; // Очищаем содержимое
+			modalContent.innerHTML = ''; 
 		}, 2000);
 	}
 
-	function openModal(content) {
-		modalContent.innerHTML = content;
-		modalOverlay.classList.add('open-overlay');
-		document.body.classList.add('no-scroll');
-	}
+	// function openModal(content) {
+	// 	modalContent.innerHTML = content;
+	// 	modalOverlay.classList.add('open-overlay');
+	// 	document.body.classList.add('no-scroll');
+	// }
 
 	userBtn.addEventListener('click', () => {
 		if (burgerMenu.classList.contains('is-open')) {

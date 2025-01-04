@@ -60,3 +60,38 @@ export function showOverlayMessage(message) {
 		modalContent.innerHTML = '';
 	}, 1500);
 }
+
+export function closeAllModals() {
+	const modalOverlay = document.querySelector('#modal-overlay');
+	if (modalOverlay) {
+		modalOverlay.classList.remove('open-overlay');
+		document.body.classList.remove('no-scroll');
+		setTimeout(() => {
+			const modalContent = document.querySelector('.modal-content');
+			if (modalContent) modalContent.innerHTML = '';
+		}, 2000);
+	}
+}
+
+export function openModal(content) {
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalContent = document.querySelector('.modal-content');
+	modalContent.innerHTML = content;
+	modalOverlay.classList.add('open-overlay');
+	document.body.classList.add('no-scroll');
+}
+
+
+
+export function addModalEventListeners(modalId, callback) {
+	const modal = document.getElementById(modalId);
+	if (modal) {
+		const closeButton = modal.querySelector('.close');
+		if (closeButton) {
+			closeButton.addEventListener('click', () => {
+				closeAllModals();
+				if (callback) callback();
+			});
+		}
+	}
+}

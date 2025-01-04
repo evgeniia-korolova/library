@@ -23,6 +23,9 @@
 .user-menu__title {
   @include font(1.5rem, 2, 0rem, 700);
 }
+.user-menu__card-number {
+  @include font(1.2rem, 1.4, 0rem, 700);
+}
 
 .drop-registration-content button {
   @include font(1.5rem, 2, 0rem, 400);
