@@ -48,15 +48,19 @@ export function handleLogin(
 		userBtn.classList.add('registered');
 		userBtn.textContent = `${user.firstName.charAt(
 			0
-		)}${user.lastName.charAt(0)}`.toUpperCase(); // Отображаем инициалы
+		)}${user.lastName.charAt(0)}`.toUpperCase();
+		userBtn.title = `${user.firstName} ${user.lastName}`; // Отображаем инициалы
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');
 
 		// Добавляем обработчик для клика на userBtn (открытие/закрытие меню)
-		const userMenu = authUserDrop.querySelector('.user-menu');
+		
+
+		const userMenu = document.querySelector('.authUserDrop');
 		userBtn.addEventListener('click', () => {
 			userMenu.classList.toggle('hidden');
+			authUserDrop.classList.toggle('hidden'); 
 		});
 
 		// Закрываем модальное окно

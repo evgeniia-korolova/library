@@ -8,17 +8,14 @@ export function handleRegistration(
 ) {
 	registrationForm.addEventListener('submit', (event) => {
 		event.preventDefault();
+		const readerName = document.getElementById('readerName');
+		const readerCardNo = document.getElementById('readerCardNo');
 
 		// Получаем данные из формы
-		const firstName = document
-			.getElementById('first-name')
-			.value.trim();
-		const lastName = document
-			.getElementById('last-name')
-			.value.trim();
+		const firstName = document.getElementById('first-name').value.trim();
+		const lastName = document.getElementById('last-name').value.trim();
 		const email = document.getElementById('email').value.trim();
-		const password = document.getElementById('pass').value.trim();
-		let isAuthenticated = false;
+		const password = document.getElementById('pass').value.trim();		
 
 		// Проверяем, что все поля заполнены
 		if (!firstName || !lastName || !email || !password) {
@@ -52,22 +49,25 @@ export function handleRegistration(
 		};
 
 		// Сохраняем данные в localStorage
-		users.push(newUser); // Добавляем пользователя в массив
+		users.push(newUser);
 		localStorage.setItem('users', JSON.stringify(users));
-		isAuthenticated = true;
+		
 
 		// Заменяем иконку user на инициалы
 		const userBtn = document.querySelector('.user-icon');
 		userBtn.classList.add('registered');
 		userBtn.innerHTML = `${firstName[0]}${lastName[0]}`.toUpperCase();
 
-		notAuthUserDrop.classList.add('hidden');
-		authUserDrop.classList.remove('hidden');
+		readerName.value = firstName + ' ' + lastName;
+		readerCardNo.value = cardNumber;
 
 		// Добавляем обработчик для клика на userBtn (меню юзера)
-		const userMenu = authUserDrop.querySelector('.user-menu'); // Предполагается, что это выпадающее меню
+	
+
+		const userMenu = document.querySelector('.notAuthUserDrop');
 		userBtn.addEventListener('click', () => {
-			userMenu.classList.toggle('hidden'); // Показать/скрыть меню
+			userMenu.classList.toggle('hidden');
+			notAuthUserDrop.classList.toggle('hidden'); // Показать/скрыть меню
 		});
 
 		// Закрываем модальное окно
@@ -80,6 +80,19 @@ export function handleRegistration(
 				if (modalContent) modalContent.innerHTML = '';
 			}, 2000);
 		}
+
+		const cardBadges = document.getElementById('card-badges');		
+
+		const checkCardBtn = document.querySelector('.check-card--btn');
+
+		checkCardBtn.classList.add('hidden');
+		cardBadges.classList.remove('card__badges-hidden');
+
+		setTimeout(() => {
+			checkCardBtn.classList.remove('hidden');
+			cardBadges.classList.add('card__badges-hidden');
+			readerCardNo.value = '';
+			readerName.value = '';
+		}, 30000);
 	});
-	console.log('registration');
 }
