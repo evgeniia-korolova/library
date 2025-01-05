@@ -1963,16 +1963,15 @@ input[type=radio]:checked + label {
   transform: scale(1);
 }
 
-.popup-wrapper {
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 50;
-  visibility: hidden;
+.user-menu {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.8s ease-out;
+}
+
+.user-menu-hidden {
   opacity: 0;
-  transition: opacity 0.4s, visibility 0.4s;
+  visibility: visible;
 }
 
 .notAuthUserDrop, .authUserDrop {

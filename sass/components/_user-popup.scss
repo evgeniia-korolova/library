@@ -1,14 +1,14 @@
-.popup-wrapper {
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 50;  
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.4s, visibility 0.4s;
+.user-menu {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.8s ease-out;
 }
+
+.user-menu-hidden {
+  opacity: 0;
+  visibility: visible;
+}
+
 .notAuthUserDrop, .authUserDrop {
   width: 80px;  
   background: $color-white;
