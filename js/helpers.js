@@ -58,18 +58,14 @@ export function showOverlayMessage(message) {
 	setTimeout(() => {
 		modalOverlay.classList.remove('open-overlay');
 		modalContent.innerHTML = '';
-	}, 1500);
+	}, 3000);
 }
 
 export function closeAllModals() {
 	const modalOverlay = document.querySelector('#modal-overlay');
 	if (modalOverlay) {
 		modalOverlay.classList.remove('open-overlay');
-		document.body.classList.remove('no-scroll');
-		setTimeout(() => {
-			const modalContent = document.querySelector('.modal-content');
-			if (modalContent) modalContent.innerHTML = '';
-		}, 2000);
+		document.body.classList.remove('no-scroll');		
 	}
 }
 

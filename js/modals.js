@@ -23,9 +23,7 @@ export function handleModals() {
 			modalOverlay.classList.remove('open-overlay');
 			document.body.classList.remove('no-scroll');
 		}
-		setTimeout(() => {
-			modalContent.innerHTML = ''; 
-		}, 2000);
+		
 	}
 
 	// function openModal(content) {
