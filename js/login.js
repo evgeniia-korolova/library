@@ -1,4 +1,10 @@
-import { showOverlayMessage } from './helpers.js';
+import {
+	showOverlayMessage,
+	setupUserMenu,
+	getFromLocalStorage,
+	closeAllModals,
+	updateDigitalCard,
+} from './helpers.js';
 
 export function handleLogin(
 	loginForm,
@@ -18,18 +24,16 @@ export function handleLogin(
 			.value.trim();
 
 		// Получаем массив пользователей из localStorage
-		let users = JSON.parse(localStorage.getItem('users')) || [];
+		const users = getFromLocalStorage('users');
 
 		// Проверяем пользователя
 		const existingUser = checkUser(users, emailOrCard, password);
 
-		if (!existingUser) {
-			// Если пользователь не найден, выводим сообщение
+		if (!existingUser) {			
 			showOverlayMessage('You are not registered, please register');
 			return;
 		}
-
-		// Если пользователь найден, выполняем логин
+		
 		doLogin(existingUser);
 	});
 
@@ -45,35 +49,30 @@ export function handleLogin(
 	function doLogin(user) {
 		// Обновляем интерфейс
 		const userBtn = document.querySelector('.user-icon');
-		const profileCardNo = document.getElementById('user-menu__card-number');
+		const profileCardNo = document.getElementById(
+			'user-menu__card-number'
+		);
 		userBtn.classList.add('registered');
-		userBtn.textContent = `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
+		userBtn.textContent = `${user.firstName.charAt(
+			0
+		)}${user.lastName.charAt(0)}`.toUpperCase();
 		userBtn.title = `${user.firstName} ${user.lastName}`;
-		profileCardNo.textContent = `${user.cardNumber}`; // Отображаем инициалы
+		userBtn.setAttribute('data-email', user.email);
+		updateDigitalCard(user); // Сохраняем email в атрибут
+
+		profileCardNo.textContent = `${user.cardNumber}`; // Отображаем номер карты
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');
 
-		// Добавляем обработчик для клика на userBtn (открытие/закрытие меню)
-		
-
-		const userMenu = document.querySelector('.authUserDrop');
-		userBtn.addEventListener('click', () => {
-			userMenu.classList.toggle('hidden');
-			authUserDrop.classList.toggle('hidden'); 
-		});
+		// Настраиваем меню пользователя
+		setupUserMenu(userBtn, notAuthUserDrop, authUserDrop);
 
 		// Закрываем модальное окно
-		const modalOverlay = document.getElementById('modal-overlay');
-		if (modalOverlay) {
-			modalOverlay.classList.remove('open-overlay');
-			document.body.classList.remove('no-scroll');
-			setTimeout(() => {
-				const modalContent = document.querySelector('.modal-content');
-				if (modalContent) modalContent.innerHTML = '';
-			}, 2000);
-		}
+		closeAllModals();
 
 		console.log('User logged in successfully!', user);
 	}
+
+	
 }

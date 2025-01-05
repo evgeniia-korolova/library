@@ -8,8 +8,7 @@ export function handleModals() {
 	const modalContent = document.querySelector('.modal-content');
 	const notAuthUserDrop = document.getElementById('notAuthUserDrop');
 	const authUserDrop = document.getElementById('authUserDrop');
-	const burgerMenu = document.querySelector('.nav__panel');
-	let userData = JSON.parse(localStorage.getItem('userData')) || null;
+	const burgerMenu = document.querySelector('.nav__panel');	
 	const registerBtn = document.querySelectorAll('.register-btn');
 	const loginBtn = document.querySelectorAll('.login-btn');
 
@@ -27,12 +26,7 @@ export function handleModals() {
 			modalContent.innerHTML = ''; 
 		}, 2000);
 	}
-
-	// function openModal(content) {
-	// 	modalContent.innerHTML = content;
-	// 	modalOverlay.classList.add('open-overlay');
-	// 	document.body.classList.add('no-scroll');
-	// }
+	
 
 	userBtn.addEventListener('click', () => {
 		if (burgerMenu.classList.contains('is-open')) {
@@ -189,14 +183,5 @@ export function handleModals() {
 	setupButtonListeners(registerBtn, createMarkupRegisterModal);
 	setupButtonListeners(loginBtn, createMarkupLoginModal);
 
-	// Функция для обновления меню пользователя.
-	function updateUserMenu(isAuthenticated) {
-		if (isAuthenticated) {
-			notAuthUserDrop.classList.add('hidden');
-			authUserDrop.classList.remove('hidden');
-		} else {
-			authUserDrop.classList.add('hidden');
-			notAuthUserDrop.classList.remove('hidden');
-		}
-	}
+		
 }

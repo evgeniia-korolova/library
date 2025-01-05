@@ -19,7 +19,7 @@
 	visibility: visible;	
 }
 
-.modal-overlay.modal-content {
+.modal-overlay .modal-content {
 	position: relative;
 	transform: scale(0);
 	transition: transform 0.8s;
