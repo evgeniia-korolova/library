@@ -151,15 +151,6 @@ export function handleModals() {
 		);
 	}
 
-	// function addModalEventListeners(buttonId, callback) {
-	// 	document
-	// 		.querySelector('.close')
-	// 		.addEventListener('click', closeAllModals);
-	// 	document
-	// 		.getElementById(buttonId)
-	// 		.addEventListener('click', callback);
-	// }
-
 	function setupButtonListeners(buttons, callback) {
 		buttons.forEach((btn) => {
 			btn.addEventListener('click', () => {
@@ -174,14 +165,5 @@ export function handleModals() {
 	setupButtonListeners(registerBtn, createMarkupRegisterModal);
 	setupButtonListeners(loginBtn, createMarkupLoginModal);
 
-	// Функция для обновления меню пользователя.
-	function updateUserMenu(isAuthenticated) {
-		if (isAuthenticated) {
-			notAuthUserDrop.classList.add('hidden');
-			authUserDrop.classList.remove('hidden');
-		} else {
-			authUserDrop.classList.add('hidden');
-			notAuthUserDrop.classList.remove('hidden');
-		}
-	}
+	
 }
