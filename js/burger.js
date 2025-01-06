@@ -8,8 +8,8 @@ export function toggleBurger() {
 	burgerBtn.addEventListener('click', () => {
 		menu.classList.toggle('is-open');
 		document.body.classList.toggle('no-scroll');
-		if(!userMenu.classList.contains('hidden')) {
-			userMenu.classList.add('hidden');
+		if(!userMenu.classList.contains('user-menu-hidden')) {
+			userMenu.classList.add('user-menu-hidden');
 		}
 	});
 

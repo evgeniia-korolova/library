@@ -44,7 +44,7 @@
 					</ul>
 				</nav>
 
-				<div class="user-icon">
+				<div class="user-icon" id="userIcon">
 					<img src="./images/icon_profile.svg" alt="logo" />
 				</div>
 				<button class="burger__btn" id="burger">
@@ -491,7 +491,7 @@
 			</div>
 		</footer>
 
-		<div class="user-menu hidden" id="userMenu">
+		<div class="user-menu user-menu-hidden" id="userMenu">
 			<div class="notAuthUserDrop" id="notAuthUserDrop">
 				<form class="drop-registration-content">
 					<p class="user-menu__title">Profile</p>
@@ -514,12 +514,12 @@
 					<p class="user-menu__card-number" id="user-menu__card-number">Profile</p>
 					<div class="line"></div>
 
-					<button class="btn-text loginBtn" id="readerInfoBtn">
+					<button class="btn-text" id="readerInfoBtn">
 						My profile
 					</button>
 
 					<button
-						class="btn-text login-btn"						
+						class="btn-text logout-btn"						
 						type="button">
 						Log Out
 					</button>

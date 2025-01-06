@@ -58,18 +58,17 @@ export function showOverlayMessage(message) {
 	setTimeout(() => {
 		modalOverlay.classList.remove('open-overlay');
 		modalContent.innerHTML = '';
-	}, 1500);
+	}, 3000);
 }
 
 export function closeAllModals() {
-	const modalOverlay = document.querySelector('#modal-overlay');
-	if (modalOverlay) {
+	const modalOverlay = document.querySelector('.modal-overlay');
+	if (
+		modalOverlay &&
+		modalOverlay.classList.contains('open-overlay')
+	) {
 		modalOverlay.classList.remove('open-overlay');
 		document.body.classList.remove('no-scroll');
-		setTimeout(() => {
-			const modalContent = document.querySelector('.modal-content');
-			if (modalContent) modalContent.innerHTML = '';
-		}, 2000);
 	}
 }
 
@@ -81,17 +80,26 @@ export function openModal(content) {
 	document.body.classList.add('no-scroll');
 }
 
-
-
-export function addModalEventListeners(modalId, callback) {
-	const modal = document.getElementById(modalId);
-	if (modal) {
-		const closeButton = modal.querySelector('.close');
-		if (closeButton) {
-			closeButton.addEventListener('click', () => {
-				closeAllModals();
-				if (callback) callback();
-			});
-		}
-	}
+export function addModalEventListeners(buttonId, callback) {
+	document
+		.querySelector('.close')
+		.addEventListener('click', closeAllModals);
+	document
+		.getElementById(buttonId)
+		.addEventListener('click', callback);
 }
+
+
+
+// export function addModalEventListeners(modalId, callback) {
+// 	const modal = document.getElementById(modalId);
+// 	if (modal) {
+// 		const closeButton = modal.querySelector('.close');
+// 		if (closeButton) {
+// 			closeButton.addEventListener('click', () => {
+// 				closeAllModals();
+// 				if (callback) callback();
+// 			});
+// 		}
+// 	}
+// }

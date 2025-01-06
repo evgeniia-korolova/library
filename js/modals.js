@@ -1,44 +1,28 @@
 import { handleRegistration } from './registration.js';
 import { handleLogin } from './login.js';
-import { openModal, addModalEventListeners } from './helpers.js';
+import { openModal, addModalEventListeners, closeAllModals } from './helpers.js';
 
 export function handleModals() {
 	const modalOverlay = document.getElementById('modal-overlay');
-	const userBtn = document.querySelector('.user-icon');
+	const userBtn = document.getElementById('userIcon');
 	const modalContent = document.querySelector('.modal-content');
 	const notAuthUserDrop = document.getElementById('notAuthUserDrop');
 	const authUserDrop = document.getElementById('authUserDrop');
-	const burgerMenu = document.querySelector('.nav__panel');
-	let userData = JSON.parse(localStorage.getItem('userData')) || null;
+	const burgerMenu = document.querySelector('.nav__panel');	
 	const registerBtn = document.querySelectorAll('.register-btn');
 	const loginBtn = document.querySelectorAll('.login-btn');
 
 
 	function closeAllPopups() {
-		burgerMenu.classList.remove('is-open');
-		if (
-			modalOverlay &&
-			modalOverlay.classList.contains('open-overlay')
-		) {
-			modalOverlay.classList.remove('open-overlay');
-			document.body.classList.remove('no-scroll');
-		}
-		setTimeout(() => {
-			modalContent.innerHTML = ''; 
-		}, 2000);
+		burgerMenu.classList.remove('is-open');		
 	}
-
-	// function openModal(content) {
-	// 	modalContent.innerHTML = content;
-	// 	modalOverlay.classList.add('open-overlay');
-	// 	document.body.classList.add('no-scroll');
-	// }
+	
 
 	userBtn.addEventListener('click', () => {
 		if (burgerMenu.classList.contains('is-open')) {
 			burgerMenu.classList.remove('is-open');
 		}
-		userMenu.classList.toggle('hidden');
+		userMenu.classList.toggle('user-menu-hidden');
 	});
 
 	window.addEventListener('click', (e) => {
@@ -46,18 +30,18 @@ export function handleModals() {
 		if (
 			!e.target.closest('.user-icon') &&
 			!e.target.closest('.user-menu') &&
-			!userMenu.classList.contains('hidden')
+			!userMenu.classList.contains('user-menu-hidden')
 		) {
-			userMenu.classList.add('hidden');
+			userMenu.classList.add('user-menu-hidden');
 		}
 	});
 
 	window.addEventListener('keydown', (e) => {
 		if (
 			e.key === 'Escape' &&
-			!userMenu.classList.contains('hidden')
+			!userMenu.classList.contains('user-menu-hidden')
 		) {
-			userMenu.classList.add('hidden');
+			userMenu.classList.add('user-menu-hidden');
 		}
 	});
 
@@ -65,6 +49,7 @@ export function handleModals() {
 		modalOverlay.addEventListener('click', (e) => {
 			if (e.target === modalOverlay) {
 				closeAllPopups();
+				closeAllModals();
 			}
 		});
 
@@ -166,21 +151,21 @@ export function handleModals() {
 		);
 	}
 
-	function addModalEventListeners(buttonId, callback) {
-		document
-			.querySelector('.close')
-			.addEventListener('click', closeAllPopups);
-		document
-			.getElementById(buttonId)
-			.addEventListener('click', callback);
-	}
+	// function addModalEventListeners(buttonId, callback) {
+	// 	document
+	// 		.querySelector('.close')
+	// 		.addEventListener('click', closeAllModals);
+	// 	document
+	// 		.getElementById(buttonId)
+	// 		.addEventListener('click', callback);
+	// }
 
 	function setupButtonListeners(buttons, callback) {
 		buttons.forEach((btn) => {
 			btn.addEventListener('click', () => {
 				callback();
-				if (!userMenu.classList.contains('hidden')) {
-					userMenu.classList.add('hidden');
+				if (!userMenu.classList.contains('user-menu-hidden')) {
+					userMenu.classList.add('user-menu-hidden');
 				}
 			});
 		});
