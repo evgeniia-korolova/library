@@ -1,5 +1,5 @@
 import { showOverlayMessage } from './helpers.js';
-import { openModal,addModalEventListeners } from './helpers.js';
+import { openModal, closeAllModals,addModalEventListeners, updateDigitalCard, getFromLocalStorage, saveToLocalStorage, generateCardNumber } from './helpers.js';
 
 export function handleRegistration(
 	registrationForm,
@@ -12,6 +12,8 @@ export function handleRegistration(
 		const readerName = document.getElementById('readerName');
 		const readerCardNo = document.getElementById('readerCardNo');
 		const readerInfoBtn = document.getElementById('readerInfoBtn');
+		const cardBadges = document.getElementById('card-badges');
+		const checkCardBtn = document.querySelector('.check-card--btn');
 
 		// Получаем данные из формы
 		const firstName = document.getElementById('first-name').value.trim();
@@ -25,23 +27,17 @@ export function handleRegistration(
 			return;
 		}
 
-		let users = JSON.parse(localStorage.getItem('users')) || [];
+		let users = getFromLocalStorage('users');
 
 		// Проверяем, есть ли пользователь с таким email
 		const existingUser = users.find((user) => user.email === email);
 		if (existingUser) {
 			showOverlayMessage('You are already registered, please log in');
 			return;
-		}
-
-		showOverlayMessage('You are registered, please log in');
-
-		// Генерируем случайный CardNumber в формате 16-ричного числа
-		const cardNumber = Math.floor(Math.random() * 0x1000000000)
-			.toString(16)
-			.padStart(9, '0');
-
-		// Создаем объект пользователя
+		}		
+		
+		const cardNumber = generateCardNumber();
+		
 		const newUser = {
 			firstName,
 			lastName,
@@ -49,8 +45,7 @@ export function handleRegistration(
 			password,
 			cardNumber,
 		};
-
-		// Сохраняем данные в localStorage
+		
 		users.push(newUser);
 		localStorage.setItem('users', JSON.stringify(users));
 		
@@ -59,10 +54,10 @@ export function handleRegistration(
 		const userBtn = document.querySelector('.user-icon');
 		userBtn.classList.add('registered');
 		userBtn.innerHTML = `${firstName[0]}${lastName[0]}`.toUpperCase();
+		updateDigitalCard(newUser);
+		
 
-		readerName.value = firstName + ' ' + lastName;
-		readerCardNo.value = cardNumber;
-
+		// ! remove to login
 		readerInfoBtn.addEventListener('click', createMarkupReaderInfo);
 			
 		function createMarkupReaderInfo() {
@@ -125,32 +120,14 @@ export function handleRegistration(
 				);
 		}
 
-		// Добавляем обработчик для клика на userBtn (меню юзера)
-	
+		// ! change class hidden for  userNotAuthMenu after login
 
-		const userMenu = document.querySelector('.notAuthUserDrop');
-		userBtn.addEventListener('click', () => {
-			userMenu.classList.toggle('hidden');
-			notAuthUserDrop.classList.toggle('hidden'); // Показать/скрыть меню
-		});
-
-		// Закрываем модальное окно
-		const modalOverlay = document.getElementById('modal-overlay');
-		if (modalOverlay) {
-			modalOverlay.classList.remove('open-overlay');
-			document.body.classList.remove('no-scroll');
-			setTimeout(() => {
-				const modalContent = document.querySelector('.modal-content');
-				if (modalContent) modalContent.innerHTML = '';
-			}, 2000);
-		}
-
-		const cardBadges = document.getElementById('card-badges');		
-
-		const checkCardBtn = document.querySelector('.check-card--btn');
-
-		checkCardBtn.classList.add('hidden');
-		cardBadges.classList.remove('card__badges-hidden');
+		// const userNotAuthMenu = document.querySelector('.notAuthUserDrop');
+		// userBtn.addEventListener('click', () => {
+		// 	userNotAuthMenu.classList.toggle('hidden');			 // Показать/скрыть меню
+		// });
+		
+		closeAllModals();
 
 		setTimeout(() => {
 			checkCardBtn.classList.remove('hidden');

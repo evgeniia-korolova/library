@@ -5,7 +5,7 @@ export class BookCard {
 		this.author = author;
 		this.image = image;
 		this.description = description;
-        this.parent = document.querySelector(parentSelector);
+		this.parent = document.querySelector(parentSelector);
 	}
 
 	renderBookCard() {
@@ -38,12 +38,12 @@ export class BookCard {
         </div>       
         `;
 
-        this.parent.append(bookWrapper);
+		this.parent.append(bookWrapper);
 	}
 }
 
 export function filterData(array, season) {
-    return array.filter((book) => book.season === season);
+	return array.filter((book) => book.season === season);
 }
 
 export function showOverlayMessage(message) {
@@ -61,6 +61,14 @@ export function showOverlayMessage(message) {
 	}, 3000);
 }
 
+export function openModal(content) {
+	const modalOverlay = document.getElementById('modal-overlay');
+	const modalContent = document.querySelector('.modal-content');
+	modalContent.innerHTML = content;
+	modalOverlay.classList.add('open-overlay');
+	document.body.classList.add('no-scroll');
+}
+
 export function closeAllModals() {
 	const modalOverlay = document.querySelector('.modal-overlay');
 	if (
@@ -72,14 +80,6 @@ export function closeAllModals() {
 	}
 }
 
-export function openModal(content) {
-    const modalOverlay = document.getElementById('modal-overlay');
-    const modalContent = document.querySelector('.modal-content');
-	modalContent.innerHTML = content;
-	modalOverlay.classList.add('open-overlay');
-	document.body.classList.add('no-scroll');
-}
-
 export function addModalEventListeners(buttonId, callback) {
 	document
 		.querySelector('.close')
@@ -89,17 +89,29 @@ export function addModalEventListeners(buttonId, callback) {
 		.addEventListener('click', callback);
 }
 
+export function updateDigitalCard(user) {
+	const readerName = document.getElementById('readerName');
+	const readerCardNo = document.getElementById('readerCardNo');
+	const cardBadges = document.getElementById('card-badges');
+	const checkCardBtn = document.querySelector('.check-card--btn');
+	
+	readerName.value = `${user.firstName} ${user.lastName}`;
+	readerCardNo.value = user.cardNumber;
+	
+	checkCardBtn.classList.add('hidden');
+	cardBadges.classList.remove('card__badges-hidden');
+}
 
+export function getFromLocalStorage(key) {
+	return JSON.parse(localStorage.getItem(key)) || [];
+}
 
-// export function addModalEventListeners(modalId, callback) {
-// 	const modal = document.getElementById(modalId);
-// 	if (modal) {
-// 		const closeButton = modal.querySelector('.close');
-// 		if (closeButton) {
-// 			closeButton.addEventListener('click', () => {
-// 				closeAllModals();
-// 				if (callback) callback();
-// 			});
-// 		}
-// 	}
-// }
+export function saveToLocalStorage(key, data) {
+	localStorage.setItem(key, JSON.stringify(data));
+}
+
+export function generateCardNumber() {
+	return Math.floor(Math.random() * 0x1000000000)
+		.toString(16)
+		.padStart(9, '0');
+}
