@@ -1,0 +1,94 @@
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: $font-basic;
+}
+
+ul {
+	list-style: none;
+}
+
+h1 {
+	@include font(3rem, 1.667, 0.6rem, 400);
+	color: $color-white;
+	font-family: $font-headers;
+
+	@include media-big-mobile {
+		@include font(2rem, 1.2, 0.06rem, 400);
+	}
+}
+
+h2 {
+	font-family: $font-headers;
+	@include font(4rem, 1, 0.2rem, 400);
+	text-transform: capitalize;
+	text-align: center;
+
+	@include media-big-mobile {
+		@include font(3rem, 1, 0.2rem, 400);
+	}
+	
+}
+
+h2:after {
+	content: '';
+	display: block;
+	width: 5rem;
+	height: 1px;
+	background: $color-dark;
+	margin: 20px auto 0;
+
+	@include media-big-mobile {
+		margin: 10px auto 0;
+	}
+}
+
+h3 {
+	color: $color-black;
+	@include font(2rem, 1, 0rem, 700);
+}
+
+h4 {
+	@include font(1.5rem, 2.667, 0.2rem, 700);
+	color: $color-black;
+}
+
+h5 {
+	@include font(1.5rem, 2, 0.2rem, 700);
+	color: $color-black;
+}
+
+p {
+	@include font(2rem, 2, 0.2rem, 400);
+	color: $color-black;
+
+	@include media-big-mobile {
+		@include font(1.5rem, 1.5, 0.2rem, 400);
+	}
+	@include media-small-mobile {
+		@include font(1.2rem, 1.2, 0.2rem, 400);
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+.no-scroll {
+	overflow: hidden;
+}
+
+.mb-1 {
+	margin-bottom: 1rem;
+}

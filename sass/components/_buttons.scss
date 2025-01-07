@@ -1,0 +1,108 @@
+.btn-outlined {
+	color: $color-dark;
+	font-family: $font-basic;
+	@include font(1rem, 1.21, 0.1rem, 700);
+	border: 1px solid $color-black;
+	border-radius: 2px;
+	background: $color-white;
+	@extend %transition;
+}
+
+.btn-small {
+	@include font(1rem, 1.21, 0.1rem, 700);
+	padding: 9px 27px;
+}
+
+.btn-big {
+	@include font(2rem, 1.21, 0.1rem, 700);
+	padding: 10px 40px;
+	margin: 30px auto 0;
+}
+
+.btn-extra-small {
+	@include font(1rem, 1.21, 0.1rem, 700);
+	padding: 9px 16px;
+}
+
+.btn-outlined:hover {
+	background: $color-brand;
+	border: 1px solid $color-brand;
+}
+
+.btn-auto {
+	margin-top: auto;
+	align-self: flex-start;
+}
+
+.btn-right-auto {
+	margin-right: auto;
+}
+
+.btn__own {
+	border: 1px solid $color-brand;
+	padding: 6px 19px;
+	color: $color-brand;
+}
+
+.btn-text {
+	@include font(1.5rem, 1.333, 0rem, 400);
+	border: none;
+	outline: none;
+	background: transparent;
+}
+.btn-text-underlined {
+	@include font(1rem, 1.21, 0rem, 700);
+	border: none;
+	outline: none;
+	background: transparent;
+	text-decoration: underline;
+}
+
+.check__card__btn {
+	color: $color-dark;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 9px 41px;
+	border-radius: 2px;
+	border: 1px solid $color-dark;
+	background: $color-white;
+	margin: 20px auto;
+}
+
+.check__card__btn:hover {
+	background: $color-brand;
+	color: $color-dark;
+	border: 1px solid $color-brand;
+	border-radius: 2px;
+	transition: 0.2s;
+}
+
+.right__card__button {
+	display: flex;
+	width: 75px;
+	height: 30px;
+	padding: 10px 0px;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	border-radius: 2px;
+	border: 1px solid $color-dark;
+	color: $color-dark;
+	text-align: center;
+	font-family: Inter;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 1px;
+	background-color: $color-white;
+}
+
+.right__card__button:hover {
+	background: $color-brand;
+	color: $color-dark;
+	border: 1px solid $color-brand;
+	border-radius: 2px;
+	transition: 0.2s;
+}

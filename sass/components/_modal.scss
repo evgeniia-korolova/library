@@ -1,0 +1,30 @@
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.8s, visibility 0.8s;
+	z-index: 50;
+}
+
+.modal-overlay.open-overlay {
+	opacity: 1;
+	visibility: visible;	
+}
+
+.modal-overlay .modal-content {
+	position: relative;
+	transform: scale(0);
+	transition: transform 0.8s;
+}
+
+.modal-overlay.open-overlay .modal-content {
+	transform: scale(1);
+}
