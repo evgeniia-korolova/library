@@ -40,7 +40,7 @@ export function createUserProfileModal(user) {
 		<div class="profile-form-modal" id="profile-form-modal">
 			<div class="profile-card-content">
 				<span class="close" id="close">
-					<img src="../images/close_btn.svg" alt="close-button" />
+					<img src="./images/close_btn.svg" alt="close-button" />
 				</span>
 				<div class="profile__content">
 					<div class="profile__sidebar">
@@ -53,17 +53,17 @@ export function createUserProfileModal(user) {
 						<ul class="profile__list">
 							<li class="profile__item">
 								<span class="profile__name">Visits</span>
-								<img src="../images/card_icon_visits.svg" alt="visits icon" />
+								<img src="./images/card_icon_visits.svg" alt="visits icon" />
 								<span class="profile__quantity">23</span>
 							</li>
 							<li class="profile__item">
 								<span class="profile__name">Bonuses</span>
-								<img src="../images/card_icon_star.svg" alt="bonuses icon" />
+								<img src="./images/card_icon_star.svg" alt="bonuses icon" />
 								<span class="profile__quantity">1240</span>
 							</li>
 							<li class="profile__item">
 								<span class="profile__name">Books</span>
-								<img src="../images/card_icon_book.svg" alt="books-icon" />
+								<img src="./images/card_icon_book.svg" alt="books-icon" />
 								<span class="profile__quantity">2</span>
 							</li>
 						</ul>
@@ -75,7 +75,7 @@ export function createUserProfileModal(user) {
 						<div class="profile__card">
 							<span class="profile__card-heading">Card number</span>
 							<span class="profile__number">${user.cardNumber}</span>
-							<span><img src="../images/icon_copy.svg" alt="icon copy" /></span>
+							<span><img src="./images/icon_copy.svg" alt="icon copy" /></span>
 						</div>
 					</div>
 				</div>
@@ -86,9 +86,6 @@ export function createUserProfileModal(user) {
 	document
 		.querySelector('.close')
 		.addEventListener('click', closeAllModals);
-	// addModalEventListeners(
-	// 	'profile-form-modal',
-	// 	createUserProfileModal
-	// );
+	
 	closeAllPopups();
 }
