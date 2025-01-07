@@ -1,21 +1,23 @@
+.profile-form-modal {
+  visibility: visible;
+  opacity: 1;
+  background: $color-white;
+}
 
 .profile-card-content {
   width: 600px;
   height: 400px;
   position: relative;
-  background: #fff;   
-  transform: scale(0);
-  transition: transform .8s;
+  // background: #fff;   
+  // transform: scale(0);
+  // transition: transform .8s;
 }
 
-.profile-form-modal.open-form {
-  visibility: visible;
-  opacity: 1;
-}
 
-.profile-form-modal.open-form .profile-card-content {
-  transform: scale(1);
-}
+
+// .profile-form-modal.open-form .profile-card-content {
+//   transform: scale(1);
+// }
 
 .profile__content {
   display: flex;
