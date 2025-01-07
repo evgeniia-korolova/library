@@ -53,12 +53,13 @@ export function showOverlayMessage(message) {
 	// Отображаем сообщение
 	modalContent.innerHTML = `<p class="overlay-message">${message}</p>`;
 	modalOverlay.classList.add('open-overlay');
-
-	// Закрываем оверлей через 3 секунды
+	
 	setTimeout(() => {
 		modalOverlay.classList.remove('open-overlay');
-		modalContent.innerHTML = '';
-	}, 3000);
+		if (document.body.classList.contains('no-scroll')) {
+			document.body.classList.remove('no-scroll');
+		}
+	}, 2000);
 }
 
 export function openModal(content) {
@@ -89,6 +90,19 @@ export function addModalEventListeners(buttonId, callback) {
 		.addEventListener('click', callback);
 }
 
+export function closeAllPopups() {
+	const burgerMenu = document.querySelector('.nav__panel');	
+	burgerMenu.classList.remove('is-open');		
+	const modalOverlay = document.querySelector('.modal-overlay');
+	const userMenu = document.querySelector('.user-menu');
+	if (
+		modalOverlay &&
+		modalOverlay.classList.contains('open-overlay')
+	) {
+		userMenu.classList.add('user-menu-hidden');
+	}
+}
+
 export function updateDigitalCard(user) {
 	const readerName = document.getElementById('readerName');
 	const readerCardNo = document.getElementById('readerCardNo');
@@ -115,3 +129,52 @@ export function generateCardNumber() {
 		.toString(16)
 		.padStart(9, '0');
 }
+
+
+export function handleUserIconClick() {
+	const userBtn = document.getElementById('userIcon');
+	const notAuthUserDrop = document.getElementById('notAuthUserDrop');
+	const authUserDrop = document.getElementById('authUserDrop');
+	const userMenu = document.getElementById('userMenu');
+
+	userBtn.addEventListener('click', () => {
+		userMenu.classList.toggle('user-menu-hidden');		
+
+		if(userMenu.classList.contains('user-menu-hidden') && !userBtn.hasAttribute('data-is-logged')) {
+			notAuthUserDrop.classList.add('hidden');			
+		}
+		if(!userMenu.classList.contains('user-menu-hidden') && !userBtn.hasAttribute('data-is-logged')) {
+			notAuthUserDrop.classList.remove('hidden');			
+		}
+		if(userMenu.classList.contains('user-menu-hidden') && userBtn.hasAttribute('data-is-logged')) {
+			authUserDrop.classList.add('hidden');			
+		}
+		if(!userMenu.classList.contains('user-menu-hidden') && userBtn.hasAttribute('data-is-logged')) {
+			authUserDrop.classList.remove('hidden');			
+		}
+	})	
+}
+
+export function closeBurgerMenu() {
+	const burgerMenu = document.querySelector('.nav__panel');
+	burgerMenu.classList.remove('is-open');		
+}
+
+export function closeOnEscape() {
+	const userMenu = document.querySelector('.user-menu');
+	const modalOverlay = document.querySelector('.modal-overlay');
+	window.addEventListener('keydown', (e) => {
+		if (
+			e.key === 'Escape' &&
+			!userMenu.classList.contains('user-menu-hidden')
+			|| e.key === 'Escape' &&
+			modalOverlay.classList.contains('open-overlay')
+		) {
+			userMenu.classList.add('user-menu-hidden');
+			modalOverlay.classList.remove('open-overlay');
+			document.body.classList.remove('no-scroll');
+		}
+	});
+}
+
+// !commit 07/02/2025-1

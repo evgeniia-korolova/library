@@ -1,3 +1,5 @@
+import { closeAllModals } from "./helpers.js";
+
 export function toggleBurger() {
 	const burgerBtn = document.getElementById('burger');
 	const menu = document.getElementById('nav__panel');
@@ -11,6 +13,7 @@ export function toggleBurger() {
 		if(!userMenu.classList.contains('user-menu-hidden')) {
 			userMenu.classList.add('user-menu-hidden');
 		}
+		closeAllModals();
 	});
 
 	navLinks.forEach((element) => {

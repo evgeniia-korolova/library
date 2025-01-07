@@ -1,20 +1,40 @@
-import { openModal, getFromLocalStorage } from './helpers.js';
+import {
+	openModal,
+	getFromLocalStorage,
+	addModalEventListeners,
+	closeAllModals,
+	closeAllPopups,
+	closeBurgerMenu
+} from './helpers.js';
 
-export function createUserProfileModal(emailOrCard) {
-	const users = getFromLocalStorage('users');
-	const user = users.find(
-		(u) => u.email === emailOrCard || u.cardNumber === emailOrCard
-	);
+export function createUserProfileModal(user) {
 
-	if (!user) {
-		console.error('User not found');
-		return;
+	 function addCloseOnClickOutside() {
+		const modalContent = document.querySelector('.modal-content');
+		const modalOverlay = document.getElementById('modal-overlay');
+		modalOverlay.addEventListener('click', (e) => {
+			if (e.target === modalOverlay) {
+				closeBurgerMenu();
+				closeAllModals();
+			}
+		});
+
+		modalContent.addEventListener('click', (e) => {
+			e.stopPropagation();
+		});
 	}
 
-	const authUserDrop = document.querySelector('.authUserDrop');
-	if (authUserDrop && !authUserDrop.classList.contains('hidden')) {
-		authUserDrop.classList.add('hidden');
-	}
+	addCloseOnClickOutside();
+
+	window.addEventListener('keydown', (e) => {
+		if (
+			e.key === 'Escape' &&
+			!userMenu.classList.contains('user-menu-hidden')
+		) {
+			userMenu.classList.add('user-menu-hidden');
+		}
+	});
+
 	// Рендерим модальное окно с данными пользователя
 	openModal(`
 		<div class="profile-form-modal" id="profile-form-modal">
@@ -24,7 +44,8 @@ export function createUserProfileModal(emailOrCard) {
 				</span>
 				<div class="profile__content">
 					<div class="profile__sidebar">
-						<p class="profile__initials">${user.firstName[0]}${user.lastName[0]}</p>
+						<p class="profile__initials">${user.firstName.charAt(0)} 
+						${user.lastName.charAt(0)}</p>
 						<p class="profile__full-name">${user.firstName} ${user.lastName}</p>
 					</div>
 					<div class="profile__info">
@@ -61,6 +82,13 @@ export function createUserProfileModal(emailOrCard) {
 			</div>
 		</div>
 	`);
-	addModalEventListeners('close', 'profile-form-modal');
 
+	document
+		.querySelector('.close')
+		.addEventListener('click', closeAllModals);
+	// addModalEventListeners(
+	// 	'profile-form-modal',
+	// 	createUserProfileModal
+	// );
+	closeAllPopups();
 }

@@ -1,6 +1,6 @@
 import { handleRegistration } from './registration.js';
 import { handleLogin } from './login.js';
-import { openModal, addModalEventListeners, closeAllModals } from './helpers.js';
+import { openModal, addModalEventListeners, closeAllModals, closeAllPopups, handleUserIconClick, closeBurgerMenu, closeOnEscape } from './helpers.js';
 
 export function handleModals() {
 	const modalOverlay = document.getElementById('modal-overlay');
@@ -12,17 +12,13 @@ export function handleModals() {
 	const registerBtn = document.querySelectorAll('.register-btn');
 	const loginBtn = document.querySelectorAll('.login-btn');
 
-
-	function closeAllPopups() {
-		burgerMenu.classList.remove('is-open');		
-	}
 	
+	closeBurgerMenu();
 
 	userBtn.addEventListener('click', () => {
 		if (burgerMenu.classList.contains('is-open')) {
 			burgerMenu.classList.remove('is-open');
-		}
-		userMenu.classList.toggle('user-menu-hidden');
+		}		
 	});
 
 	window.addEventListener('click', (e) => {
@@ -36,19 +32,13 @@ export function handleModals() {
 		}
 	});
 
-	window.addEventListener('keydown', (e) => {
-		if (
-			e.key === 'Escape' &&
-			!userMenu.classList.contains('user-menu-hidden')
-		) {
-			userMenu.classList.add('user-menu-hidden');
-		}
-	});
+	closeOnEscape();
+	
 
 	function addCloseOnClickOutside() {
 		modalOverlay.addEventListener('click', (e) => {
 			if (e.target === modalOverlay) {
-				closeAllPopups();
+				closeBurgerMenu();
 				closeAllModals();
 			}
 		});
@@ -124,7 +114,7 @@ export function handleModals() {
 
           <div class="form__field">               
             <label for="email">E-mail or readers card</label>
-            <input type="text" id="emailorCardLogin" name="email" autocomplete="off" required>
+            <input type="text" id="emailOrCardLogin" name="email" autocomplete="off" required>
           </div>
 
           <div class="form__field">
