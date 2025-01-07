@@ -115,6 +115,18 @@ export function updateDigitalCard(user) {
 	checkCardBtn.classList.add('hidden');
 	cardBadges.classList.remove('card__badges-hidden');
 }
+export function resetDigitalCard() {
+	const readerName = document.getElementById('readerName');
+	const readerCardNo = document.getElementById('readerCardNo');
+	const cardBadges = document.getElementById('card-badges');
+	const checkCardBtn = document.querySelector('.check-card--btn');
+	
+	readerName.value = '';
+	readerCardNo.value = '';
+	
+	checkCardBtn.classList.remove('hidden');
+	cardBadges.classList.add('card__badges-hidden');
+}
 
 export function getFromLocalStorage(key) {
 	return JSON.parse(localStorage.getItem(key)) || [];
@@ -177,4 +189,7 @@ export function closeOnEscape() {
 	});
 }
 
-// !commit 07/02/2025-1
+
+
+
+// !commit 07/02/2025-2

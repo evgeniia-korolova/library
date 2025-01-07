@@ -3,6 +3,8 @@ import {
 	getFromLocalStorage,
 	updateDigitalCard,
 	closeAllModals,
+	closeAllPopups,
+	resetDigitalCard
 } from './helpers.js';
 import { createUserProfileModal } from './userProfileModal.js';
 
@@ -14,7 +16,7 @@ export function handleLogin(
 ) {
 	loginForm.addEventListener('submit', (e) => {
 		e.preventDefault(); // Предотвращаем отправку формы
-		const readerInfoBtn = document.getElementById('readerInfoBtn');
+		// const readerInfoBtn = document.getElementById('readerInfoBtn');
 
 		// Получаем значения email/cardNumber и password
 		const emailOrCard = document
@@ -38,6 +40,7 @@ export function handleLogin(
 
 		// Если пользователь найден, выполняем логин
 		doLogin(existingUser);
+		showOverlayMessage('You are logged in successfully!');
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -47,13 +50,12 @@ export function handleLogin(
 					user.cardNumber === emailOrCard) &&
 				user.password === password
 		);
-		
 	}
 
 	function doLogin(user) {
 		console.log('User logged in successfully!', user);
 		updateDigitalCard(user);
-		
+
 		// Обновляем интерфейс
 		const userBtn = document.querySelector('.user-icon');
 		const profileCardNo = document.getElementById(
@@ -66,27 +68,53 @@ export function handleLogin(
 		)}${user.lastName.charAt(0)}`.toUpperCase();
 		userBtn.title = `${user.firstName} ${user.lastName}`;
 		profileCardNo.textContent = `${user.cardNumber}`;
-		 
 
 		readerInfoBtn.addEventListener('click', () => {
 			createUserProfileModal(user);
 			console.log('User logged in successfully!', user);
-			
 		});
+
+		const logOutBtn = document.getElementById('logOutBtn');
+		function logOut() {
+			const userBtn = document.getElementById('userIcon');
+			const userMenu = document.getElementById('userMenu');
+			const users = getFromLocalStorage('users');
+			const loggedInUserCardNumber = document.getElementById(
+				'user-menu__card-number'
+			).textContent;
+
+			if (!users || !loggedInUserCardNumber) {
+				console.error(
+					'No users found or no logged-in user identified'
+				);
+				return;
+			}
+
+			const updatedUsers = users.filter(
+				(user) => user.cardNumber !== loggedInUserCardNumber
+			);
+
+			localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+			userMenu.classList.add('user-menu-hidden');
+			authUserDrop.classList.add('hidden');
+			notAuthUserDrop.classList.remove('hidden');
+			userBtn.classList.remove('registered');
+			userBtn.removeAttribute('data-is-logged', 'true');
+			userBtn.textContent = '';
+			userBtn.innerHTML =
+				'<img src="./images/icon_profile.svg" alt="user icon" />';
+				resetDigitalCard();
+
+			console.log('User successfully logged out!');
+		}
+
+		logOutBtn.addEventListener('click', logOut);
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');
-		
 
 		closeAllModals();
-
-		// Закрываем модальное окно
-		// const modalOverlay = document.getElementById('modal-overlay');
-		// if (modalOverlay) {
-		// 	modalOverlay.classList.remove('open-overlay');
-		// 	document.body.classList.remove('no-scroll');
-			
-		// }
 
 		console.log('User logged in successfully!', user);
 	}
