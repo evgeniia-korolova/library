@@ -55,7 +55,7 @@ export function handleModals() {
         <div class="registration" id="registration">
           <form  class="registration-form" id="registration-form">
             <span class="close">
-              <img src="../images/close_btn.svg"  alt="close-button">
+              <img src="./images/close_btn.svg"  alt="close-button">
             </span>
             <h3 class="form-title">Register</h3>
 
@@ -108,7 +108,7 @@ export function handleModals() {
 		openModal(`
       <div class="login" id="login-form">
         <form  class="login-form" id="login-modal-content">
-          <span class="close"><img src="../images/close_btn.svg"     alt="close-button">
+          <span class="close"><img src="./images/close_btn.svg"     alt="close-button">
           </span>
           <h3 class="form-title">Login</h3>
 
