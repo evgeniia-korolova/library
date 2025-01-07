@@ -29,10 +29,16 @@ export function handleRegistration(
 		let users = getFromLocalStorage('users');
 
 		// Проверяем, есть ли пользователь с таким email
-		const existingUser = users.find((user) => user.email === email);
+		const existingUser = users.find((user) => user.email === email && user.firstName === firstName && user.lastName === lastName);
+		const existingEmail = users.find((user) => user.email === email && user.firstName !== firstName && user.lastName !== lastName);
 		if (existingUser) {
-			showOverlayMessage('You are already registered, please log in');			
-		}		else {			
+			showOverlayMessage('You are already registered, please log in');
+			return			
+		}	
+		if(existingEmail)	{
+			showOverlayMessage('This email is already registered');
+			return
+		} else {			
 			showOverlayMessage('You are successfully registered, please log in');
 		}
 		
