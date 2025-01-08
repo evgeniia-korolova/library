@@ -50,6 +50,8 @@ export function handleRegistration(
 			email,
 			password,
 			cardNumber,
+			visits: 1,
+			ownedBooks: 0
 		};
 		
 		users.push(newUser);
@@ -63,10 +65,6 @@ export function handleRegistration(
 		userBtn.innerHTML = `${firstName[0]}${lastName[0]}`.toUpperCase();
 		updateDigitalCard(newUser);
 		
-
-		
-		
-		// closeAllModals();
 
 		setTimeout(() => {
 			checkCardBtn.classList.remove('hidden');

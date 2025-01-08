@@ -4,7 +4,7 @@ import {
 	updateDigitalCard,
 	closeAllModals,
 	closeAllPopups,
-	resetDigitalCard
+	resetDigitalCard,
 } from './helpers.js';
 import { createUserProfileModal } from './userProfileModal.js';
 
@@ -54,6 +54,14 @@ export function handleLogin(
 
 	function doLogin(user) {
 		console.log('User logged in successfully!', user);
+		user.visits = (user.visits || 0) + 1;
+
+		const users = getFromLocalStorage('users');
+		const updatedUsers = users.map((u) =>
+			u.cardNumber === user.cardNumber ? user : u
+		);
+		
+		localStorage.setItem('users', JSON.stringify(updatedUsers));
 		updateDigitalCard(user);
 
 		// Обновляем интерфейс
@@ -104,7 +112,7 @@ export function handleLogin(
 			userBtn.textContent = '';
 			userBtn.innerHTML =
 				'<img src="./images/icon_profile.svg" alt="user icon" />';
-				resetDigitalCard();
+			resetDigitalCard();
 
 			console.log('User successfully logged out!');
 		}
