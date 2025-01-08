@@ -54,7 +54,7 @@ export function createUserProfileModal(user) {
 							<li class="profile__item">
 								<span class="profile__name">Visits</span>
 								<img src="./images/card_icon_visits.svg" alt="visits icon" />
-								<span class="profile__quantity">23</span>
+								<span class="profile__quantity">${user.visits || 0}</span>
 							</li>
 							<li class="profile__item">
 								<span class="profile__name">Bonuses</span>

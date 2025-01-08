@@ -108,9 +108,11 @@ export function updateDigitalCard(user) {
 	const readerCardNo = document.getElementById('readerCardNo');
 	const cardBadges = document.getElementById('card-badges');
 	const checkCardBtn = document.querySelector('.check-card--btn');
+	const visitsDigital = document.getElementById('visitsDigital')
 	
 	readerName.value = `${user.firstName} ${user.lastName}`;
 	readerCardNo.value = user.cardNumber;
+	visitsDigital.textContent = user.visits;
 	
 	checkCardBtn.classList.add('hidden');
 	cardBadges.classList.remove('card__badges-hidden');
