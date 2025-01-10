@@ -28,7 +28,7 @@ export class BookCard {
                 </p>
             </div>
 
-            <button class="btn-outlined btn-small btn-auto buy-book-btn">
+            <button class="btn-outlined btn-small btn-auto buy-book-btn" type="button">
                 Buy
             </button>
         </div>
@@ -44,10 +44,10 @@ export class BookCard {
 	}
 }
 
-export function getCurrentUser() {
-	const users = JSON.parse(localStorage.getItem('users')) || [];
-	return users.find((user) => user.isLoggedIn);
-}
+// export function getCurrentUser() {
+// 	const users = getFromLocalStorage('users') || [];
+// 	return users.find((user) => user.isLoggedIn);
+// }
 
 export function filterData(array, season) {
 	return array.filter((book) => book.season === season);
@@ -91,16 +91,19 @@ export function openModal(content) {
 	modalContent.innerHTML = content;
 	modalOverlay.classList.add('open-overlay');
 	document.body.classList.add('no-scroll');
+	console.log('Modal opened')
 }
 
 export function closeAllModals() {
 	const modalOverlay = document.querySelector('.modal-overlay');
+	
 	if (
 		modalOverlay &&
 		modalOverlay.classList.contains('open-overlay')
 	) {
 		modalOverlay.classList.remove('open-overlay');
 		document.body.classList.remove('no-scroll');
+		console.log('Modal closed');
 	}
 }
 
@@ -120,6 +123,8 @@ export function addModalEventListeners(buttonId, callback) {
 		actionButton.addEventListener('click', (e) => {
 			e.stopPropagation(); // Предотврати конфликт
 			callback();
+			console.log('addModalEventListeners');
+			
 		});
 	}
 }
