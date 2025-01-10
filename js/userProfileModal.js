@@ -1,7 +1,5 @@
 import {
-	openModal,
-	getFromLocalStorage,
-	addModalEventListeners,
+	openModal,	
 	closeAllModals,
 	closeAllPopups,
 	closeBurgerMenu

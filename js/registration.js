@@ -1,5 +1,5 @@
 import { showOverlayMessage } from './helpers.js';
-import { openModal, closeAllModals,addModalEventListeners, updateDigitalCard, getFromLocalStorage, saveToLocalStorage, generateCardNumber } from './helpers.js';
+import {  updateDigitalCard, getFromLocalStorage, saveToLocalStorage, generateCardNumber } from './helpers.js';
 
 export function handleRegistration(
 	registrationForm,
@@ -51,7 +51,9 @@ export function handleRegistration(
 			password,
 			cardNumber,
 			visits: 1,
-			ownedBooks: 0
+			ownedBooks: 0,
+			activeUser: false,
+			isLoggedIn: false
 		};
 		
 		users.push(newUser);
@@ -62,7 +64,7 @@ export function handleRegistration(
 		// Заменяем иконку user на инициалы
 		const userBtn = document.querySelector('.user-icon');
 		userBtn.classList.add('registered');
-		userBtn.innerHTML = `${firstName[0]}${lastName[0]}`.toUpperCase();
+		userBtn.textContent = `${firstName[0]}${lastName[0]}`.toUpperCase();
 		updateDigitalCard(newUser);
 		
 

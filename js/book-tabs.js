@@ -1,5 +1,6 @@
 import { books } from './data.js';
-import { BookCard, filterData } from './helpers.js';
+import { BookCard, filterData} from './helpers.js';
+
 
 const radioBtns = document.querySelectorAll('.radio__item');
 export function initializeTabs(array, parentSelector) {
@@ -59,4 +60,5 @@ export function handleSeasons(array, parentSelector) {
 			}, 1000);
 		});
 	});
+	
 }
