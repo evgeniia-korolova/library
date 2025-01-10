@@ -1296,7 +1296,6 @@ input[type=radio]:checked + label {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* modal Register */
 .reg-form.open-form {
   visibility: visible;
   opacity: 1;
@@ -1381,7 +1380,6 @@ input[type=radio]:checked + label {
   width: 250px;
   height: 262px;
   position: relative;
-  /* margin: 0 auto; */
   background: #fff;
   padding: 20px 25px;
   transform: scale(0);
@@ -1451,179 +1449,6 @@ input[type=radio]:checked + label {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-.buy-form {
-  position: fixed;
-  width: 100%;
-  min-height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 50;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.4s, visibility 0.4s;
-}
-
-.buy-content {
-  width: 640px;
-  height: 540px;
-  position: relative;
-  background: #fff;
-  transform: scale(0);
-  transition: transform 0.8s;
-}
-
-.buy-form.open-form {
-  visibility: visible;
-  opacity: 1;
-}
-
-.buy-form.open-form .buy-content {
-  transform: scale(1);
-}
-
-.close-buy-form {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.buy-form-header {
-  height: 60px;
-  background: #0c0c0e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.buy-form-title {
-  color: #ffffff;
-  font-size: 40px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  font-family: var(--font-family-headers);
-  font-weight: 400;
-}
-
-.buy-colomns {
-  display: flex;
-  gap: 40px;
-}
-
-.buy-left {
-  display: flex;
-  flex-direction: column;
-  padding-left: 30px;
-}
-
-.buy__label {
-  color: #000;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 133.333% */
-  letter-spacing: 0.3px;
-}
-
-.buy-form input[name=bank],
-.buy-form input[name=place],
-.buy-form input[name=postal],
-.buy-form input[name=cardholder] {
-  display: block;
-  border: 1px solid #bb945f;
-  margin-bottom: 7px;
-  width: 200px;
-  height: 20px;
-  margin-top: 10px;
-}
-
-.double-input {
-  display: flex;
-  gap: 10px;
-}
-
-.buy-form input[name=month],
-.buy-form input[name=year],
-.buy-form input[name=cvc] {
-  width: 45px;
-  height: 20px;
-  display: block;
-  border: 1px solid #bb945f;
-  margin-bottom: 8px;
-  margin-top: 10px;
-}
-
-.buy-form input[name=cvc] {
-  margin-bottom: 23px;
-}
-
-.buy-right {
-  width: 330px;
-}
-
-.buy-right-p {
-  color: #8e8e8e;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 133.333% */
-  letter-spacing: 2px;
-  margin: 0;
-  padding: 0;
-}
-
-.buy__card__price {
-  display: flex;
-  gap: 25px;
-  align-items: flex-end;
-  margin-top: 15px;
-}
-
-.buy-card-btn {
-  color: #0c0c0e;
-  font-family: var(--font-family-basic);
-  font-size: 10px;
-  height: 30px;
-  width: 75px;
-  font-weight: 700;
-  padding: 0;
-  letter-spacing: 1px;
-  border: 1px solid black;
-  border-radius: 2px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.buy-card-btn.active:hover {
-  background: #bb945f;
-  color: #0c0c0e;
-  border: 1px solid #bb945f;
-  border-radius: 2px;
-}
-
-.buy-card-btn.btn__own {
-  border: 1px solid #bb945f;
-  padding: 6px 19px;
-  color: #bb945f;
-}
-
-.buy__price {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px; /* 100% */
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
 .btn-outlined {
   color: #0C0C0E;
   font-family: "Inter", sans-serif;
@@ -1679,6 +1504,7 @@ input[type=radio]:checked + label {
   border: 1px solid #BB945F;
   padding: 6px 19px;
   color: #BB945F;
+  pointer-events: none;
 }
 
 .btn-text {
@@ -1893,7 +1719,6 @@ input[type=radio]:checked + label {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* modal Register */
 .reg-form.open-form {
   visibility: visible;
   opacity: 1;
@@ -1978,7 +1803,6 @@ input[type=radio]:checked + label {
   width: 250px;
   height: 262px;
   position: relative;
-  /* margin: 0 auto; */
   background: #fff;
   padding: 20px 25px;
   transform: scale(0);
@@ -2168,4 +1992,143 @@ input[type=radio]:checked + label {
   position: absolute;
   top: 21px;
   right: 19px;
+}
+
+.subscription-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  width: 65rem;
+}
+@media (max-width: 768px) {
+  .subscription-form {
+    width: 492px;
+  }
+}
+@media (max-width: 650px) {
+  .subscription-form {
+    width: 320px;
+  }
+}
+
+.subscription-form__close {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.subscription-form__header {
+  background: #0C0C0E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.subscription-form__title {
+  color: #FFFFFF;
+  font-size: 4rem;
+  line-height: 0.5;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-family: "Forum", sans-serif;
+}
+@media (max-width: 650px) {
+  .subscription-form__title {
+    font-size: 2rem;
+    line-height: 0.5;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+  }
+}
+
+.subscription-form__content {
+  display: flex;
+  gap: 40px;
+  padding: 30px 40px 40px;
+}
+@media (max-width: 768px) {
+  .subscription-form__content {
+    flex-direction: column;
+  }
+}
+@media (max-width: 650px) {
+  .subscription-form__content {
+    padding: 20px;
+  }
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  gap: 10px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form__field input {
+  border: 1px solid #BB945F;
+  width: 100%;
+  height: 20px;
+  outline: none;
+  height: 2rem;
+}
+.form__field #month,
+.form__field #year,
+.form__field #cvc {
+  width: 45px;
+}
+.form__field label {
+  color: #000000;
+  font-size: 1.5rem;
+  line-height: 1.333;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+}
+
+.double-input {
+  display: flex;
+  gap: 10px;
+}
+
+.subscription-form__info {
+  width: 330px;
+  color: #0C0C0E;
+  font-size: 1.5rem;
+  line-height: 1.333;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+}
+@media (max-width: 768px) {
+  .subscription-form__info {
+    width: 100%;
+  }
+}
+
+.subscription-form__price-wrapper {
+  display: flex;
+  gap: 25px;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.subscription-form__price {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
 }/*# sourceMappingURL=style.css.map */

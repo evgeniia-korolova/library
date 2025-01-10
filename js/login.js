@@ -1,30 +1,32 @@
 import {
 	showOverlayMessage,
+	saveToLocalStorage,
 	getFromLocalStorage,
-	updateDigitalCard,
-	closeAllModals,
-	closeAllPopups,
+	updateDigitalCard,	
 	resetDigitalCard,
+	
 } from './helpers.js';
+
 import { createUserProfileModal } from './userProfileModal.js';
+import { initBuyButtonHandlers } from './buyButtonHandlers.js';
 
 export function handleLogin(
 	loginForm,
 	notAuthUserDrop,
 	authUserDrop,
 	userIcon
-) {
-	loginForm.addEventListener('submit', (e) => {
-		e.preventDefault(); // Предотвращаем отправку формы
-		// const readerInfoBtn = document.getElementById('readerInfoBtn');
+) 
 
+{
+	loginForm.addEventListener('submit', (e) => {
+		e.preventDefault(); 
 		// Получаем значения email/cardNumber и password
 		const emailOrCard = document
-			.getElementById('emailOrCardLogin')
-			.value.trim();
+			.querySelector('.emailOrCardLogin')
+			.value;
 		const password = document
-			.getElementById('passLogin')
-			.value.trim();
+			.querySelector('.passLogin')
+			.value;
 
 		// Получаем массив пользователей из localStorage
 		const users = getFromLocalStorage('users');
@@ -32,15 +34,17 @@ export function handleLogin(
 		// Проверяем пользователя
 		const existingUser = checkUser(users, emailOrCard, password);
 
-		if (!existingUser) {
-			// Если пользователь не найден, выводим сообщение
+		if (!existingUser) {			
 			showOverlayMessage('You are not registered, please register');
 			return;
-		}
+		}		
 
 		// Если пользователь найден, выполняем логин
 		doLogin(existingUser);
 		showOverlayMessage('You are logged in successfully!');
+
+		initBuyButtonHandlers();
+				
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -55,13 +59,15 @@ export function handleLogin(
 	function doLogin(user) {
 		console.log('User logged in successfully!', user);
 		user.visits = (user.visits || 0) + 1;
+		
 
 		const users = getFromLocalStorage('users');
-		const updatedUsers = users.map((u) =>
+		const updatedUser = users.map((u) =>
 			u.cardNumber === user.cardNumber ? user : u
 		);
+		user.isLoggedIn = true;
+		saveToLocalStorage('users', updatedUser);
 		
-		localStorage.setItem('users', JSON.stringify(updatedUsers));
 		updateDigitalCard(user);
 
 		// Обновляем интерфейс
@@ -80,6 +86,8 @@ export function handleLogin(
 		readerInfoBtn.addEventListener('click', () => {
 			createUserProfileModal(user);
 			console.log('User logged in successfully!', user);
+
+			
 		});
 
 		const logOutBtn = document.getElementById('logOutBtn');
@@ -114,6 +122,8 @@ export function handleLogin(
 				'<img src="./images/icon_profile.svg" alt="user icon" />';
 			resetDigitalCard();
 
+			getCurrentUser();
+
 			console.log('User successfully logged out!');
 		}
 
@@ -121,9 +131,11 @@ export function handleLogin(
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');
+		
 
-		closeAllModals();
-
-		console.log('User logged in successfully!', user);
+		console.log('User logged out successfully!', user);
+		return user;
 	}
+
+
 }

@@ -26,8 +26,7 @@ export function toggleBurger() {
 	});
 
 	window.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') {
-			// Действие при клике
+		if (e.key === 'Escape') {			
 			menu.classList.remove('is-open');
 		}
 	});
@@ -40,8 +39,7 @@ export function toggleBurger() {
 		event._isClickWithInMenu = true;
 	});
 	document.body.addEventListener('click', (event) => {
-		if (event._isClickWithInMenu) return;
-		// Действие при клике
+		if (event._isClickWithInMenu) return;		
 		menu.classList.remove('is-open');
 	});
 
