@@ -1,6 +1,6 @@
 import { showOverlayMessage } from './helpers.js';
-import {  updateDigitalCard, getFromLocalStorage, saveToLocalStorage, generateCardNumber } from './helpers.js';
-import { initBuyButtonHandlers } from './buyButtonHandlers.js';
+import { openModal, closeAllModals,addModalEventListeners, updateDigitalCard, getFromLocalStorage, saveToLocalStorage, generateCardNumber } from './helpers.js';
+import { initBuyButtonHandlers } from "./buyButtonHandlers.js";
 
 export function handleRegistration(
 	registrationForm,
@@ -28,6 +28,7 @@ export function handleRegistration(
 		}
 
 		let users = getFromLocalStorage('users');
+		closeAllModals();
 
 		// Проверяем, есть ли пользователь с таким email
 		const existingUser = users.find((user) => user.email === email && user.firstName === firstName && user.lastName === lastName);
@@ -60,7 +61,7 @@ export function handleRegistration(
 		
 		users.push(newUser);
 		saveToLocalStorage('users', users);
-		initBuyButtonHandlers(newUser)
+		initBuyButtonHandlers(newUser);
 		
 
 		// Заменяем иконку user на инициалы

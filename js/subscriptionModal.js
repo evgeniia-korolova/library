@@ -5,6 +5,11 @@ import {
 
 
 export function openSubscriptionModal() {
+  const modalOverlay = document.getElementById('modal-overlay');
+  if (modalOverlay.classList.contains('open-overlay')) {
+    console.log('Modal already open');
+   
+}
 
   function addCloseOnClickOutside() {
       const modalContent = document.querySelector('.modal-content');

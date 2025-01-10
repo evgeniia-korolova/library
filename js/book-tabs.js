@@ -1,12 +1,13 @@
 import { books } from './data.js';
-import { BookCard, filterData} from './helpers.js';
+import { BookCard, filterData } from './helpers.js';
+
 
 
 const radioBtns = document.querySelectorAll('.radio__item');
 export function initializeTabs(array, parentSelector) {
 	const initialSeason = 'winter';
-	const filteredArray = filterData(books, initialSeason);
-	console.log(filteredArray);
+	const filteredArray = filterData(books, initialSeason);	
+
 
 	filteredArray.forEach((book) => {
 		const bookCard = new BookCard(
@@ -20,6 +21,7 @@ export function initializeTabs(array, parentSelector) {
 		bookCard.renderBookCard();
 	});
 	radioBtns[0].checked = true;
+	
 }
 
 export function handleSeasons(array, parentSelector) {
