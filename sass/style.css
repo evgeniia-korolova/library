@@ -1577,7 +1577,8 @@ input[type=radio]:checked + label {
   transition: 0.2s;
 }
 
-.modal-overlay {
+.modal-overlay,
+.message-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -1593,19 +1594,32 @@ input[type=radio]:checked + label {
   z-index: 50;
 }
 
-.modal-overlay.open-overlay {
+.modal-overlay.open-overlay,
+.message-overlay.open-overlay {
   opacity: 1;
   visibility: visible;
 }
 
-.modal-overlay .modal-content {
+.modal-overlay .modal-content,
+.message-overlay .message-content {
   position: relative;
   transform: scale(0);
   transition: transform 0.8s;
 }
 
-.modal-overlay.open-overlay .modal-content {
+.modal-overlay.open-overlay .modal-content,
+.message-overlay.open-overlay .message-content {
   transform: scale(1);
+}
+
+.overlay-text {
+  font-size: 18px;
+  color: red;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .user-menu {

@@ -70,19 +70,25 @@ export function addBookToOwned(user, bookId) {
 }
 
 export function showOverlayMessage(message) {
-	const modalOverlay = document.getElementById('modal-overlay');
-	const modalContent = document.querySelector('.modal-content');
+	const messageOverlay = document.getElementById('message-overlay');
+	const messageContent = document.querySelector('.message-content');
+	
 
 	// Отображаем сообщение
-	modalContent.innerHTML = `<p class="overlay-message">${message}</p>`;
-	modalOverlay.classList.add('open-overlay');
+	messageContent.innerHTML = `<p class="overlay-text">${message}</p>`;	
+	messageOverlay.classList.add('open-overlay');
+	console.log('showOverlayMessage');
+	
 
 	setTimeout(() => {
-		modalOverlay.classList.remove('open-overlay');
+		messageOverlay.classList.remove('open-overlay');
+		messageContent.innerHTML = '';
+		console.log('hideOverlayMessage');
+		
 		if (document.body.classList.contains('no-scroll')) {
 			document.body.classList.remove('no-scroll');
 		}
-	}, 1500);
+	}, 2000);
 }
 
 export function openModal(content) {
@@ -90,8 +96,7 @@ export function openModal(content) {
 	const modalContent = document.querySelector('.modal-content');
 	modalContent.innerHTML = content;
 	modalOverlay.classList.add('open-overlay');
-	document.body.classList.add('no-scroll');
-	console.log('Modal opened')
+	document.body.classList.add('no-scroll');	
 }
 
 export function closeAllModals() {
@@ -250,4 +255,6 @@ export function closeOnEscape() {
 	});
 }
 
-// !commit 10/01/2025-1
+
+
+// !commit 10/01/2025-2

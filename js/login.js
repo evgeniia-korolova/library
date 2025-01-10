@@ -4,11 +4,12 @@ import {
 	getFromLocalStorage,
 	updateDigitalCard,	
 	resetDigitalCard,
-	
+	closeAllModals
 } from './helpers.js';
 
 import { createUserProfileModal } from './userProfileModal.js';
 import { initBuyButtonHandlers } from './buyButtonHandlers.js';
+import { resetLoggedInStatus } from './resetLoggedInStatus.js';
 
 export function handleLogin(
 	loginForm,
@@ -41,7 +42,13 @@ export function handleLogin(
 
 		// Если пользователь найден, выполняем логин
 		doLogin(existingUser);
-		showOverlayMessage('You are logged in successfully!');				
+		
+		
+		closeAllModals();
+		showOverlayMessage('You are logged in successfully!');
+		
+		
+				
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -64,6 +71,9 @@ export function handleLogin(
 		);
 		user.isLoggedIn = true;
 		saveToLocalStorage('users', updatedUser);
+		console.log(user);
+		
+		initBuyButtonHandlers(user);
 		
 		updateDigitalCard(user);
 
@@ -81,32 +91,25 @@ export function handleLogin(
 		profileCardNo.textContent = `${user.cardNumber}`;
 
 		
-		initBuyButtonHandlers(user);
+		
 		readerInfoBtn.addEventListener('click', () => {	createUserProfileModal(user);
 			console.log('User logged in successfully!', user);			
 		});
 
-		const logOutBtn = document.getElementById('logOutBtn');
-		function logOut() {
+		notAuthUserDrop.classList.add('hidden');
+		authUserDrop.classList.remove('hidden');
+		return user;
+	}
+
+	function doLogOut(user) {
+			const logOutBtn = document.getElementById('logOutBtn');
 			const userBtn = document.getElementById('userIcon');
-			const userMenu = document.getElementById('userMenu');
+			const userMenu = document.getElementById('userMenu');	
+			
 			const users = getFromLocalStorage('users');
-			const loggedInUserCardNumber = document.getElementById(
-				'user-menu__card-number'
-			).textContent;
-
-			if (!users || !loggedInUserCardNumber) {
-				console.error(
-					'No users found or no logged-in user identified'
-				);
-				return;
-			}
-
-			const updatedUsers = users.filter(
-				(user) => user.cardNumber !== loggedInUserCardNumber
-			);
-
-			localStorage.setItem('users', JSON.stringify(updatedUsers));
+			const updatedUser = users.map((u) =>
+			u.cardNumber === user.cardNumber ? user : u);
+			user.isLoggedIn = false;
 
 			userMenu.classList.add('user-menu-hidden');
 			authUserDrop.classList.add('hidden');
@@ -117,21 +120,12 @@ export function handleLogin(
 			userBtn.innerHTML =
 				'<img src="./images/icon_profile.svg" alt="user icon" />';
 			resetDigitalCard();
-
-			getCurrentUser();
+			resetLoggedInStatus()
 
 			console.log('User successfully logged out!');
+			logOutBtn.addEventListener('click', doLogOut);		
 		}
 
-		logOutBtn.addEventListener('click', logOut);
-
-		notAuthUserDrop.classList.add('hidden');
-		authUserDrop.classList.remove('hidden');
 		
-
-		console.log('User logged out successfully!', user);
-		return user;
-	}
-
 
 }

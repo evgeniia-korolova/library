@@ -1,6 +1,6 @@
 import { handleRegistration } from './registration.js';
 import { handleLogin } from './login.js';
-import { openModal, addModalEventListeners, closeAllModals,  closeBurgerMenu, closeOnEscape } from './helpers.js';
+import { openModal, addModalEventListeners, closeAllModals,  closeBurgerMenu, closeOnEscape, closeAllPopups } from './helpers.js';
 
 export function handleModals() {
 	const modalOverlay = document.getElementById('modal-overlay');
@@ -100,6 +100,7 @@ export function handleModals() {
 			authUserDrop,
 			userBtn
 		);
+		
 	}
 
 	function createMarkupLoginModal() {
@@ -130,6 +131,7 @@ export function handleModals() {
     `);
 
 		addModalEventListeners('register-modal',createMarkupRegisterModal);
+		closeAllPopups();
 		const loginForm = document.getElementById('login-form');
 		handleLogin(
 			loginForm,
@@ -137,6 +139,7 @@ export function handleModals() {
 			authUserDrop,
 			userBtn
 		);
+		
 	}
 
 	function setupButtonListeners(buttons, callback) {
