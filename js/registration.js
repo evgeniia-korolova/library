@@ -1,5 +1,6 @@
 import { showOverlayMessage } from './helpers.js';
 import {  updateDigitalCard, getFromLocalStorage, saveToLocalStorage, generateCardNumber } from './helpers.js';
+import { initBuyButtonHandlers } from './buyButtonHandlers.js';
 
 export function handleRegistration(
 	registrationForm,
@@ -53,12 +54,13 @@ export function handleRegistration(
 			visits: 1,
 			ownedBooks: 0,
 			activeUser: false,
-			isLoggedIn: false
+			isLoggedIn: false,
+			isRegistered: true
 		};
 		
 		users.push(newUser);
 		saveToLocalStorage('users', users);
-		
+		initBuyButtonHandlers(newUser)
 		
 
 		// Заменяем иконку user на инициалы

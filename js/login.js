@@ -43,7 +43,7 @@ export function handleLogin(
 		doLogin(existingUser);
 		showOverlayMessage('You are logged in successfully!');
 
-		initBuyButtonHandlers();
+		initBuyButtonHandlers(existingUser);
 				
 	});
 
