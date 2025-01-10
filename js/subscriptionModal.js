@@ -1,12 +1,39 @@
 import {
-	openModal,	closeAllModals
+	openModal,	closeAllModals, closeAllPopups,
+	closeBurgerMenu
 } from './helpers.js';
-import { handleLogin } from './login.js';
+
 
 export function openSubscriptionModal() {
+
+  function addCloseOnClickOutside() {
+      const modalContent = document.querySelector('.modal-content');
+      const modalOverlay = document.getElementById('modal-overlay');
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeBurgerMenu();
+          closeAllModals();
+        }
+      });
+  
+      modalContent.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    addCloseOnClickOutside();
+
+    window.addEventListener('keydown', (e) => {
+      if (
+        e.key === 'Escape' &&
+        !userMenu.classList.contains('user-menu-hidden')
+      ) {
+        userMenu.classList.add('user-menu-hidden');
+      }
+    });
+
 	openModal(`
-		<div class="subscription-form" id="subscription-form">				
-      
+		<div class="subscription-form" id="subscription-form">	      
       <div class="subscription-form__header">
         <span class="close subscription-form__close">
           <img src="./images/close_btn-white.svg" alt="close" />
@@ -124,9 +151,13 @@ export function openSubscriptionModal() {
     </div>
 `);
 
+
+
 	document
       .querySelector('.close')
       .addEventListener('click', closeAllModals);
+
+      closeAllPopups();
 }
 
 

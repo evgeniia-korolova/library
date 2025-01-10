@@ -1,15 +1,13 @@
 import { showOverlayMessage } from './helpers.js';
 import { openSubscriptionModal } from './subscriptionModal.js';
-import { getCurrentUser } from './helpers.js'; // Предполагается, что эта функция реализована
 
 export function initBuyButtonHandlers(currentUser) {
-  const buyButtons = document.querySelectorAll('.buy-book-btn');
-  // const currentUser = getCurrentUser(); // Получаем текущего пользователя
+  const buyButtons = document.querySelectorAll('.buy-book-btn'); 
 
   buyButtons.forEach((button) => {
     button.addEventListener('click', () => {
       if (!currentUser) {
-        showOverlayMessage('Please register and log in to buy a book!');
+        showOverlayMessage('Please register and/or log in to buy a book!');
       } else if (!currentUser.isLoggedIn) {
         console.log(currentUser);
         
