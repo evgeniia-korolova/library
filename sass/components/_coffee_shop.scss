@@ -1,0 +1,102 @@
+.coffee-shop__container {
+	padding: 20px;
+}
+
+.menu {
+	display: flex;	
+	justify-content: space-between;
+
+  @include media-laptop {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+   @include media-big-mobile {
+    justify-content: center;
+   }
+}
+
+.menu__container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.menu__title {
+	color: $color-brand;
+	text-transform: capitalize;
+	text-align: left;
+
+	&:after {
+		display: none;
+	}
+}
+
+.shop__description {
+	padding: 20px 0;
+	text-align: center;
+}
+
+.menu-list {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	margin-top: 40px;
+
+   @include media-big-mobile {
+    gap: 30px;
+   }
+}
+
+.menu-item {
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu__title.deserts {
+	text-align: right;
+
+  @include media-big-mobile {
+    text-align: left;
+  }
+}
+
+.item-price::before {
+	content: '';
+	display: inline-block;
+	width: 102px;
+	height: 1px;
+	background-color: #bb945f;
+	margin: 0 58px 6px;
+
+  @include media-big-mobile {
+    width: 5rem;
+    margin: 0 1rem 6px;
+  }
+}
+
+.menu__container.deserts {
+	padding-right: 5px;
+
+   @include media-big-mobile {
+    padding-right: 0;
+   }
+}
+
+.item-deserts .item-title {
+	margin-left: auto;
+
+   @include media-big-mobile {
+    margin-left: 0;
+   }
+}
+
+.menu__container.drinks {
+  @include media-laptop {    
+    align-items: flex-start;
+  }
+
+  @include media-big-mobile {
+    align-items: normal;
+  }
+}

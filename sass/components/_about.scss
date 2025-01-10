@@ -1,0 +1,18 @@
+.about__container {
+	padding: 20px 20px 0 20px;
+
+	@include media-medium-mobile {
+		padding: 20px 0;
+	}
+}
+
+.about__description {
+	color: #000;
+	margin: 40px 0 10px;	
+	text-align: center;
+	
+	@include media-medium-mobile {
+		margin: 20px 0;
+		padding: 0 10px;
+	}
+}

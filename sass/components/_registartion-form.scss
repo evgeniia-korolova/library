@@ -1,0 +1,164 @@
+.registration,
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: $color-white;  
+  padding: 20px 25px;
+}
+
+.registration-form,
+.login-form {
+  width: 250px;  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;  
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-title {  
+  font-family: $font-headers;
+  @include font(2rem, 1, 0.4rem, 400); 
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.text-btn__block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-btn__block--text {
+  @include font(1rem, 1.21, 0rem, 400); 
+}
+
+.overlay-message {
+	font-size: 18px;
+	color: #333;
+	text-align: center;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+.reg-form.open-form {
+  visibility: visible;
+  opacity: 1;
+}
+
+.reg-form.open-form .registration-modal-content {
+  transform: scale(1);
+}
+
+.close,
+.login-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 15px;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.closed {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+.close:hover,
+.close:focus,
+.login-close:hover,
+.login-close:focus {
+  background: red;
+}
+
+
+
+.welcome input[type='text'],
+.welcome input[type='password'],
+.welcome input[type='email'] {
+  display: block;
+  border: 1px solid #bb945f;
+  margin: 10px 0;
+  height: 20px;
+  width: 200px;
+  margin-bottom: 9px;
+}
+
+.signupLoginBtn,
+.loginLoginBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  background: #fff;
+  /* padding: 10px 0; */
+  cursor: pointer;
+  font-size: 10px;
+  color: #0c0c0e;
+  font-family: var(--font-family-basic);
+  margin-bottom: 5px;
+}
+
+.loginLoginBtn {
+  margin-top: 20px;
+}
+
+.signupLoginBtn:hover {
+  background: #bb945f;
+  color: #0c0c0e;
+  border: 1px solid #bb945f;
+  border-radius: 2px;
+}
+
+
+
+.form-p {
+  font-size: 10px;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  display: inline;
+}
+
+
+
+.login-modal-content {
+  width: 250px;
+  height: 262px;
+  position: relative; 
+  background: #fff;
+  padding: 20px 25px;
+  transform: scale(0);
+  transition: transform 0.8s;
+}
+
+.login-form.open-form {
+  visibility: visible;
+  opacity: 1;
+}
+
+.login-form.open-form .login-modal-content {
+  transform: scale(1);
+}

@@ -1,0 +1,61 @@
+.contacts__container {
+	padding: 2rem 2rem 3.7rem 2rem;
+
+  @include media-medium-mobile {
+		padding: 20px 10px 40px;
+	}
+}
+
+.contacts__content {
+	display: flex;
+	justify-content: space-between;	
+	gap: 2rem;
+	margin-top: 40px;
+
+	@include media-laptop {
+    flex-direction: column;
+    gap: 4rem;
+		justify-content: center;
+	}
+}
+
+.contact__title {
+  @include font(2rem, 2, 0.2rem, 700);
+}
+
+.contacts__inquiries p,
+.contact__staff p {	
+	text-transform: capitalize;
+	padding-top: 2rem;
+}
+
+.contact__staff {
+	margin-top: 4rem;
+}
+
+.contact__staff p {
+	padding-top: 0;
+}
+
+.contacts p a {
+	text-decoration: none;
+	color: $color-black;
+}
+
+.contacts p a:hover {
+	color: $color-brand;
+	text-decoration: underline;
+}
+
+.director {	
+	@include font(2rem, 2, 0.2rem, 700);
+	text-transform: capitalize;
+
+	@include media-medium-mobile {
+		@include font(1.6rem, 2, 0.2rem, 700);
+	}
+}
+
+.map {
+	width: 100%;
+}

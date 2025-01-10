@@ -1,0 +1,45 @@
+.welcome__container {
+	background-image: url('../images/welcome-photo.jpg'),
+		linear-gradient(
+			180deg,
+			#0c0c0e 0%,
+			#0c0c0e 0.01%,
+			rgba(18, 18, 21, 0.1) 100%
+		);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.welcome__text {
+	padding: 220px 0 160px;
+
+	@include media-big-mobile {
+		padding: 100px 20px;
+	}
+
+	h2 {
+		@include font(4rem, 1.25, 0.03rem, 400);
+		color: $color-white;
+		text-align: center;
+		text-transform: uppercase;
+		background: $color-dark;
+		max-width: 600px;
+		padding: 35px 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:after {
+			display: none;
+		}
+
+		@include media-big-mobile {
+			padding: 35px 0;
+			justify-content: center;
+		}
+		@include media-medium-mobile {
+			@include font(2.4rem, 1, 0.2rem, 400);
+		}
+	}
+}

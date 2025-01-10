@@ -1,0 +1,44 @@
+.modal-overlay,
+.message-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.8s, visibility 0.8s;
+	z-index: 50;
+}
+
+.modal-overlay.open-overlay,
+.message-overlay.open-overlay {
+	opacity: 1;
+	visibility: visible;	
+}
+
+.modal-overlay .modal-content,
+.message-overlay .message-content {
+	position: relative;
+	transform: scale(0);
+	transition: transform 0.8s;
+}
+
+.modal-overlay.open-overlay .modal-content,
+.message-overlay.open-overlay .message-content {
+	transform: scale(1);
+}
+
+.overlay-text {
+	font-size: 18px;
+	color: red;
+	text-align: center;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
