@@ -41,10 +41,7 @@ export function handleLogin(
 
 		// Если пользователь найден, выполняем логин
 		doLogin(existingUser);
-		showOverlayMessage('You are logged in successfully!');
-
-		initBuyButtonHandlers(existingUser);
-				
+		showOverlayMessage('You are logged in successfully!');				
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -83,11 +80,10 @@ export function handleLogin(
 		userBtn.title = `${user.firstName} ${user.lastName}`;
 		profileCardNo.textContent = `${user.cardNumber}`;
 
-		readerInfoBtn.addEventListener('click', () => {
-			createUserProfileModal(user);
-			console.log('User logged in successfully!', user);
-
-			
+		
+		initBuyButtonHandlers(user);
+		readerInfoBtn.addEventListener('click', () => {	createUserProfileModal(user);
+			console.log('User logged in successfully!', user);			
 		});
 
 		const logOutBtn = document.getElementById('logOutBtn');

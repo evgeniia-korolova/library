@@ -1,8 +1,6 @@
 .subscription-form {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	visibility: visible;
+	opacity: 1;
 	background: $color-white;
 	width: 65rem;
 
@@ -16,14 +14,14 @@
 }
 
 .subscription-form__close {
-	position: absolute;
+	position: relative;
 	width: 15px;
 	height: 15px;
 	top: 50%;
 	right: 20px;
 	transform: translateY(-50%);
 	cursor: pointer;
-	z-index: 2;
+	position: relative;
 }
 
 .subscription-form__header {
