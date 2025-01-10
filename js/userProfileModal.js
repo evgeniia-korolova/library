@@ -86,4 +86,5 @@ export function createUserProfileModal(user) {
 		.addEventListener('click', closeAllModals);
 	
 	closeAllPopups();
+	closeAllModals();
 }
