@@ -1,6 +1,6 @@
 import { handleRegistration } from './registration.js';
 import { handleLogin } from './login.js';
-import { openModal, addModalEventListeners, closeAllModals, closeAllPopups, handleUserIconClick, closeBurgerMenu, closeOnEscape } from './helpers.js';
+import { openModal, addModalEventListeners, closeAllModals,  closeBurgerMenu, closeOnEscape } from './helpers.js';
 
 export function handleModals() {
 	const modalOverlay = document.getElementById('modal-overlay');
@@ -31,9 +31,7 @@ export function handleModals() {
 			userMenu.classList.add('user-menu-hidden');
 		}
 	});
-
-	closeOnEscape();
-	
+	closeOnEscape();	
 
 	function addCloseOnClickOutside() {
 		modalOverlay.addEventListener('click', (e) => {
@@ -114,12 +112,12 @@ export function handleModals() {
 
           <div class="form__field">               
             <label for="email">E-mail or readers card</label>
-            <input type="text" id="emailOrCardLogin" name="email" autocomplete="off" required>
+            <input type="text" id="emailOrCardLogin" class="emailOrCardLogin" name="email" autocomplete="off" required>
           </div>
 
           <div class="form__field">
             <label for="pass">Password</label>
-            <input type="password" id="passLogin" style="margin-bottom: 10px" name="pass" required autocomplete="off">
+            <input type="password" id="passLogin" class="passLogin" style="margin-bottom: 10px" name="pass" required autocomplete="off">
           </div>
 
           <button type="submit" class="btn-outlined btn-extra-small btn-right-auto login-btn" id="sign-up">Log in</button>
@@ -153,7 +151,5 @@ export function handleModals() {
 	}
 
 	setupButtonListeners(registerBtn, createMarkupRegisterModal);
-	setupButtonListeners(loginBtn, createMarkupLoginModal);
-
-	
+	setupButtonListeners(loginBtn, createMarkupLoginModal);	
 }
