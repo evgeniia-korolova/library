@@ -25,23 +25,5 @@ export function renderBooks(books, parentSelector, user = null) {
 		bookCard.renderBookCard(user);
 	});
 
-	// Добавляем обработчик на кнопки
-	// parent.addEventListener('click', (event) => {
-	// 	if (event.target.tagName === 'BUTTON' && event.target.dataset.id) {
-	// 		const bookId = parseInt(event.target.dataset.id, 10);
-
-  //     if (!user || !user.isLoggedIn) {
-	// 			openSubscriptionModal();				
-	// 		}
-
-	// 		// Добавляем книгу в коллекцию пользователя
-	// 		addBookToOwned(user, bookId);
-
-	// 		// Показываем сообщение пользователю
-	// 		showOverlayMessage('Книга добавлена в вашу коллекцию!');
-
-	// 		// Перерисовываем книги, чтобы обновить кнопки
-	// 		renderBooks(books, parentSelector, user, season);
-	// 	}
-	// });
+	
 }

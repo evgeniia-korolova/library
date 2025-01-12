@@ -1,6 +1,5 @@
 import {
-	openModal,	closeAllModals, closeAllPopups,
-	closeBurgerMenu
+	openModal,	closeAllModals, closeAllPopups,	closeBurgerMenu
 } from './helpers.js';
 
 
@@ -155,8 +154,6 @@ export function openSubscriptionModal() {
       </div>
     </div>
 `);
-
-
 
 	document
       .querySelector('.close')

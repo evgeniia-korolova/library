@@ -28,7 +28,7 @@ export class BookCard {
                 </p>
             </div>
 
-            <button class="btn-outlined btn-small btn-auto buy-book-btn" type="button">
+            <button class="btn-outlined btn-small btn-auto buy-book-btn" data-book-id="${this.id}" data-book-title="${this.title}" data-book-author="${this.author}"type="button">
                 Buy
             </button>
         </div>
@@ -44,30 +44,27 @@ export class BookCard {
 	}
 }
 
-// export function getCurrentUser() {
-// 	const users = getFromLocalStorage('users') || [];
-// 	return users.find((user) => user.isLoggedIn);
-// }
+
 
 export function filterData(array, season) {
 	return array.filter((book) => book.season === season);
 }
 
-export function addBookToOwned(user, bookId) {
-	const ownedBooks = user.ownedBooks || [];
-	const book = books.find((b) => b.id === bookId);
+// export function addBookToOwned(user, bookId) {
+// 	const ownedBooks = user.ownedBooks || [];
+// 	const book = books.find((b) => b.id === bookId);
 
-	// Проверяем, есть ли уже эта книга в коллекции
-	if (!ownedBooks.find((b) => b.id === book.id)) {
-		ownedBooks.push({
-			id: book.id,
-			title: book.title,
-			author: book.author,
-		});
-		user.ownedBooks = ownedBooks;
-		saveToLocalStorage('users', user);
-	}
-}
+// 	// Проверяем, есть ли уже эта книга в коллекции
+// 	if (!ownedBooks.find((b) => b.id === book.id)) {
+// 		ownedBooks.push({
+// 			id: book.id,
+// 			title: book.title,
+// 			author: book.author,
+// 		});
+// 		user.ownedBooks = ownedBooks;
+// 		saveToLocalStorage('users', user);
+// 	}
+// }
 
 export function showOverlayMessage(message) {
 	const messageOverlay = document.getElementById('message-overlay');

@@ -62,13 +62,14 @@ export function createUserProfileModal(user) {
 							<li class="profile__item">
 								<span class="profile__name">Books</span>
 								<img src="./images/card_icon_book.svg" alt="books-icon" />
-								<span class="profile__quantity">2</span>
+								<span class="profile__quantity user-profile__books-counter">2</span>
 							</li>
 						</ul>
 						<h3 class="profile__books-heading">Rented books</h3>
-						<ul class="profile__books">
-							<li class="taken__book">The Last Queen, Clive Irving</li>
-							<li class="taken__book">Dominicana, Angie Cruz</li>
+						<ul class="profile__books user-profile__books-list">
+							${(user.ownedBooks || [])
+								.map((book) => `<li class="taken__book">${book.title} by ${book.author}</li>`)
+								.join('')}
 						</ul>
 						<div class="profile__card">
 							<span class="profile__card-heading">Card number</span>
@@ -86,5 +87,5 @@ export function createUserProfileModal(user) {
 		.addEventListener('click', closeAllModals);
 	
 	closeAllPopups();
-	closeAllModals();
+	
 }

@@ -1,32 +1,7 @@
-import { showOverlayMessage } from './helpers.js';
+import { showOverlayMessage, getFromLocalStorage, saveToLocalStorage } from './helpers.js';
 import { openSubscriptionModal } from './subscriptionModal.js';
-import { getFromLocalStorage } from './helpers.js';
+import { initSubscriptionHandler } from './subscriptionHandlers.js';
 
-// export function initBuyButtonHandlers(user) {
-//   const buyButtons = document.querySelectorAll('.buy-book-btn'); 
-//   const users = getFromLocalStorage('users') || [];
-//   const currentUser = users.find(user => user.isLoggedIn) || null;
-
-//   buyButtons.forEach((button) => {
-//     button.addEventListener('click', () => {
-//       if (!currentUser || !currentUser.isRegistered && !currentUser.isLoggedIn) {
-//         console.log('User is not logged in or registered');
-//         showOverlayMessage('Please register and/or log in to buy a book!');
-//         return
-//       } 
-//       if (!currentUser.isLoggedIn && currentUser.isRegistered) {
-//         console.log('User is not logged in');       
-//         showOverlayMessage('Please log in to buy a book!');
-//         return
-//       } 
-//       if (currentUser.isLoggedIn && currentUser.isRegistered) {
-//         console.log('User is logged in and registered');
-//         openSubscriptionModal();
-//         return
-//       }
-//     });
-//   });
-// }
 
 export function initBuyButtonHandlers(currentUser) {
   const buyButtons = document.querySelectorAll('.buy-book-btn'); 
@@ -56,10 +31,49 @@ export function initBuyButtonHandlers(currentUser) {
       }
      
 
-      if (currentUser.isLoggedIn && currentUser.isRegistered) {
-        console.log('User is logged in and registered');
+      if (currentUser.isLoggedIn && currentUser.isRegistered && !currentUser.activeUser) {
+        console.log('User is logged in and registered, but not active');
         openSubscriptionModal();
+        initSubscriptionHandler();
+        return;
       }
+      
+      // Если пользователь активен, покупаем книгу
+      if (currentUser.isLoggedIn && currentUser.activeUser) {
+        const bookTitle = newButton.dataset.bookTitle;
+        const bookAuthor = newButton.dataset.bookAuthor;
+
+        // Проверяем, чтобы книга не была уже куплена
+        if (
+          currentUser.ownedBooks &&
+          currentUser.ownedBooks.some(
+            (book) => book.title === bookTitle && book.author === bookAuthor
+          )
+        ) {
+          showOverlayMessage('You already own this book!');
+          return;
+        }
+
+        // Добавляем книгу в массив ownedBooks
+        currentUser.ownedBooks = currentUser.ownedBooks || [];
+        currentUser.ownedBooks.push({ title: bookTitle, author: bookAuthor });
+
+        // Сохраняем обновленные данные пользователя в localStorage
+        const users = getFromLocalStorage('users') || [];
+        const updatedUsers = users.map((user) =>
+          user.cardNumber === currentUser.cardNumber ? currentUser : user
+        );
+        saveToLocalStorage('users', updatedUsers);
+
+        // Меняем стиль кнопки
+        newButton.textContent = 'Own';
+        newButton.classList.add('btn__own');
+        newButton.disabled = true;
+
+        console.log('Book purchased successfully!', currentUser.ownedBooks);
+        showOverlayMessage('Book purchased successfully!');
+      }
+
     });
   });
 }

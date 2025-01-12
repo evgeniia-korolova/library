@@ -24,10 +24,10 @@ export function handleLogin(
 		// Получаем значения email/cardNumber и password
 		const emailOrCard = document
 			.querySelector('.emailOrCardLogin')
-			.value;
+			.value.trim();
 		const password = document
 			.querySelector('.passLogin')
-			.value;
+			.value.trim();
 
 		// Получаем массив пользователей из localStorage
 		const users = getFromLocalStorage('users');
@@ -46,9 +46,7 @@ export function handleLogin(
 		
 		closeAllModals();
 		showOverlayMessage('You are logged in successfully!');
-		
-		
-				
+		doLogOut(existingUser);				
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -71,7 +69,7 @@ export function handleLogin(
 		);
 		user.isLoggedIn = true;
 		saveToLocalStorage('users', updatedUser);
-		console.log(user);
+		
 		
 		initBuyButtonHandlers(user);
 		
@@ -79,20 +77,17 @@ export function handleLogin(
 
 		// Обновляем интерфейс
 		const userBtn = document.querySelector('.user-icon');
-		const profileCardNo = document.getElementById(
-			'user-menu__card-number'
-		);
+		const profileCardNo = document.getElementById('user-menu__card-number');
 		userBtn.classList.add('registered');
 		userBtn.setAttribute('data-is-logged', 'true');
-		userBtn.textContent = `${user.firstName.charAt(
-			0
-		)}${user.lastName.charAt(0)}`.toUpperCase();
+		userBtn.textContent = `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
 		userBtn.title = `${user.firstName} ${user.lastName}`;
 		profileCardNo.textContent = `${user.cardNumber}`;
 
 		
 		
-		readerInfoBtn.addEventListener('click', () => {	createUserProfileModal(user);
+		readerInfoBtn.addEventListener('click', () => {	
+			createUserProfileModal(user);
 			console.log('User logged in successfully!', user);			
 		});
 
@@ -102,29 +97,32 @@ export function handleLogin(
 	}
 
 	function doLogOut(user) {
-			const logOutBtn = document.getElementById('logOutBtn');
-			const userBtn = document.getElementById('userIcon');
-			const userMenu = document.getElementById('userMenu');	
-			
+		const logOutBtn = document.getElementById('logOutBtn');
+		const userBtn = document.getElementById('userIcon');
+		const userMenu = document.getElementById('userMenu');
+	
+		logOutBtn.addEventListener('click', () => {
 			const users = getFromLocalStorage('users');
 			const updatedUser = users.map((u) =>
-			u.cardNumber === user.cardNumber ? user : u);
+				u.cardNumber === user.cardNumber ? { ...u, isLoggedIn: false } : u
+			);
+	
 			user.isLoggedIn = false;
-
+			saveToLocalStorage('users', updatedUser);
+	
+			// Обновляем интерфейс
 			userMenu.classList.add('user-menu-hidden');
 			authUserDrop.classList.add('hidden');
 			notAuthUserDrop.classList.remove('hidden');
-			userBtn.classList.remove('registered');
+			// userBtn.classList.remove('registered');
 			userBtn.removeAttribute('data-is-logged', 'true');
-			userBtn.textContent = '';
-			userBtn.innerHTML =
-				'<img src="./images/icon_profile.svg" alt="user icon" />';
-			resetDigitalCard();
-			resetLoggedInStatus()
-
+			// userBtn.textContent = '';
+			// userBtn.innerHTML =
+			// 	'<img src="./images/icon_profile.svg" alt="user icon" />';
+	
 			console.log('User successfully logged out!');
-			logOutBtn.addEventListener('click', doLogOut);		
-		}
+		});
+	}
 
 		
 

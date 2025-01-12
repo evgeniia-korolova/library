@@ -53,7 +53,7 @@ export function handleRegistration(
 			password,
 			cardNumber,
 			visits: 1,
-			ownedBooks: 0,
+			ownedBooks: [],
 			activeUser: false,
 			isLoggedIn: false,
 			isRegistered: true
@@ -61,6 +61,8 @@ export function handleRegistration(
 		
 		users.push(newUser);
 		saveToLocalStorage('users', users);
+
+		// change message when clicking on buy book button
 		initBuyButtonHandlers(newUser);
 		
 
