@@ -1,5 +1,6 @@
-import { addBookToOwned, showOverlayMessage, BookCard, filterData } from './helpers.js';
+import { addBookToOwned, showOverlayMessage, BookCard} from './helpers.js';
 import {openSubscriptionModal} from './subscriptionModal.js';
+import { filterData } from './utils/BooksService/filterData.js';
 
 
 export function renderBooks(books, parentSelector, user = null) {

@@ -1,9 +1,12 @@
-import { getFromLocalStorage } from "./helpers.js";
+
 import { initBuyButtonHandlers } from "./buyButtonHandlers.js";
+import { closeAllModals } from "./utils/openCloseService/closeModal.js";
+import { getFromLocalStorage } from './utils/commonServices/localStorageService.js';
 export function saveCurrentUser() {
   const users = getFromLocalStorage('users') || [];
   const loggedInUser = users.find((user) => user.isLoggedIn) || null;
   const registeredUser = users.find((user) => user.isRegistered && !user.isLoggedIn) || null;
+  closeAllModals();
 
   if (loggedInUser) {
     console.log('User is already logged in:', loggedInUser);
@@ -27,6 +30,8 @@ export function saveCurrentUser() {
     const userBtn = document.querySelector('.user-icon');
     const profileCardNo = document.getElementById('user-menu__card-number');  
     userBtn.classList.add('registered');
+    const userMenu = document.getElementById('userMenu');
+    userMenu.classList.add('user-menu-hidden');
     
     userBtn.textContent = `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
     userBtn.title = `${user.firstName} ${user.lastName}`;
@@ -34,5 +39,6 @@ export function saveCurrentUser() {
   
     notAuthUserDrop.classList.add('hidden');
     authUserDrop.classList.remove('hidden');
+    
   }
 }

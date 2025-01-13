@@ -1,4 +1,7 @@
-import { showOverlayMessage,  closeAllModals, getFromLocalStorage, saveToLocalStorage } from "./helpers.js";
+import { closeAllModals } from "./utils/openCloseService/closeModal.js";
+import { showOverlayMessage } from "./utils/openCloseService/showOverlayMessage.js";
+import {getFromLocalStorage, saveToLocalStorage} from "./utils/commonServices/localStorageService.js";
+
 
 
 export function initSubscriptionHandler() {
@@ -10,10 +13,7 @@ export function initSubscriptionHandler() {
     return;
   }
 
-  subscribeButton.addEventListener('click', (e) => {
-    console.log(e.target);
-    console.log('initSubscriptionHandler');
-    
+  subscribeButton.addEventListener('click', (e) => {   
     // Получаем текущего пользователя
     const users = getFromLocalStorage('users');
     const currentUser = users.find((user) => user.isLoggedIn);
@@ -34,9 +34,7 @@ export function initSubscriptionHandler() {
 
     // Показываем сообщение об успешной подписке
     closeAllModals();
-    // showOverlayMessage('Subscription purchased successfully!');
-
-    // Обновляем профиль пользователя
+    // showOverlayMessage('Subscription purchased successfully!');  
     
   });
 }

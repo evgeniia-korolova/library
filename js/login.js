@@ -1,26 +1,26 @@
+import { closeAllModals } from './utils/openCloseService/closeModal.js';
+import { showOverlayMessage } from './utils/openCloseService/showOverlayMessage.js';
 import {
-	showOverlayMessage,
-	saveToLocalStorage,
 	getFromLocalStorage,
-	updateDigitalCard,	
-	resetDigitalCard,
-	closeAllModals
-} from './helpers.js';
+	saveToLocalStorage,
+} from './utils/commonServices/localStorageService.js';
 
 import { createUserProfileModal } from './userProfileModal.js';
 import { initBuyButtonHandlers } from './buyButtonHandlers.js';
-import { resetLoggedInStatus } from './resetLoggedInStatus.js';
+import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
+import {
+	updateDigitalCard,
+	resetDigitalCard,
+} from './utils/digitalCardService.js';
 
 export function handleLogin(
 	loginForm,
 	notAuthUserDrop,
 	authUserDrop,
 	userIcon
-) 
-
-{
+) {
 	loginForm.addEventListener('submit', (e) => {
-		e.preventDefault(); 
+		e.preventDefault();
 		// Получаем значения email/cardNumber и password
 		const emailOrCard = document
 			.querySelector('.emailOrCardLogin')
@@ -35,18 +35,20 @@ export function handleLogin(
 		// Проверяем пользователя
 		const existingUser = checkUser(users, emailOrCard, password);
 
-		if (!existingUser) {			
+		if (!existingUser) {
 			showOverlayMessage('You are not registered, please register');
 			return;
-		}		
+		}
 
 		// Если пользователь найден, выполняем логин
 		doLogin(existingUser);
-		
-		
+		closeAllModals();
+
 		closeAllModals();
 		showOverlayMessage('You are logged in successfully!');
-		doLogOut(existingUser);				
+		doLogOut(existingUser);
+
+		usubscribeLoggedInUser(existingUser);
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -61,7 +63,6 @@ export function handleLogin(
 	function doLogin(user) {
 		console.log('User logged in successfully!', user);
 		user.visits = (user.visits || 0) + 1;
-		
 
 		const users = getFromLocalStorage('users');
 		const updatedUser = users.map((u) =>
@@ -69,26 +70,27 @@ export function handleLogin(
 		);
 		user.isLoggedIn = true;
 		saveToLocalStorage('users', updatedUser);
-		
-		
+
 		initBuyButtonHandlers(user);
-		
+
 		updateDigitalCard(user);
 
 		// Обновляем интерфейс
 		const userBtn = document.querySelector('.user-icon');
-		const profileCardNo = document.getElementById('user-menu__card-number');
+		const profileCardNo = document.getElementById(
+			'user-menu__card-number'
+		);
 		userBtn.classList.add('registered');
 		userBtn.setAttribute('data-is-logged', 'true');
-		userBtn.textContent = `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`.toUpperCase();
+		userBtn.textContent = `${user.firstName.charAt(
+			0
+		)}${user.lastName.charAt(0)}`.toUpperCase();
 		userBtn.title = `${user.firstName} ${user.lastName}`;
 		profileCardNo.textContent = `${user.cardNumber}`;
 
-		
-		
-		readerInfoBtn.addEventListener('click', () => {	
+		readerInfoBtn.addEventListener('click', () => {
 			createUserProfileModal(user);
-			console.log('User logged in successfully!', user);			
+			console.log('User logged in successfully!', user);
 		});
 
 		notAuthUserDrop.classList.add('hidden');
@@ -100,16 +102,18 @@ export function handleLogin(
 		const logOutBtn = document.getElementById('logOutBtn');
 		const userBtn = document.getElementById('userIcon');
 		const userMenu = document.getElementById('userMenu');
-	
+
 		logOutBtn.addEventListener('click', () => {
 			const users = getFromLocalStorage('users');
 			const updatedUser = users.map((u) =>
-				u.cardNumber === user.cardNumber ? { ...u, isLoggedIn: false } : u
+				u.cardNumber === user.cardNumber
+					? { ...u, isLoggedIn: false }
+					: u
 			);
-	
+
 			user.isLoggedIn = false;
 			saveToLocalStorage('users', updatedUser);
-	
+
 			// Обновляем интерфейс
 			userMenu.classList.add('user-menu-hidden');
 			authUserDrop.classList.add('hidden');
@@ -119,11 +123,19 @@ export function handleLogin(
 			// userBtn.textContent = '';
 			// userBtn.innerHTML =
 			// 	'<img src="./images/icon_profile.svg" alt="user icon" />';
-	
+
 			console.log('User successfully logged out!');
 		});
 	}
+	function usubscribeLoggedInUser(user) {
+		const unsubscribeBtn = document.querySelector('.js-unsubscribe');
 
-		
+		unsubscribeBtn.addEventListener('click', () => {
+			if (confirm('Are you sure you want to unsubscribe?')) {
+				unsubscribe(user);
+			}
+		});
 
+		console.log('User successfully logged out!');
+	}
 }

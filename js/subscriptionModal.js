@@ -1,7 +1,7 @@
-import {
-	openModal,	closeAllModals, closeAllPopups,	closeBurgerMenu
-} from './helpers.js';
-
+import { openModal } from './utils/openCloseService/openModal.js';
+import { closeAllModals } from './utils/openCloseService/closeModal.js';
+import { closeAllPopups } from './utils/popupService/closeAllPopups.js';
+import { closeBurgerMenu } from './utils/openCloseService/closeBurger.js';
 
 export function openSubscriptionModal() {
   const modalOverlay = document.getElementById('modal-overlay');

@@ -1,13 +1,10 @@
-import {
-	openModal,	
-	closeAllModals,
-	closeAllPopups,
-	closeBurgerMenu
-} from './helpers.js';
+import { openModal } from './utils/openCloseService/openModal.js';
+import { closeAllModals } from './utils/openCloseService/closeModal.js';
+import { closeAllPopups } from './utils/popupService/closeAllPopups.js';
+import { closeBurgerMenu } from './utils/openCloseService/closeBurger.js';
 
 export function createUserProfileModal(user) {
-
-	 function addCloseOnClickOutside() {
+	function addCloseOnClickOutside() {
 		const modalContent = document.querySelector('.modal-content');
 		const modalOverlay = document.getElementById('modal-overlay');
 		modalOverlay.addEventListener('click', (e) => {
@@ -62,13 +59,18 @@ export function createUserProfileModal(user) {
 							<li class="profile__item">
 								<span class="profile__name">Books</span>
 								<img src="./images/card_icon_book.svg" alt="books-icon" />
-								<span class="profile__quantity user-profile__books-counter">2</span>
+								<span class="profile__quantity user-profile__books-counter">${
+									user.ownedBooks?.length || 0
+								}</span>
 							</li>
 						</ul>
 						<h3 class="profile__books-heading">Rented books</h3>
 						<ul class="profile__books user-profile__books-list">
 							${(user.ownedBooks || [])
-								.map((book) => `<li class="taken__book">${book.title} by ${book.author}</li>`)
+								.map(
+									(book) =>
+										`<li class="taken__book">${book.title}  ${book.author}</li>`
+								)
 								.join('')}
 						</ul>
 						<div class="profile__card">
@@ -85,7 +87,6 @@ export function createUserProfileModal(user) {
 	document
 		.querySelector('.close')
 		.addEventListener('click', closeAllModals);
-	
+
 	closeAllPopups();
-	
 }

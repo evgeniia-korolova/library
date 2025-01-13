@@ -1,5 +1,6 @@
 import { books } from './data.js';
-import { BookCard, filterData } from './helpers.js';
+import { BookCard } from './utils/BooksService/bookCard.js';
+import { filterData } from './utils/BooksService/filterData.js';
 
 
 
