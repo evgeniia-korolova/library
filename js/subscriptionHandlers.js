@@ -1,28 +1,24 @@
 import { closeAllModals } from "./utils/openCloseService/closeModal.js";
 import { showOverlayMessage } from "./utils/openCloseService/showOverlayMessage.js";
-import {getFromLocalStorage, saveToLocalStorage} from "./utils/commonServices/localStorageService.js";
+import {getFromLocalStorage, saveToLocalStorage, getCurrentUserState} from "./utils/commonServices/localStorageService.js";
+import { initBuyButtonHandlers } from "./buyButtonHandlers.js";
 
 
-
-export function initSubscriptionHandler() {
+export function initSubscriptionHandler1() {  
   
-  
-  const subscribeButton = document.getElementById('subscribe-btn');
-  if (!subscribeButton) {
+  const subscriptionForm = document.getElementById('subscription-form');
+  if (!subscriptionForm) {
     console.error('Subscribe button not found in the DOM!');
     return;
   }
 
-  subscribeButton.addEventListener('click', (e) => {   
+  subscriptionForm.addEventListener('submit', (e) => {   
+    e.preventDefault();
     // Получаем текущего пользователя
-    const users = getFromLocalStorage('users');
-    const currentUser = users.find((user) => user.isLoggedIn);
+    const users = getFromLocalStorage('users') || [];
+    const currentUser = users.find((user) => user.isLoggedIn && user.isRegistered);
 
-    if (!currentUser) {
-      showOverlayMessage('No logged-in user found!');
-      return;
-    }
-
+    
     // Устанавливаем статус activeUser: true
     currentUser.activeUser = true;
 
@@ -31,10 +27,43 @@ export function initSubscriptionHandler() {
       user.email === currentUser.email ? currentUser : user
     );
     saveToLocalStorage('users', updatedUsers);
+    const updatedCurrentUser = getFromLocalStorage('users').find(
+      (user) => user.activeUser
+    );
 
     // Показываем сообщение об успешной подписке
     closeAllModals();
     // showOverlayMessage('Subscription purchased successfully!');  
-    
+    initBuyButtonHandlers(updatedCurrentUser);
+  });
+}
+
+export function initSubscriptionHandler() {
+  const subscriptionForm = document.getElementById('subscription-form');
+  if (!subscriptionForm) {
+    console.error('Subscribe button not found in the DOM!');
+    return;
+  }
+
+  subscriptionForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const { registeredAndLoggedIn } = getCurrentUserState();
+    if (!registeredAndLoggedIn) {
+      console.error('Current user not found or not logged in!');
+      return;
+    }
+
+    registeredAndLoggedIn.activeUser = true;
+
+    const users = getFromLocalStorage('users') || [];
+    const updatedUsers = users.map((user) =>
+      user.cardNumber === registeredAndLoggedIn.cardNumber ? registeredAndLoggedIn : user
+    );
+    saveToLocalStorage('users', updatedUsers);
+
+    closeAllModals();
+    showOverlayMessage('Subscription purchased successfully!');
+    initBuyButtonHandlers(); // Перезапускаем обработчики
   });
 }

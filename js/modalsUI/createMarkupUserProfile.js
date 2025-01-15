@@ -1,34 +1,13 @@
-import { openModal } from './utils/openCloseService/openModal.js';
-import { closeAllModals } from './utils/openCloseService/closeModal.js';
-import { closeAllPopups } from './utils/popupService/closeAllPopups.js';
-import { closeBurgerMenu } from './utils/openCloseService/closeBurger.js';
+import { openModal } from '../utils/openCloseService/openModal.js';
+import { addCloseOnClickOnOverlay, closeAllModals, closeOnEscape } from '../utils/openCloseService/closeModal.js';
+import { closeAllPopups } from '../utils/popupService/closeAllPopups.js';
+import { closeBurgerMenu } from '../utils/openCloseService/closeBurger.js';
 
 export function createUserProfileModal(user) {
-	function addCloseOnClickOutside() {
-		const modalContent = document.querySelector('.modal-content');
-		const modalOverlay = document.getElementById('modal-overlay');
-		modalOverlay.addEventListener('click', (e) => {
-			if (e.target === modalOverlay) {
-				closeBurgerMenu();
-				closeAllModals();
-			}
-		});
 
-		modalContent.addEventListener('click', (e) => {
-			e.stopPropagation();
-		});
-	}
+	addCloseOnClickOnOverlay();
+	closeOnEscape();
 
-	addCloseOnClickOutside();
-
-	window.addEventListener('keydown', (e) => {
-		if (
-			e.key === 'Escape' &&
-			!userMenu.classList.contains('user-menu-hidden')
-		) {
-			userMenu.classList.add('user-menu-hidden');
-		}
-	});
 
 	// Рендерим модальное окно с данными пользователя
 	openModal(`
@@ -90,3 +69,6 @@ export function createUserProfileModal(user) {
 
 	closeAllPopups();
 }
+
+
+// передаем в login

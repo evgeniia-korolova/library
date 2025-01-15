@@ -1,3 +1,6 @@
+
+import { getCurrentUserState, getFromLocalStorage } from './../commonServices/localStorageService.js';
+
 export class BookCard {
 	constructor(id, title, author, image, description, parentSelector) {
 		this.id = id;
@@ -5,12 +8,20 @@ export class BookCard {
 		this.author = author;
 		this.image = image;
 		this.description = description;
-		this.parent = document.querySelector(parentSelector);
+		this.parent = document.querySelector(parentSelector);        
 	}
 
 	renderBookCard() {
 		const bookWrapper = document.createElement('div');
 		bookWrapper.classList.add('book__wrapper');
+
+        const {activeUser} = getCurrentUserState();
+        console.log('activeUser', activeUser);
+        
+	    const isBookOwned = activeUser?.ownedBooks.some(book => book.id == this.id);
+        const buttonClass = isBookOwned
+		? 'btn-outlined btn-small btn-auto buy-book-btn btn__own'
+		: 'btn-outlined btn-small btn-auto buy-book-btn';
 
 		bookWrapper.innerHTML = `
         <div class="book__content__container">
@@ -26,8 +37,9 @@ export class BookCard {
                 </p>
             </div>
 
-            <button class="btn-outlined btn-small btn-auto buy-book-btn" data-book-id="${this.id}" data-book-title="${this.title}" data-book-author="${this.author}"type="button">
-                Buy
+            <button class="${buttonClass}" data-book-id="${this.id}" data-book-title="${this.title}" data-book-author="${this.author}"  "type="button"
+            ${isBookOwned ? 'disabled' : ''}>
+            ${isBookOwned ? 'Own' : 'Buy'}
             </button>
         </div>
         <div class="book__photo">
@@ -41,3 +53,20 @@ export class BookCard {
 		this.parent.append(bookWrapper);
 	}
 }
+
+export function reRenderBooks() {
+    document.querySelector('.books-container').innerHTML = ''; // Очищаем контейнер
+    books.forEach((book) => {
+        const bookCard = new BookCard(
+            book.id,
+            book.title,
+            book.author,
+            book.image,
+            book.description,
+            '.books-container'
+        );
+        bookCard.renderBookCard(); // Рендерим заново
+    });
+}
+
+// data-active-subscription="false"

@@ -1,40 +1,16 @@
-import { openModal } from './utils/openCloseService/openModal.js';
-import { closeAllModals } from './utils/openCloseService/closeModal.js';
-import { closeAllPopups } from './utils/popupService/closeAllPopups.js';
-import { closeBurgerMenu } from './utils/openCloseService/closeBurger.js';
+import { openModal } from '../utils/openCloseService/openModal.js';
+import {
+	closeAllModals,
+	addCloseOnClickOnOverlay,
+	closeOnEscape,
+} from '../utils/openCloseService/closeModal.js';
+import { closeAllPopups } from '../utils/popupService/closeAllPopups.js';
+import { closeBurgerMenu } from '../utils/openCloseService/closeBurger.js';
 
-export function openSubscriptionModal() {
-  const modalOverlay = document.getElementById('modal-overlay');
-  if (modalOverlay.classList.contains('open-overlay')) {
-    console.log('Modal already open');
-   
-}
-
-  function addCloseOnClickOutside() {
-      const modalContent = document.querySelector('.modal-content');
-      const modalOverlay = document.getElementById('modal-overlay');
-      modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-          closeBurgerMenu();
-          closeAllModals();
-        }
-      });
-  
-      modalContent.addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
-    }
-
-    addCloseOnClickOutside();
-
-    window.addEventListener('keydown', (e) => {
-      if (
-        e.key === 'Escape' &&
-        !userMenu.classList.contains('user-menu-hidden')
-      ) {
-        userMenu.classList.add('user-menu-hidden');
-      }
-    });
+export function openSubscriptionModal() {	
+  closeAllModals();
+	addCloseOnClickOnOverlay();
+	closeOnEscape();
 
 	openModal(`
 		<div class="subscription-form" id="subscription-form">	      
@@ -139,7 +115,7 @@ export function openSubscriptionModal() {
 
           <!-- Кнопка покупки и цена -->
           <div class="subscription-form__price-wrapper">
-            <button class="btn-outlined btn-small" type="button" id="subscribe-btn">Buy</button>
+            <button class="btn-outlined btn-small" type="submit" id="subscribe-btn">Buy</button>
             <p class="subscription-form__price">$ 25.00</p>
           </div>
         </form>
@@ -156,10 +132,8 @@ export function openSubscriptionModal() {
 `);
 
 	document
-      .querySelector('.close')
-      .addEventListener('click', closeAllModals);
+		.querySelector('.close')
+		.addEventListener('click', closeAllModals);
 
-      closeAllPopups();
+	closeAllPopups();
 }
-
-

@@ -2,13 +2,12 @@ import { books } from './data.js';
 import { BookCard } from './utils/BooksService/bookCard.js';
 import { filterData } from './utils/BooksService/filterData.js';
 
-
-
 const radioBtns = document.querySelectorAll('.radio__item');
 export function initializeTabs(array, parentSelector) {
 	const initialSeason = 'winter';
-	const filteredArray = filterData(books, initialSeason);	
-
+	const filteredArray = filterData(books, initialSeason);
+	const parent = document.querySelector(parentSelector);
+	parent.innerHTML = ''; 	
 
 	filteredArray.forEach((book) => {
 		const bookCard = new BookCard(
@@ -21,8 +20,7 @@ export function initializeTabs(array, parentSelector) {
 		);
 		bookCard.renderBookCard();
 	});
-	radioBtns[0].checked = true;
-	
+	radioBtns[0].checked = true;	
 }
 
 export function handleSeasons(array, parentSelector) {
@@ -52,15 +50,15 @@ export function handleSeasons(array, parentSelector) {
 						parentSelector
 					);
 					bookCard.renderBookCard();
-				});
+				}, 500);
 
 				seasonSlide.classList.remove('fade-out');
 				seasonSlide.classList.add('fade-in');
 
 				animationTimeout = setTimeout(() => {
 					seasonSlide.classList.remove('fade-in');
-				}, 1000);
-			}, 1000);
+				}, 500);
+			}, 500);
 		});
 	});
 	

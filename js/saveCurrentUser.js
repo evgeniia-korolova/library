@@ -6,6 +6,7 @@ export function saveCurrentUser() {
   const users = getFromLocalStorage('users') || [];
   const loggedInUser = users.find((user) => user.isLoggedIn) || null;
   const registeredUser = users.find((user) => user.isRegistered && !user.isLoggedIn) || null;
+  const userBtn = document.querySelector('.user-icon');
   closeAllModals();
 
   if (loggedInUser) {

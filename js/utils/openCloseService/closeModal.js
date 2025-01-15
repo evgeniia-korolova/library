@@ -9,8 +9,7 @@ export function closeAllModals() {
 		modalOverlay.classList.contains('open-overlay')
 	) {
 		modalOverlay.classList.remove('open-overlay');
-		document.body.classList.remove('no-scroll');
-		console.log('Modal closed');
+		document.body.classList.remove('no-scroll');		
 	}
 }
 

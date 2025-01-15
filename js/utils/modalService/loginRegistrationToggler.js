@@ -1,11 +1,9 @@
-import { handleRegistration } from './registration.js';
-import { handleLogin } from './login.js';
-import {closeAllPopups} from './utils/popupService/closeAllPopups.js';
-import { addModalEventListeners } from './utils/modalService/modalEventListenerService.js';
-import { createMarkupRegisterModal } from './modals/createMarkupRegister.js';
-import { createMarkupLoginModal } from './modals/createMarkupLogin.js';
-import {  closeOnClickOutsideUserMenu, closeOnEscape, addCloseOnClickOnOverlay } from './utils/openCloseService/closeModal.js';
-import { closeBurgerMenu } from './utils/openCloseService/closeBurger.js';
+// переключение между модальными окнами регистрации и входа
+
+import { createMarkupRegisterModal } from '../../modalsUI/createMarkupRegister.js';
+import { createMarkupLoginModal } from '../../modalsUI/createMarkupLogin.js';
+import {  closeOnClickOutsideUserMenu, closeOnEscape, addCloseOnClickOnOverlay } from '../openCloseService/closeModal.js';
+import { closeBurgerMenu } from '../openCloseService/closeBurger.js';
 
 
 export function handleModals() {	
@@ -16,10 +14,8 @@ export function handleModals() {
 	
 	userBtn.addEventListener('click', () => {
 		closeBurgerMenu();	
-	});
+	});	
 	
-	// createMarkupRegisterModal();
-	// createMarkupLoginModal();
 	closeOnClickOutsideUserMenu();
 	closeOnEscape();
 	addCloseOnClickOnOverlay();

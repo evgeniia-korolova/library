@@ -3,9 +3,7 @@ import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
 import { closeAllModals } from './utils/openCloseService/closeModal.js';
 import { showOverlayMessage } from './utils/openCloseService/showOverlayMessage.js';
 import { generateCardNumber } from './utils/commonServices/generateCardNumber.js';
-import {
-	getFromLocalStorage,
-	saveToLocalStorage,
+import {	getFromLocalStorage,	saveToLocalStorage,
 } from './utils/commonServices/localStorageService.js';
 import { updateDigitalCard } from './utils/digitalCardService.js';
 import { addModalEventListeners } from './utils/modalService/modalEventListenerService.js';
@@ -39,7 +37,7 @@ export function handleRegistration(
 			return;
 		}
 
-		let users = getFromLocalStorage('users');
+		let users = getFromLocalStorage('users') || [];
 
 		// Проверяем, есть ли пользователь с таким email
 		const existingUser = users.find(
@@ -82,12 +80,14 @@ export function handleRegistration(
 			isRegistered: true,
 		};
 
+		
+
 		users.push(newUser);
 		saveToLocalStorage('users', users);
 		closeAllModals();
 
 		// change message when clicking on buy book button
-		initBuyButtonHandlers(newUser);
+		initBuyButtonHandlers();
 
 		// Заменяем иконку user на инициалы
 		const userBtn = document.querySelector('.user-icon');
@@ -96,7 +96,7 @@ export function handleRegistration(
 			`${firstName[0]}${lastName[0]}`.toUpperCase();
 		updateDigitalCard(newUser);
 
-		addUnsubscribeHandler(newUser);
+		// addUnsubscribeHandler(newUser);
 
 		setTimeout(() => {
 			checkCardBtn.classList.remove('hidden');
