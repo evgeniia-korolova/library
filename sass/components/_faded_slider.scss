@@ -19,7 +19,7 @@
 }
 
 .season-slide.fade-in {
-	animation: fade-in 1s forwards ease-in-out;
+	animation: fade-in 0.5s forwards ease-in-out;
 }
 
 @keyframes fade-in {
@@ -32,7 +32,7 @@
 }
 
 .season-slide.fade-out {
-	animation: fade-out 1s forwards ease-in-out;
+	animation: fade-out 0.5s forwards ease-in-out;
 }
 
 @keyframes fade-out {

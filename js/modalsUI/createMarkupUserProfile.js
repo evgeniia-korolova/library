@@ -1,37 +1,13 @@
-import {
-	openModal,	
-	closeAllModals,
-	closeAllPopups,
-	closeBurgerMenu
-} from './helpers.js';
+import { openModal } from '../utils/openCloseService/openModal.js';
+import { addCloseOnClickOnOverlay, closeAllModals, closeOnEscape } from '../utils/openCloseService/closeModal.js';
+import { closeAllPopups } from '../utils/popupService/closeAllPopups.js';
+import { closeBurgerMenu } from '../utils/openCloseService/closeBurger.js';
 
 export function createUserProfileModal(user) {
 
-	 function addCloseOnClickOutside() {
-		const modalContent = document.querySelector('.modal-content');
-		const modalOverlay = document.getElementById('modal-overlay');
-		modalOverlay.addEventListener('click', (e) => {
-			if (e.target === modalOverlay) {
-				closeBurgerMenu();
-				closeAllModals();
-			}
-		});
+	addCloseOnClickOnOverlay();
+	closeOnEscape();
 
-		modalContent.addEventListener('click', (e) => {
-			e.stopPropagation();
-		});
-	}
-
-	addCloseOnClickOutside();
-
-	window.addEventListener('keydown', (e) => {
-		if (
-			e.key === 'Escape' &&
-			!userMenu.classList.contains('user-menu-hidden')
-		) {
-			userMenu.classList.add('user-menu-hidden');
-		}
-	});
 
 	// Рендерим модальное окно с данными пользователя
 	openModal(`
@@ -62,13 +38,19 @@ export function createUserProfileModal(user) {
 							<li class="profile__item">
 								<span class="profile__name">Books</span>
 								<img src="./images/card_icon_book.svg" alt="books-icon" />
-								<span class="profile__quantity">2</span>
+								<span class="profile__quantity user-profile__books-counter">${
+									user.ownedBooks?.length || 0
+								}</span>
 							</li>
 						</ul>
 						<h3 class="profile__books-heading">Rented books</h3>
-						<ul class="profile__books">
-							<li class="taken__book">The Last Queen, Clive Irving</li>
-							<li class="taken__book">Dominicana, Angie Cruz</li>
+						<ul class="profile__books user-profile__books-list">
+							${(user.ownedBooks || [])
+								.map(
+									(book) =>
+										`<li class="taken__book">${book.title}  ${book.author}</li>`
+								)
+								.join('')}
 						</ul>
 						<div class="profile__card">
 							<span class="profile__card-heading">Card number</span>
@@ -84,7 +66,9 @@ export function createUserProfileModal(user) {
 	document
 		.querySelector('.close')
 		.addEventListener('click', closeAllModals);
-	
+
 	closeAllPopups();
-	closeAllModals();
 }
+
+
+// передаем в login
