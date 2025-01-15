@@ -1,4 +1,4 @@
-import { closeAllModals } from "./helpers.js";
+import { closeAllModals } from "./utils/openCloseService/closeModal.js";
 
 export function toggleBurger() {
 	const burgerBtn = document.getElementById('burger');
