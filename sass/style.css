@@ -1291,7 +1291,7 @@ input[type=radio]:checked + label {
   color: #333;
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -1313,6 +1313,10 @@ input[type=radio]:checked + label {
   font-size: 15px;
   line-height: 100%;
   cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closed {
@@ -1327,7 +1331,8 @@ input[type=radio]:checked + label {
 .close:focus,
 .login-close:hover,
 .login-close:focus {
-  background: red;
+  background: #BB945F;
+  border-radius: 50%;
 }
 
 .welcome input[type=text],
@@ -1728,7 +1733,7 @@ input[type=radio]:checked + label {
   color: #333;
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -1750,6 +1755,10 @@ input[type=radio]:checked + label {
   font-size: 15px;
   line-height: 100%;
   cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closed {
@@ -1764,7 +1773,8 @@ input[type=radio]:checked + label {
 .close:focus,
 .login-close:hover,
 .login-close:focus {
-  background: red;
+  background: #BB945F;
+  border-radius: 50%;
 }
 
 .welcome input[type=text],
