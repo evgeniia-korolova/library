@@ -50,7 +50,14 @@
 	border: none;
 	outline: none;
 	background: transparent;
+	cursor: pointer;
+	transition: all 0.5s ease-out;
 }
+
+.btn-text:hover {	
+	color: $color-brand;
+}
+
 .btn-text-underlined {
 	@include font(1rem, 1.21, 0rem, 700);
 	border: none;

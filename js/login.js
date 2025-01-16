@@ -6,6 +6,7 @@ import {
 } from './utils/commonServices/localStorageService.js';
 
 import { createUserProfileModal } from './modalsUI/createMarkupUserProfile.js';
+import { handleLogOut } from './handleLogOut.js';
 import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
 import {
 	updateDigitalCard,
@@ -45,7 +46,8 @@ export function handleLogin(
 		doLogin(existingUser, users);
 		closeAllModals();
 		showOverlayMessage('You are logged in successfully!');
-		doLogOut(existingUser);
+		//! doLogOut(existingUser);
+		handleLogOut();
 
 		// usubscribeLoggedInUser(existingUser);
 	});
@@ -93,35 +95,39 @@ export function handleLogin(
 		return user;
 	}
 
-	function doLogOut(user) {
-		const logOutBtn = document.getElementById('logOutBtn');
-		const userBtn = document.getElementById('userIcon');
-		const userMenu = document.getElementById('userMenu');
+	// function doLogOut(user) {
+	// 	const logOutBtn = document.getElementById('logOutBtn');
+	// 	const userBtn = document.getElementById('userIcon');
+	// 	const userMenu = document.getElementById('userMenu');
 
-		logOutBtn.addEventListener('click', () => {
-			let users = getFromLocalStorage('users') || null || [];
-			const updatedUser = users.map((u) =>
-				u.cardNumber === user.cardNumber
-					? { ...u, isLoggedIn: false }
-					: u
-			);
+	// 	logOutBtn.addEventListener('click', () => {
+	// 		let users = getFromLocalStorage('users') || null || [];
+	// 		const updatedUser = users.map((u) =>
+	// 			u.cardNumber === user.cardNumber
+	// 				? { ...u, isLoggedIn: false }
+	// 				: u
+	// 		);
 
-			user.isLoggedIn = false;
-			saveToLocalStorage('users', updatedUser);
+	// 		user.isLoggedIn = false;
+	// 		saveToLocalStorage('users', updatedUser);
 
-			// Обновляем интерфейс
-			userMenu.classList.add('user-menu-hidden');
-			authUserDrop.classList.add('hidden');
-			// notAuthUserDrop.classList.remove('hidden');			
-			userBtn.removeAttribute('data-is-logged', 'true');
-			userBtn.textContent = '';
-			userBtn.innerHTML =
-				'<img src="./images/icon_profile.svg" alt="user icon" />';
-			// location.reload(true);
+	// 		// Обновляем интерфейс
+	// 		userMenu.classList.add('user-menu-hidden');
+	// 		authUserDrop.classList.add('hidden');
+	// 		// notAuthUserDrop.classList.remove('hidden');			
+	// 		userBtn.removeAttribute('data-is-logged', 'true');
+	// 		userBtn.textContent = '';
+	// 		userBtn.innerHTML =
+	// 			'<img src="./images/icon_profile.svg" alt="user icon" />';
+	// 		// location.reload(true);
 
-			console.log('User successfully logged out!');
-		});
-	}
+	// 		console.log('User successfully logged out!');
+	// 	});
+	// }
+}
+
+// передаем в createMarkupLogin
+
 	// function usubscribeLoggedInUser(user) {
 	// 	const unsubscribeBtn = document.querySelector('.js-unsubscribe');
 
@@ -133,4 +139,3 @@ export function handleLogin(
 
 	// 	console.log('User successfully logged out!');
 	// }
-}

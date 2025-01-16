@@ -1520,6 +1520,12 @@ input[type=radio]:checked + label {
   border: none;
   outline: none;
   background: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.btn-text:hover {
+  color: #BB945F;
 }
 
 .btn-text-underlined {
