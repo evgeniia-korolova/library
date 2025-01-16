@@ -18,7 +18,7 @@ export class BookCard {
         const {activeUser} = getCurrentUserState();
         console.log('activeUser', activeUser);
         
-	    const isBookOwned = activeUser?.ownedBooks.some(book => book.id == this.id);
+	    const isBookOwned = activeUser?.ownedBooks.some(book => Number(book.id) === this.id);
         const buttonClass = isBookOwned
 		? 'btn-outlined btn-small btn-auto buy-book-btn btn__own'
 		: 'btn-outlined btn-small btn-auto buy-book-btn';
@@ -52,21 +52,6 @@ export class BookCard {
 
 		this.parent.append(bookWrapper);
 	}
-}
-
-export function reRenderBooks() {
-    document.querySelector('.books-container').innerHTML = ''; // Очищаем контейнер
-    books.forEach((book) => {
-        const bookCard = new BookCard(
-            book.id,
-            book.title,
-            book.author,
-            book.image,
-            book.description,
-            '.books-container'
-        );
-        bookCard.renderBookCard(); // Рендерим заново
-    });
 }
 
 // data-active-subscription="false"

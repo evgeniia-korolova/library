@@ -1,15 +1,17 @@
 import { openModal } from '../utils/openCloseService/openModal.js';
-import { addCloseOnClickOnOverlay, closeAllModals, closeOnEscape } from '../utils/openCloseService/closeModal.js';
+import {
+	addCloseOnClickOnOverlay,
+	closeAllModals,
+	closeOnEscape,
+} from '../utils/openCloseService/closeModal.js';
 import { closeAllPopups } from '../utils/popupService/closeAllPopups.js';
+import { getCurrentUserState } from '../utils/commonServices/localStorageService.js';
 import { closeBurgerMenu } from '../utils/openCloseService/closeBurger.js';
 
 export function createUserProfileModal(user) {
-
 	addCloseOnClickOnOverlay();
 	closeOnEscape();
 
-
-	// Рендерим модальное окно с данными пользователя
 	openModal(`
 		<div class="profile-form-modal" id="profile-form-modal">
 			<div class="profile-card-content">
@@ -55,7 +57,9 @@ export function createUserProfileModal(user) {
 						<div class="profile__card">
 							<span class="profile__card-heading">Card number</span>
 							<span class="profile__number">${user.cardNumber}</span>
-							<span><img src="./images/icon_copy.svg" alt="icon copy" /></span>
+							<span class="copy-icon">
+							<img src="./images/icon_copy.svg" alt="icon copy"/>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -67,8 +71,24 @@ export function createUserProfileModal(user) {
 		.querySelector('.close')
 		.addEventListener('click', closeAllModals);
 
+	document
+		.querySelector('.copy-icon')
+		.addEventListener('click', () => {
+			navigator.clipboard
+				.writeText(user.cardNumber)
+				.then(() => {
+					console.log(
+						'Card number copied to clipboard:',
+						user.cardNumber
+					);
+					alert('Card number copied to clipboard!');
+				})
+				.catch((error) => {
+					console.error('Failed to copy card number:', error);
+				});
+		});
+
 	closeAllPopups();
 }
-
 
 // передаем в login

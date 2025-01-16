@@ -1,12 +1,16 @@
 import { closeAllModals } from './utils/openCloseService/closeModal.js';
 import { showOverlayMessage } from './utils/openCloseService/showOverlayMessage.js';
-import {getFromLocalStorage,	saveToLocalStorage
+import {
+	getFromLocalStorage,
+	saveToLocalStorage,
 } from './utils/commonServices/localStorageService.js';
 
 import { createUserProfileModal } from './modalsUI/createMarkupUserProfile.js';
-import { initBuyButtonHandlers } from './buyButtonHandlers.js';
 import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
-import {updateDigitalCard,	resetDigitalCard} from './utils/digitalCardService.js';
+import {
+	updateDigitalCard,
+	resetDigitalCard,
+} from './utils/digitalCardService.js';
 import { initializeTabs } from './book-tabs.js';
 import { books } from './data.js';
 
@@ -58,12 +62,12 @@ export function handleLogin(
 	function doLogin(user, users) {
 		console.log('User logged in successfully!', user);
 		user.visits = (user.visits || 0) + 1;
-		
+
 		const updatedUser = users.map((u) =>
 			u.cardNumber === user.cardNumber ? user : u
 		);
 		user.isLoggedIn = true;
-		saveToLocalStorage('users', updatedUser);			
+		saveToLocalStorage('users', updatedUser);
 		updateDigitalCard(user);
 
 		// Обновляем интерфейс
@@ -108,12 +112,12 @@ export function handleLogin(
 			// Обновляем интерфейс
 			userMenu.classList.add('user-menu-hidden');
 			authUserDrop.classList.add('hidden');
-			notAuthUserDrop.classList.remove('hidden');
-			// userBtn.classList.remove('registered');
+			// notAuthUserDrop.classList.remove('hidden');			
 			userBtn.removeAttribute('data-is-logged', 'true');
 			userBtn.textContent = '';
 			userBtn.innerHTML =
 				'<img src="./images/icon_profile.svg" alt="user icon" />';
+			// location.reload(true);
 
 			console.log('User successfully logged out!');
 		});
