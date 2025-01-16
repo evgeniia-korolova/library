@@ -8,10 +8,8 @@ import {
 	getCurrentUserState,
 } from './utils/commonServices/localStorageService.js';
 import { showOverlayMessage } from './utils/openCloseService/showOverlayMessage.js';
-import { initializeTabs } from './book-tabs.js';
-import { books } from './data.js';
-import { reRenderBooks } from './utils/BooksService/bookCard.js';
-import { createUserProfileModal } from './modalsUI/createMarkupUserProfile.js';
+import { handleUserProfileCard } from './utils/modalService/handleUserProfileCard.js';
+
 
 export function initBuyButtonHandlers() {
 	const seasonSlide = document.querySelector('.season-slide');
@@ -45,7 +43,7 @@ export function initBuyButtonHandlers() {
 	console.log('Buy button handler initialized');
 }
 
-function handleSubscriptionCheck(button, userState) {
+function handleSubscriptionCheck(button) {
   
 	const {
 		registerNotLoggedIn,
@@ -57,7 +55,9 @@ function handleSubscriptionCheck(button, userState) {
 	// Если пользователь активен и залогинен
 	if (activeUser) {
 		handleBookPurchase(button, activeUser);
-    updateBookButton(button.dataset.bookId);        
+    updateBookButton(button.dataset.bookId);
+		//! createUserProfileModal(activeUser); 
+		handleUserProfileCard(activeUser);       
 	} 
 	// Если пользователь залогинен, но без активной подписки
 	else if (registeredAndLoggedIn) {
@@ -73,8 +73,9 @@ function handleSubscriptionCheck(button, userState) {
 			});
 
 			saveToLocalStorage('users', updatedUsers);
-			showOverlayMessage('Subscription activated! You can now purchase books.');
-      initializeTabs(books, '.season-slide');
+			showOverlayMessage('Subscription activated! You can now purchase books.');     
+			//! createUserProfileModal(registeredAndLoggedIn);
+			handleUserProfileCard(registeredAndLoggedIn);
 		});
 	} 
 	// Если пользователь зарегистрирован, но не залогинен

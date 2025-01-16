@@ -16,12 +16,9 @@ export function initSubscriptionHandler1() {
     e.preventDefault();
     // Получаем текущего пользователя
     const users = getFromLocalStorage('users') || [];
-    const currentUser = users.find((user) => user.isLoggedIn && user.isRegistered);
-
-    
+    const currentUser = users.find((user) => user.isLoggedIn && user.isRegistered);    
     // Устанавливаем статус activeUser: true
     currentUser.activeUser = true;
-
     // Сохраняем изменения в localStorage
     const updatedUsers = users.map((user) =>
       user.email === currentUser.email ? currentUser : user
