@@ -3,6 +3,7 @@ import {
 	saveToLocalStorage,
 	getCurrentUserState,
 } from './utils/commonServices/localStorageService.js';
+import { resetDigitalCard } from './utils/digitalCardService.js';
 
 function doUnsubscribe(user) {
 	const userBtn = document.querySelector('.user-icon');
@@ -30,6 +31,8 @@ function doUnsubscribe(user) {
 		'<img src="../images/icon_profile.svg" alt="user icon" />';
 	profileCardNo.textContent = '';
 
+	
+
 	console.log(
 		'User has been unsubscribed and removed from localStorage!'
 	);
@@ -51,12 +54,16 @@ export function handleUnsubscribe() {
 
 			if (activeUser) {
 				unsubscribeUser(activeUser);
+				return;
 			} else if (registeredAndLoggedIn) {
 				unsubscribeUser(registeredAndLoggedIn);
+				return;
 			} else if (registerNotLoggedIn) {
 				unsubscribeUser(registerNotLoggedIn);
+				return;
 			} else {
 				console.log('No eligible user found for unsubscribe.');
+				return;
 			}
 		});
 	});
@@ -100,4 +107,5 @@ function updateUserInterface() {
 	userMenu.classList.add('user-menu-hidden');
 	notAuthUserDrop.classList.remove('hidden');
 	authUserDrop.classList.add('hidden');
+	resetDigitalCard();
 }

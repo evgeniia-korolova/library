@@ -89,7 +89,6 @@ export function handleLogin(
 		userBtn.title = `${user.firstName} ${user.lastName}`;
 		profileCardNo.textContent = `${user.cardNumber}`;	
 		handleUserProfileCard(user);
-				
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');
