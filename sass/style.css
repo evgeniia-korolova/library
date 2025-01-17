@@ -624,7 +624,7 @@ input[type=radio]:checked + label {
 }
 
 .season-slide.fade-in {
-  animation: fade-in 1s forwards ease-in-out;
+  animation: fade-in 0.5s forwards ease-in-out;
 }
 
 @keyframes fade-in {
@@ -636,7 +636,7 @@ input[type=radio]:checked + label {
   }
 }
 .season-slide.fade-out {
-  animation: fade-out 1s forwards ease-in-out;
+  animation: fade-out 0.5s forwards ease-in-out;
 }
 
 @keyframes fade-out {
@@ -1291,7 +1291,7 @@ input[type=radio]:checked + label {
   color: #333;
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -1313,6 +1313,10 @@ input[type=radio]:checked + label {
   font-size: 15px;
   line-height: 100%;
   cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closed {
@@ -1327,7 +1331,8 @@ input[type=radio]:checked + label {
 .close:focus,
 .login-close:hover,
 .login-close:focus {
-  background: red;
+  background: #BB945F;
+  border-radius: 50%;
 }
 
 .welcome input[type=text],
@@ -1515,6 +1520,12 @@ input[type=radio]:checked + label {
   border: none;
   outline: none;
   background: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.btn-text:hover {
+  color: #BB945F;
 }
 
 .btn-text-underlined {
@@ -1577,6 +1588,11 @@ input[type=radio]:checked + label {
   transition: 0.2s;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .modal-overlay,
 .message-overlay {
   position: fixed;
@@ -1614,7 +1630,7 @@ input[type=radio]:checked + label {
 
 .overlay-text {
   font-size: 18px;
-  color: red;
+  color: #BB945F;
   text-align: center;
   padding: 20px;
   background-color: #fff;
@@ -1634,7 +1650,7 @@ input[type=radio]:checked + label {
 }
 
 .notAuthUserDrop, .authUserDrop {
-  width: 80px;
+  width: 100px;
   background: #FFFFFF;
   position: absolute;
   top: 87px;
@@ -1728,7 +1744,7 @@ input[type=radio]:checked + label {
   color: #333;
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -1750,6 +1766,10 @@ input[type=radio]:checked + label {
   font-size: 15px;
   line-height: 100%;
   cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closed {
@@ -1764,7 +1784,8 @@ input[type=radio]:checked + label {
 .close:focus,
 .login-close:hover,
 .login-close:focus {
-  background: red;
+  background: #BB945F;
+  border-radius: 50%;
 }
 
 .welcome input[type=text],
@@ -1836,11 +1857,12 @@ input[type=radio]:checked + label {
   visibility: visible;
   opacity: 1;
   background: #FFFFFF;
+  box-shadow: 0px 0px 15px 9px #BB945F;
 }
 
 .profile-card-content {
   width: 600px;
-  height: 400px;
+  height: 600px;
   position: relative;
 }
 
@@ -1868,9 +1890,10 @@ input[type=radio]:checked + label {
   justify-content: center;
   align-items: center;
   background: #ffffff;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 2rem;
   line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0rem;
   text-transform: capitalize;
   color: #bb945f;
   margin-left: 8px;
@@ -1883,13 +1906,14 @@ input[type=radio]:checked + label {
 }
 
 .profile__full-name {
-  padding: 5px 15px;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 2rem;
   line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0rem;
+  padding: 5px 15px;
   text-transform: capitalize;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   margin-left: 8px;
   width: 120px;
   overflow: wrap;
@@ -1899,16 +1923,16 @@ input[type=radio]:checked + label {
   width: 430px;
   height: 100%;
   padding: 40px 21px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 
 .profile__heading {
   margin-bottom: 40px;
   font-family: var(--font-family-headers);
-  font-size: 40px;
+  font-size: 4rem;
+  line-height: 1;
   font-weight: 400;
-  line-height: 0.5;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.8rem;
   text-transform: uppercase;
 }
 
@@ -1927,45 +1951,43 @@ input[type=radio]:checked + label {
 }
 
 .profile__name {
-  color: #000;
+  color: #000000;
   text-align: center;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  line-height: 1;
   font-weight: 400;
-  line-height: 20px; /* 100% */
-  letter-spacing: 0.4px;
+  letter-spacing: 0.4rem;
   text-transform: capitalize;
 }
 
 .profile__quantity {
-  color: #000;
+  color: #000000;
   text-align: center;
-  font-family: Inter;
-  font-size: 10px;
-  font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 2;
   font-weight: 400;
-  line-height: 20px; /* 200% */
-  letter-spacing: 0.2px;
+  letter-spacing: 0.2rem;
   text-transform: capitalize;
 }
 
 .profile__books-heading {
   margin-bottom: 30px;
-  color: #0c0c0e;
-  font-size: 25px;
+  color: #000000;
+  font-size: 2.5rem;
+  line-height: 1;
   font-weight: 400;
-  line-height: 0.8;
+  letter-spacing: 0.8rem;
 }
 
 .taken__book {
-  color: #000;
+  color: #000000;
   font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
+  font-size: 2rem;
+  line-height: 1;
   font-weight: 400;
-  line-height: 20px; /* 100% */
-  letter-spacing: 2px;
+  letter-spacing: 0.2rem;
   text-transform: capitalize;
   margin: 0;
   padding: 0;
@@ -1976,30 +1998,33 @@ input[type=radio]:checked + label {
   flex-direction: column;
   gap: 10px;
   width: 380px;
-  height: 50px;
+  height: 250px;
   margin-bottom: 40px;
   padding-left: 20px;
-  font-weight: 400;
+  font-size: 2rem;
   line-height: 1;
-  letter-spacing: 2px;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
   list-style: disc;
   overflow: auto;
   margin-left: 10px;
 }
 
 .profile__card-heading {
-  color: #0c0c0e;
-  font-weight: 400;
+  color: #000000;
+  font-size: 2rem;
   line-height: 1;
-  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0rem;
   font-style: normal;
 }
 
 .profile__number {
-  font-weight: 400;
+  font-size: 2rem;
   line-height: 1;
-  color: #bb945f;
-  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0rem;
+  color: #BB945F;
 }
 
 .profile-modal__close-button {

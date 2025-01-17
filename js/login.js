@@ -1,54 +1,53 @@
+import { closeAllModals } from './utils/openCloseService/closeModal.js';
+import { showOverlayMessage } from './utils/openCloseService/showOverlayMessage.js';
 import {
-	showOverlayMessage,
-	saveToLocalStorage,
 	getFromLocalStorage,
-	updateDigitalCard,	
+	saveToLocalStorage,
+} from './utils/commonServices/localStorageService.js';
+import { createUserProfileModal } from './modalsUI/createMarkupUserProfile.js';
+import { handleLogOut } from './handleLogOut.js';
+import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
+import {
+	updateDigitalCard,
 	resetDigitalCard,
-	closeAllModals
-} from './helpers.js';
+} from './utils/digitalCardService.js';
 
-import { createUserProfileModal } from './userProfileModal.js';
-import { initBuyButtonHandlers } from './buyButtonHandlers.js';
-import { resetLoggedInStatus } from './resetLoggedInStatus.js';
+import { handleUnsubscribe } from './unsubscriptionHandler.js';
 
 export function handleLogin(
 	loginForm,
 	notAuthUserDrop,
 	authUserDrop,
 	userIcon
-) 
-
-{
+) {
 	loginForm.addEventListener('submit', (e) => {
-		e.preventDefault(); 
+		e.preventDefault();
 		// Получаем значения email/cardNumber и password
 		const emailOrCard = document
 			.querySelector('.emailOrCardLogin')
-			.value;
+			.value.trim();
 		const password = document
 			.querySelector('.passLogin')
-			.value;
+			.value.trim();
 
 		// Получаем массив пользователей из localStorage
-		const users = getFromLocalStorage('users');
+		let users = getFromLocalStorage('users') || [] || null;
 
 		// Проверяем пользователя
 		const existingUser = checkUser(users, emailOrCard, password);
 
-		if (!existingUser) {			
+		if (!existingUser) {
 			showOverlayMessage('You are not registered, please register');
 			return;
-		}		
+		}
 
 		// Если пользователь найден, выполняем логин
-		doLogin(existingUser);
-		
-		
+		doLogin(existingUser, users);
 		closeAllModals();
 		showOverlayMessage('You are logged in successfully!');
 		
-		
-				
+		handleLogOut();
+		//! handleUnsubscribe(existingUser);		
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -60,21 +59,15 @@ export function handleLogin(
 		);
 	}
 
-	function doLogin(user) {
+	function doLogin(user, users) {
 		console.log('User logged in successfully!', user);
 		user.visits = (user.visits || 0) + 1;
-		
 
-		const users = getFromLocalStorage('users');
 		const updatedUser = users.map((u) =>
 			u.cardNumber === user.cardNumber ? user : u
 		);
 		user.isLoggedIn = true;
 		saveToLocalStorage('users', updatedUser);
-		console.log(user);
-		
-		initBuyButtonHandlers(user);
-		
 		updateDigitalCard(user);
 
 		// Обновляем интерфейс
@@ -90,10 +83,8 @@ export function handleLogin(
 		userBtn.title = `${user.firstName} ${user.lastName}`;
 		profileCardNo.textContent = `${user.cardNumber}`;
 
-		
-		
-		readerInfoBtn.addEventListener('click', () => {	createUserProfileModal(user);
-			console.log('User logged in successfully!', user);			
+		readerInfoBtn.addEventListener('click', () => {
+			createUserProfileModal(user);			
 		});
 
 		notAuthUserDrop.classList.add('hidden');
@@ -101,31 +92,7 @@ export function handleLogin(
 		return user;
 	}
 
-	function doLogOut(user) {
-			const logOutBtn = document.getElementById('logOutBtn');
-			const userBtn = document.getElementById('userIcon');
-			const userMenu = document.getElementById('userMenu');	
-			
-			const users = getFromLocalStorage('users');
-			const updatedUser = users.map((u) =>
-			u.cardNumber === user.cardNumber ? user : u);
-			user.isLoggedIn = false;
-
-			userMenu.classList.add('user-menu-hidden');
-			authUserDrop.classList.add('hidden');
-			notAuthUserDrop.classList.remove('hidden');
-			userBtn.classList.remove('registered');
-			userBtn.removeAttribute('data-is-logged', 'true');
-			userBtn.textContent = '';
-			userBtn.innerHTML =
-				'<img src="./images/icon_profile.svg" alt="user icon" />';
-			resetDigitalCard();
-			resetLoggedInStatus()
-
-			console.log('User successfully logged out!');
-			logOutBtn.addEventListener('click', doLogOut);		
-		}
-
-		
-
 }
+
+// передаем в createMarkupLogin
+

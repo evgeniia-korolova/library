@@ -46,17 +46,10 @@
 	color: #333;
 	text-align: center;
 	padding: 20px;
-	background-color: #fff;
+	background-color: $color-white;
 	border-radius: 8px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-
-
-
-
-
-
 
 .reg-form.open-form {
   visibility: visible;
@@ -75,6 +68,10 @@
   font-size: 15px;
   line-height: 100%;
   cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closed {
@@ -89,7 +86,9 @@
 .close:focus,
 .login-close:hover,
 .login-close:focus {
-  background: red;
+  background: $color-brand;
+  border-radius: 50%;
+  
 }
 
 
