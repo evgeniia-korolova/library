@@ -18,12 +18,14 @@ export function updateDigitalCard(user) {
 }
 
 export function updateDigitalCardInfo() {
+	const cardTitle = document.getElementById('card-title');
 	const infoTitle = document.getElementById('info-title');
 	const inforText = document.getElementById('info-text');
 	const cardLoginBtn = document.querySelector('.js-login-btn');
 	const cardSignUpBtn = document.querySelector('.js-signup-btn');
 	const cardProfileBtn = document.querySelector('.js-profile-btn');
 
+	cardTitle.textContent = 'Your Library card';
 	infoTitle.textContent = 'Visit your profile';
 	inforText.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
 	cardLoginBtn.classList.add('hidden');
@@ -36,6 +38,7 @@ export function resetDigitalCard() {
 	const readerCardNo = document.getElementById('readerCardNo');
 	const cardBadges = document.getElementById('card-badges');
 	const checkCardBtn = document.querySelector('.check-card--btn');
+	const cardTitle = document.getElementById('card-title');
 	const infoTitle = document.getElementById('info-title');
 	const inforText = document.getElementById('info-text');
 	const cardLoginBtn = document.querySelector('.js-login-btn');

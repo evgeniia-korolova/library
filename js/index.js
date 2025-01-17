@@ -17,12 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	toggleBurger();
 	handleSlider();	
 	closeAllPopups();
+	initBuyButtonHandlers();	
 	initializeTabs(books, '.season-slide');
 	handleSeasons(books, '.season-slide');
 	handleUserIconClick();
 	handleModals();
-	initBuyButtonHandlers();	
 	resetLoggedInStatus();
-	handleUnsubscribe();
-	// saveCurrentUser();
+	handleUnsubscribe();	
 });
