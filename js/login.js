@@ -6,13 +6,13 @@ import {
 } from './utils/commonServices/localStorageService.js';
 import { createUserProfileModal } from './modalsUI/createMarkupUserProfile.js';
 import { handleLogOut } from './handleLogOut.js';
-import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
 import {
 	updateDigitalCard,
+	updateDigitalCardInfo,
 	resetDigitalCard,
 } from './utils/digitalCardService.js';
+import { handleUserProfileCard } from './utils/modalService/handleUserProfileCard.js';
 
-import { handleUnsubscribe } from './unsubscriptionHandler.js';
 
 export function handleLogin(
 	loginForm,
@@ -47,7 +47,7 @@ export function handleLogin(
 		showOverlayMessage('You are logged in successfully!');
 		
 		handleLogOut();
-		//! handleUnsubscribe(existingUser);		
+				
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -69,29 +69,27 @@ export function handleLogin(
 		user.isLoggedIn = true;
 		saveToLocalStorage('users', updatedUser);
 		updateDigitalCard(user);
+		updateDigitalCardInfo(user)
 
 		// Обновляем интерфейс
 		const userBtn = document.querySelector('.user-icon');
 		const profileCardNo = document.getElementById(
 			'user-menu__card-number'
 		);
+		
 		userBtn.classList.add('registered');
 		userBtn.setAttribute('data-is-logged', 'true');
 		userBtn.textContent = `${user.firstName.charAt(
 			0
 		)}${user.lastName.charAt(0)}`.toUpperCase();
 		userBtn.title = `${user.firstName} ${user.lastName}`;
-		profileCardNo.textContent = `${user.cardNumber}`;
-
-		readerInfoBtn.addEventListener('click', () => {
-			createUserProfileModal(user);			
-		});
+		profileCardNo.textContent = `${user.cardNumber}`;	
+		handleUserProfileCard(user);		
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');
 		return user;
 	}
-
 }
 
 // передаем в createMarkupLogin

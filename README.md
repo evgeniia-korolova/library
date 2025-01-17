@@ -20,6 +20,6 @@ Since I am no longer a student of this school, I decided to enhance the project 
   * Possibility to register under different accounts
 
 
-Final changes, such as Perfect Pixel compliance and improvements to the Digital Card interface, are still in progress as far as refactoring of the code.
+Final changes, such as Perfect Pixel compliance and improvements to the Digital Card interface, are still in progress as well as refactoring of the code.
 
 I am also considering adding a feature that allows users to return books to the library and changing the "Buy" button to "Rent."
