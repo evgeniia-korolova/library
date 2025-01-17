@@ -4,7 +4,6 @@ import {
 	getFromLocalStorage,
 	saveToLocalStorage,
 } from './utils/commonServices/localStorageService.js';
-import { createUserProfileModal } from './modalsUI/createMarkupUserProfile.js';
 import { handleLogOut } from './handleLogOut.js';
 import {
 	updateDigitalCard,
@@ -60,6 +59,8 @@ export function handleLogin(
 	}
 
 	function doLogin(user, users) {
+		const unsubscribeBtns =
+			document.querySelectorAll('.js-unsubscribe');
 		console.log('User logged in successfully!', user);
 		user.visits = (user.visits || 0) + 1;
 
@@ -67,9 +68,12 @@ export function handleLogin(
 			u.cardNumber === user.cardNumber ? user : u
 		);
 		user.isLoggedIn = true;
+		unsubscribeBtns.forEach((btn) =>
+			btn.classList.remove('disabled')
+		);
 		saveToLocalStorage('users', updatedUser);
 		updateDigitalCard(user);
-		updateDigitalCardInfo(user)
+		updateDigitalCardInfo(user);
 
 		// Обновляем интерфейс
 		const userBtn = document.querySelector('.user-icon');
@@ -84,7 +88,8 @@ export function handleLogin(
 		)}${user.lastName.charAt(0)}`.toUpperCase();
 		userBtn.title = `${user.firstName} ${user.lastName}`;
 		profileCardNo.textContent = `${user.cardNumber}`;	
-		handleUserProfileCard(user);		
+		handleUserProfileCard(user);
+				
 
 		notAuthUserDrop.classList.add('hidden');
 		authUserDrop.classList.remove('hidden');

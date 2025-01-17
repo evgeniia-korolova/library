@@ -4,6 +4,8 @@ import {
 	getCurrentUserState,
 } from './utils/commonServices/localStorageService.js';
 
+import { resetDigitalCard } from './utils/digitalCardService.js';
+
 export function handleLogOut() {
 	const logOutBtn = document.getElementById('logOutBtn');
 
@@ -32,6 +34,7 @@ function doLogOut(user) {
 
 	user.isLoggedIn = false;
 	saveToLocalStorage('users', updatedUser);
+	resetDigitalCard();
 
 	// Обновляем интерфейс
 	userMenu.classList.add('user-menu-hidden');
