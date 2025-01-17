@@ -3,10 +3,12 @@ import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
 import { closeAllModals } from './utils/openCloseService/closeModal.js';
 import { showOverlayMessage } from './utils/openCloseService/showOverlayMessage.js';
 import { generateCardNumber } from './utils/commonServices/generateCardNumber.js';
-import {	getFromLocalStorage,	saveToLocalStorage,
+import {
+	getFromLocalStorage,
+	saveToLocalStorage,
 } from './utils/commonServices/localStorageService.js';
 import { updateDigitalCard } from './utils/digitalCardService.js';
-import { addModalEventListeners } from './utils/modalService/modalEventListenerService.js';
+import { handleUnsubscribe } from './unsubscriptionHandler.js';
 
 export function handleRegistration(
 	registrationForm,
@@ -20,6 +22,8 @@ export function handleRegistration(
 		const readerCardNo = document.getElementById('readerCardNo');
 		const cardBadges = document.getElementById('card-badges');
 		const checkCardBtn = document.querySelector('.check-card--btn');
+		const unsubscribeBtns =
+			document.querySelectorAll('.js-unsubscribe');
 
 		// Получаем данные из формы
 		const firstName = document
@@ -80,24 +84,23 @@ export function handleRegistration(
 			isRegistered: true,
 		};
 
-		
-
 		users.push(newUser);
 		saveToLocalStorage('users', users);
 		closeAllModals();
 
 		// change message when clicking on buy book button
 		initBuyButtonHandlers();
-
+		handleUnsubscribe(newUser);
 		// Заменяем иконку user на инициалы
 		const userBtn = document.querySelector('.user-icon');
 		userBtn.classList.add('registered');
 		userBtn.textContent =
 			`${firstName[0]}${lastName[0]}`.toUpperCase();
-		updateDigitalCard(newUser);
+		unsubscribeBtns.forEach((btn) =>
+			btn.classList.remove('disabled')
+		);
 
-		// addUnsubscribeHandler(newUser);
-
+		
 		setTimeout(() => {
 			checkCardBtn.classList.remove('hidden');
 			cardBadges.classList.add('card__badges-hidden');
@@ -105,38 +108,4 @@ export function handleRegistration(
 			readerName.value = '';
 		}, 20000);
 	});
-
-	function addUnsubscribeHandler(user) {
-		const unsubscribeBtn = document.querySelector('.js-unsubscribe');
-
-		if (!unsubscribeBtn) {
-			console.warn('Unsubscribe button not found!');
-			return;
-		}
-
-		unsubscribeBtn.addEventListener('click', () => {
-			if (confirm('Are you sure you want to unsubscribe?')) {
-				unsubscribe(user);
-				// Обновляем интерфейс после удаления пользователя
-				const userBtn = document.querySelector('.user-icon');
-				const userMenu = document.getElementById('userMenu');
-				const profileCardNo = document.getElementById(
-					'user-menu__card-number'
-				);
-
-				userMenu.classList.add('user-menu-hidden');
-				userBtn.classList.remove('registered');
-				userBtn.textContent = '';
-				userBtn.innerHTML =
-					'<img src="./images/icon_profile.svg" alt="user icon" />';
-				profileCardNo.textContent = '';
-				notAuthUserDrop.classList.remove('hidden');
-				authUserDrop.classList.add('hidden');
-
-				console.log(
-					'User has been unsubscribed and removed from localStorage!'
-				);
-			}
-		});
-	}
 }

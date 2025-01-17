@@ -1520,6 +1520,12 @@ input[type=radio]:checked + label {
   border: none;
   outline: none;
   background: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.btn-text:hover {
+  color: #BB945F;
 }
 
 .btn-text-underlined {
@@ -1580,6 +1586,11 @@ input[type=radio]:checked + label {
   border: 1px solid #BB945F;
   border-radius: 2px;
   transition: 0.2s;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .modal-overlay,

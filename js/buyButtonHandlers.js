@@ -55,9 +55,9 @@ function handleSubscriptionCheck(button) {
 	// Если пользователь активен и залогинен
 	if (activeUser) {
 		handleBookPurchase(button, activeUser);
-    updateBookButton(button.dataset.bookId);
-		//! createUserProfileModal(activeUser); 
-		handleUserProfileCard(activeUser);       
+    updateBookButton(button.dataset.bookId);		
+		handleUserProfileCard(activeUser);
+		
 	} 
 	// Если пользователь залогинен, но без активной подписки
 	else if (registeredAndLoggedIn) {
@@ -73,9 +73,9 @@ function handleSubscriptionCheck(button) {
 			});
 
 			saveToLocalStorage('users', updatedUsers);
-			showOverlayMessage('Subscription activated! You can now purchase books.');     
-			//! createUserProfileModal(registeredAndLoggedIn);
+			showOverlayMessage('Subscription activated! You can now purchase books.');  			
 			handleUserProfileCard(registeredAndLoggedIn);
+			
 		});
 	} 
 	// Если пользователь зарегистрирован, но не залогинен

@@ -8,7 +8,7 @@ import { initBuyButtonHandlers } from './buyButtonHandlers.js';
 import { resetLoggedInStatus } from './resetLoggedInStatus.js';
 import { saveCurrentUser } from './saveCurrentUser.js';
 import { closeAllPopups } from './utils/popupService/closeAllPopups.js';
-import { getFromLocalStorage, initializeLocalStorage, saveToLocalStorage, getCurrentUserState } from './utils/commonServices/localStorageService.js';
+import { handleUnsubscribe } from './unsubscriptionHandler.js';
 
 
 
@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	handleSeasons(books, '.season-slide');
 	handleUserIconClick();
 	handleModals();
-	initBuyButtonHandlers();
+	initBuyButtonHandlers();	
 	resetLoggedInStatus();
+	handleUnsubscribe();
 	// saveCurrentUser();
 });

@@ -43,7 +43,5 @@ export function createMarkupLoginModal() {
       notAuthUserDrop,
       authUserDrop,
       userBtn
-    );
-    
-    
+    );    
   }
