@@ -4,15 +4,15 @@ import {
 	getFromLocalStorage,
 	saveToLocalStorage,
 } from './utils/commonServices/localStorageService.js';
-
 import { createUserProfileModal } from './modalsUI/createMarkupUserProfile.js';
+import { handleLogOut } from './handleLogOut.js';
 import { unsubscribe } from './utils/unsubscribeService/unsubscribe.js';
 import {
 	updateDigitalCard,
 	resetDigitalCard,
 } from './utils/digitalCardService.js';
-import { initializeTabs } from './book-tabs.js';
-import { books } from './data.js';
+
+import { handleUnsubscribe } from './unsubscriptionHandler.js';
 
 export function handleLogin(
 	loginForm,
@@ -45,9 +45,9 @@ export function handleLogin(
 		doLogin(existingUser, users);
 		closeAllModals();
 		showOverlayMessage('You are logged in successfully!');
-		doLogOut(existingUser);
-
-		// usubscribeLoggedInUser(existingUser);
+		
+		handleLogOut();
+		//! handleUnsubscribe(existingUser);		
 	});
 
 	function checkUser(users, emailOrCard, password) {
@@ -84,8 +84,7 @@ export function handleLogin(
 		profileCardNo.textContent = `${user.cardNumber}`;
 
 		readerInfoBtn.addEventListener('click', () => {
-			createUserProfileModal(user);
-			console.log('createdProfileCard', user);
+			createUserProfileModal(user);			
 		});
 
 		notAuthUserDrop.classList.add('hidden');
@@ -93,44 +92,7 @@ export function handleLogin(
 		return user;
 	}
 
-	function doLogOut(user) {
-		const logOutBtn = document.getElementById('logOutBtn');
-		const userBtn = document.getElementById('userIcon');
-		const userMenu = document.getElementById('userMenu');
-
-		logOutBtn.addEventListener('click', () => {
-			let users = getFromLocalStorage('users') || null || [];
-			const updatedUser = users.map((u) =>
-				u.cardNumber === user.cardNumber
-					? { ...u, isLoggedIn: false }
-					: u
-			);
-
-			user.isLoggedIn = false;
-			saveToLocalStorage('users', updatedUser);
-
-			// Обновляем интерфейс
-			userMenu.classList.add('user-menu-hidden');
-			authUserDrop.classList.add('hidden');
-			// notAuthUserDrop.classList.remove('hidden');			
-			userBtn.removeAttribute('data-is-logged', 'true');
-			userBtn.textContent = '';
-			userBtn.innerHTML =
-				'<img src="./images/icon_profile.svg" alt="user icon" />';
-			// location.reload(true);
-
-			console.log('User successfully logged out!');
-		});
-	}
-	// function usubscribeLoggedInUser(user) {
-	// 	const unsubscribeBtn = document.querySelector('.js-unsubscribe');
-
-	// 	unsubscribeBtn.addEventListener('click', () => {
-	// 		if (confirm('Are you sure you want to unsubscribe?')) {
-	// 			unsubscribe(user);
-	// 		}
-	// 	});
-
-	// 	console.log('User successfully logged out!');
-	// }
 }
+
+// передаем в createMarkupLogin
+
