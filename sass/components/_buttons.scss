@@ -52,6 +52,8 @@
 	background: transparent;
 	cursor: pointer;
 	transition: all 0.5s ease-out;
+
+	
 }
 
 .btn-text:hover {	
@@ -113,4 +115,9 @@
 	border: 1px solid $color-brand;
 	border-radius: 2px;
 	transition: 0.2s;
+}
+
+.disabled {
+	pointer-events: none;
+	opacity: 0.5;
 }

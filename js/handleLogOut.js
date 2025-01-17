@@ -1,13 +1,11 @@
 import { getFromLocalStorage, saveToLocalStorage, getCurrentUserState } from "./utils/commonServices/localStorageService.js";
 
 export function handleLogOut() {
-  const logOutBtn = document.getElementById('logOutBtn');
-  console.log('logOutBtn', logOutBtn);
+  const logOutBtn = document.getElementById('logOutBtn');  
   
   const { registeredAndLoggedIn, activeUser } = getCurrentUserState();
   logOutBtn.addEventListener('click', ()=> {    
-    if (registeredAndLoggedIn) {      
-        console.log('logOutBtn clicked');        
+    if (registeredAndLoggedIn) {              
         doLogOut(registeredAndLoggedIn);      
     }
   });

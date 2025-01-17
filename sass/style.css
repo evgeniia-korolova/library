@@ -1588,6 +1588,11 @@ input[type=radio]:checked + label {
   transition: 0.2s;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .modal-overlay,
 .message-overlay {
   position: fixed;

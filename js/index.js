@@ -8,7 +8,7 @@ import { initBuyButtonHandlers } from './buyButtonHandlers.js';
 import { resetLoggedInStatus } from './resetLoggedInStatus.js';
 import { saveCurrentUser } from './saveCurrentUser.js';
 import { closeAllPopups } from './utils/popupService/closeAllPopups.js';
-
+import { handleUnsubscribe } from './unsubscriptionHandler.js';
 
 
 
@@ -23,5 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	handleModals();
 	initBuyButtonHandlers();	
 	resetLoggedInStatus();
+	handleUnsubscribe();
 	// saveCurrentUser();
 });
