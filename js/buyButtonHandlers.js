@@ -38,9 +38,7 @@ export function initBuyButtonHandlers() {
 			activeNotLoggedIn,
 			activeUser,
 		});
-	});
-
-	console.log('Buy button handler initialized');
+	});	
 }
 
 function handleSubscriptionCheck(button) {
@@ -74,8 +72,7 @@ function handleSubscriptionCheck(button) {
 
 			saveToLocalStorage('users', updatedUsers);
 			showOverlayMessage('Subscription activated! You can now purchase books.');  			
-			handleUserProfileCard(registeredAndLoggedIn);
-			
+			handleUserProfileCard(registeredAndLoggedIn);			
 		});
 	} 
 	// Если пользователь зарегистрирован, но не залогинен
