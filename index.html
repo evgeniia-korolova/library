@@ -325,7 +325,7 @@
 					<h2 id="card">Digital Library Cards</h2>
 					<div class="digital-card__content-box">
 						<div class="card__wrapper">
-							<h3 class="card__title">Find your Library card</h3>
+							<h3 class="card__title" id="card-title">Find your Library card</h3>
 							<form class="library-card__form" id="library-card">
 								<div class="inp__container">
 									<h4 class="left__title">Brooklyn Public Library</h4>
@@ -391,23 +391,27 @@
 						</div>
 
 						<div class="card__wrapper card-info__wrapper">
-							<h4 class="card__title">Get a reader card</h4>
-							<p>
+							<h4 class="card__title" id="info-title">Get a reader card</h4>
+							<p id="info-text">
 								You will be able to see a reader card after logging
 								into account or you can register a new account
 							</p>
 							<div class="card__buttons-group">
 								<button
-									class="btn-outlined btn-extra-small register-btn"
+									class="btn-outlined btn-extra-small register-btn js-signup-btn"
 									id="signUpButton"
 								>
 									Sign Up
 								</button>
 								<button
-									class="btn-outlined btn-extra-small login-btn"
+									class="btn-outlined btn-extra-small login-btn js-login-btn"
 									id="loginBtnInCard"
 								>
 									Log in
+								</button>
+								<button
+									class="btn-outlined btn-extra-small js-profile-btn hidden">
+									Profile
 								</button>
 							</div>
 						</div>
@@ -521,7 +525,7 @@
 					<p class="user-menu__card-number" id="user-menu__card-number">Profile</p>
 					<div class="line"></div>
 
-					<button class="btn-text" id="readerInfoBtn" type="button">
+					<button class="btn-text js-profile-btn" id="readerInfoBtn" type="button">
 						My profile
 					</button>
 

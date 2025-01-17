@@ -6,6 +6,7 @@
 	border-radius: 2px;
 	background: $color-white;
 	@extend %transition;
+	display: flex;
 }
 
 .btn-small {
@@ -51,9 +52,7 @@
 	outline: none;
 	background: transparent;
 	cursor: pointer;
-	transition: all 0.5s ease-out;
-
-	
+	transition: all 0.5s ease-out;	
 }
 
 .btn-text:hover {	
@@ -120,4 +119,8 @@
 .disabled {
 	pointer-events: none;
 	opacity: 0.5;
+}
+
+.hidden {
+	display: none;
 }
