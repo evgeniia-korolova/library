@@ -1464,6 +1464,7 @@ input[type=radio]:checked + label {
   border: 1px solid #000000;
   border-radius: 2px;
   background: #FFFFFF;
+  display: flex;
 }
 
 .btn-small {
@@ -1591,6 +1592,10 @@ input[type=radio]:checked + label {
 .disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.hidden {
+  display: none;
 }
 
 .modal-overlay,

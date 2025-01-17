@@ -87,7 +87,7 @@ export function handleRegistration(
 		users.push(newUser);
 		saveToLocalStorage('users', users);
 		closeAllModals();
-
+		updateDigitalCard(newUser);
 		// change message when clicking on buy book button
 		initBuyButtonHandlers();
 		handleUnsubscribe(newUser);
